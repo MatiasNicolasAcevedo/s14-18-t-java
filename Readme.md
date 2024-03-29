@@ -62,6 +62,10 @@
   </dd>
   <dd>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      🔸 <b>Diego Gonzalez</b>.
+  </dd>
+  <dd>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
       🔸 <b>Lucia Harillo</b>.
   </dd>
   <br>
