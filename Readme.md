@@ -114,14 +114,6 @@
   </dd>
   <dd>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      🔸 <b>Lina Marcela Avila Moreno</b>.
-  </dd>
-  <dd>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      🔸 <b>Lucas Caro</b>.
-  </dd>
-  <dd>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
       🔸 <b>Matias Acevedo</b>.
   </dd>
   <dd>
