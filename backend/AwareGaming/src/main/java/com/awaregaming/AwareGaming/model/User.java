@@ -1,6 +1,7 @@
 package com.awaregaming.AwareGaming.model;
 
 import com.awaregaming.AwareGaming.model.Enum.Role;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -8,6 +9,11 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,6 +22,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+
 
 @Entity
 @Builder
@@ -41,9 +48,9 @@ public class User implements UserDetails {
     @NotEmpty(message = "El campo dni no puede estar vacio")
     private String dni;
     @NotNull(message = "El campo balance no puede estar vacio")
-    private double balance;
+    private int credits;
     @Enumerated(EnumType.STRING)
-    Role role;
+    private Role role;
     private boolean isActive;
 
     @Override
@@ -54,6 +61,11 @@ public class User implements UserDetails {
     @Override
     public String getUsername() {
         return email;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
     }
 
 
