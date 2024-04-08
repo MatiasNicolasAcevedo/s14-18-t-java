@@ -40,10 +40,11 @@ public class User implements UserDetails {
     @Column(unique = true)
     @NotEmpty(message = "El campo dni no puede estar vacio")
     private String dni;
-    @NotNull(message = "El campo saldo no puede estar vacio")
-    private double saldo;
+    @NotNull(message = "El campo balance no puede estar vacio")
+    private double balance;
     @Enumerated(EnumType.STRING)
     Role role;
+    private boolean isActive;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -45,7 +45,7 @@ public class AuthService {
                 .firstName(registerRequest.getFirstName())
                 .lastName(registerRequest.getLastName())
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
-                .role(Role.User)
+                .role(Role.USER)
                 .build(); //para que se construya el objeto
         //guardamos el registro en la bd
         userRepository.save(user);
