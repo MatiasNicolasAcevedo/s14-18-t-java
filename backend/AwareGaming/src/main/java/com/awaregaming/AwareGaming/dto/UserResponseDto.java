@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class UserResponseDto {
 
     @Id
-    private int id;
+    private Long id;
     private String firstname;
     private String lastname;
     private String email;
@@ -22,14 +22,15 @@ public class UserResponseDto {
     private Role role;
 
     public UserResponseDto(User user){
-        this.id = user.getId();
-        this.firstname = user.getFirstname();
-        this.lastname = user.getLastname();
+        this.id = user.getIdUser();
+        this.firstname = user.getFirstName();
+        this.lastname = user.getLastName();
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.dni = user.getDni();
         this.age = user.getAge();
-        this.balance = user.getBalance();
+        this.balance = user.getCredits();
         this.role = user.getRole();
     }
+
 }
