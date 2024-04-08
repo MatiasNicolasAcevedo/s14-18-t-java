@@ -1,5 +1,9 @@
 package com.awaregaming.AwareGaming.service;
 
+
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+
 import com.awaregaming.AwareGaming.dto.UserRequestDto;
 import com.awaregaming.AwareGaming.dto.UserResponseDto;
 import com.awaregaming.AwareGaming.exceptions.UserUpdateException;
@@ -21,4 +25,5 @@ public interface IUserService extends UserDetailsService {
     ResponseEntity<String> updateUser(int id, UserRequestDto userRequestDto) throws UserUpdateException;
 
     ResponseEntity<String> deleteUser(int id) throws UsernameNotFoundException;
+
 }

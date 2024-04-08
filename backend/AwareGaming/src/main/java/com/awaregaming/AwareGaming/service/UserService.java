@@ -1,5 +1,15 @@
 package com.awaregaming.AwareGaming.service;
 
+
+import com.awaregaming.AwareGaming.model.User;
+import com.awaregaming.AwareGaming.repository.IUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+
 import com.awaregaming.AwareGaming.dto.UserRequestDto;
 import com.awaregaming.AwareGaming.dto.UserResponseDto;
 import com.awaregaming.AwareGaming.exceptions.UserDeleteException;
@@ -18,6 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 import java.util.Optional;
 
 @Service
@@ -25,9 +36,21 @@ public class UserService implements IUserService {
 
     @Autowired
     IUserRepository userRepository;
-
+  
     @Autowired
     PasswordEncoder passwordEncoder;
+
+
+    //para pooder obtener el usuario por email
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(()->new UsernameNotFoundException("The user does not exists"));
+        return new org.springframework.security.core.userdetails.User(
+                user.getUsername(),
+                "",
+                user.getAuthorities()
+        );
 
     @Override
     @Transactional(readOnly = true)
@@ -89,10 +112,6 @@ public class UserService implements IUserService {
         }
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
-    }
 
     public static List<UserResponseDto> userListToUserDtoList(List<User> users){
         List<UserResponseDto> userResponseDtoList = new ArrayList<>();
@@ -101,5 +120,6 @@ public class UserService implements IUserService {
             userResponseDtoList.add(userResponseDto);
         }
         return userResponseDtoList;
+
     }
 }
