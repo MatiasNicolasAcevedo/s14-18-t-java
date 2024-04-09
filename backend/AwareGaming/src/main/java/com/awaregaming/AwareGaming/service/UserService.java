@@ -66,11 +66,11 @@ public class UserService implements IUserService {
         try {
             if (user.isPresent()) {
                 User user1 = user.get();
-                if (!Objects.equals(user1.getFirstname(), userRequestDto.getFirstname())) {
-                    user1.setFirstname(userRequestDto.getFirstname());
+                if (!Objects.equals(user1.getFirstName(), userRequestDto.getFirstName())) {
+                    user1.setFirstName(userRequestDto.getFirstName());
                 }
-                if (!Objects.equals(user1.getLastname(), userRequestDto.getLastname())) {
-                    user1.setFirstname(userRequestDto.getLastname());
+                if (!Objects.equals(user1.getLastName(), userRequestDto.getLastName())) {
+                    user1.setLastName(userRequestDto.getLastName());
                 }
                 if (!passwordEncoder.matches(userRequestDto.getPassword(), user1.getPassword())) {
                     user1.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
