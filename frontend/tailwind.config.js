@@ -3,9 +3,30 @@ import daisyui from 'daisyui'
 export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
+		screens:{
+			sm:'480px',
+			md: '768px',
+			lg: '976px',
+			xl: '1440px',
+		},
 		extend: {
-			backgroundImage: {
-        'gradient-radial': 'radial-gradient(ellipse at center, rgba(138, 43, 226, 0.7) 0%, rgba(255, 165, 0, 0.7) 100%)',
+			maxWidth: {
+        'custom': '300px', // Ajusta este valor a lo que necesites
+      },
+			colors: {
+        'custom-purple': '#8D3DA5',
+      },
+			fontFamily: {
+				body: ['Nunito'],
+      },
+			fontSize: {
+        'xs': '12px',    // Extra pequeño
+        'sm': '14px',    // Pequeño
+        'base': '16px',  // Tamaño base (normal)
+        'lg': '18px',    // Grande
+        'xl': '32px',    // Extra grande
+        '2xl': '64px',   // Doble extra grande
+        // Agrega más tamaños de texto personalizados si es necesario
       },
 			daisyui: {
 				themes: [
