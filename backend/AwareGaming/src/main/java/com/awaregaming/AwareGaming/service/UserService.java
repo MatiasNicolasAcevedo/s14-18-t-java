@@ -1,28 +1,18 @@
 package com.awaregaming.AwareGaming.service;
 
-
+import com.awaregaming.AwareGaming.dto.UserRequestDto;
 import com.awaregaming.AwareGaming.model.User;
 import com.awaregaming.AwareGaming.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-
-import com.awaregaming.AwareGaming.dto.UserRequestDto;
 import com.awaregaming.AwareGaming.dto.UserResponseDto;
 import com.awaregaming.AwareGaming.exceptions.UserDeleteException;
 import com.awaregaming.AwareGaming.exceptions.UserUpdateException;
-import com.awaregaming.AwareGaming.model.User;
-import com.awaregaming.AwareGaming.repository.IUserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
@@ -45,12 +35,13 @@ public class UserService implements IUserService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email)
-                .orElseThrow(()->new UsernameNotFoundException("The user does not exists"));
+                .orElseThrow(() -> new UsernameNotFoundException("The user does not exists"));
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 "",
                 user.getAuthorities()
         );
+    }
 
     @Override
     @Transactional(readOnly = true)
@@ -120,6 +111,5 @@ public class UserService implements IUserService {
             userResponseDtoList.add(userResponseDto);
         }
         return userResponseDtoList;
-
     }
 }
