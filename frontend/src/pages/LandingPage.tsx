@@ -1,33 +1,47 @@
-import React from 'react';
-
+import React, {useEffect, useRef} from 'react';
+import livingroom from '../images/livingroom.png';
 const LandingPage: React.FC = () => {
   // Función para manejar el scroll suave
-  const handleScroll = (e: React.WheelEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    const container = e.currentTarget;
-    const containerScrollPosition = container.scrollLeft;
-    container.scrollTo({
-      top: 0,
-      left: containerScrollPosition + e.deltaY,
-      behavior: 'smooth',
-    });
-  };
+  const divRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const div = divRef.current;
+    const handleScroll = (e: WheelEvent) => {
+      e.preventDefault();
+      if (div) {
+        const containerScrollPosition = div.scrollLeft;
+        div.scrollTo({
+          top: 0,
+          left: containerScrollPosition + e.deltaY,
+          behavior: 'smooth',
+        });
+      }
+    };
+
+    div?.addEventListener('wheel', handleScroll, { passive: false });
+
+    return () => {
+      div?.removeEventListener('wheel', handleScroll);
+    };
+  }, []);
+
 
   return (
     <div
-      onWheel={handleScroll}
-      className="w-full h-screen overflow-hidden bg-white items-center justify-center text-white font-sans"
+    ref={divRef}
+      className=" mx-auto max-w-screen-xl bg-gradient-to-b from-white to-custom-purple items-center justify-center"
 
     >
-      <div className="hero  max-w-md bg-gradient-to-b from-white to-purple-500 to-8d3da5">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-    <div>
-      <h1 className="text-5xl font-bold">Aware Gaming</h1>
-      <p className="py-6">Bienvenido a nuestra plataforma de juegos, donde creemos en el juego responsable.
+
+    <div className="hero flex">
+      <div className="hero-content flex-col">
+         <h1 className=" text-xl text-black font-bold">Aware Gaming</h1>
+         <p className=" text-black text-base">Bienvenido a nuestra plataforma de juegos, donde creemos en el juego responsable.
 Únete a esta experiencia y aprende acerca de la importancia divertirse concientemente</p>
-      <button className="btn btn-secondary">Jugar</button>
-    </div>
+          <button className="btn btn-primary text-base">Jugar</button>
+
      </div>
+     <img className="rounded-lg max-w-custom p-10"   src={livingroom} alt="living room" />
       </div>
       {/* LANDING 2, 3...*/}
 
