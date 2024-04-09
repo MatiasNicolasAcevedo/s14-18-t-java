@@ -35,6 +35,7 @@ public class SecurityConfig {
                 //el primer filtro tiene que ver sobre las rutas privadas y protegidas
                 .authorizeHttpRequests(authRequest ->
                         authRequest
+                                .requestMatchers("/v3/**","/swagger-ui/**").permitAll() // permitir acceso al swagger.
                                 .requestMatchers("/auth/**").permitAll() //todas las request que matcheen con la ruta auth van a ser publicos
                                 .anyRequest().authenticated() //cualquier otra ruta que se identifique
                                 )
@@ -46,8 +47,6 @@ public class SecurityConfig {
                 //agregamos el filtro relacionado al jwt
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
-
-
     }
 
 }
