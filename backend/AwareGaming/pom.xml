@@ -79,6 +79,14 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!-- fin de las dependencias para jwt -->
+
+		<!-- PostgreSQL -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.7.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
