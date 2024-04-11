@@ -10,10 +10,12 @@ import java.util.List;
 
 public interface IGameService {
     List<Game> getAllGames();
-    Game getGameById(Long id);
+    Game getGameById(Integer id);
     Game saveGame(Game game);
-    void deleteGame(Long id);
-    RouletteBetResponseDto playRoulette(RouletteBetRequestDto rouletteBetRequestDto);
+    void deleteGame(Integer id);
+
+    RouletteBetResponseDto playRoulette(RouletteBetRequestDto rouletteBetRequestDto, String userEmail);
+
     DiceBetResponseDto playDice(DiceBetRequestDto diceBetRequestDto);
 }
 
