@@ -4,7 +4,7 @@ import com.awaregaming.AwareGaming.dto.DiceBetRequestDto;
 import com.awaregaming.AwareGaming.dto.DiceBetResponseDto;
 import com.awaregaming.AwareGaming.dto.RouletteBetRequestDto;
 import com.awaregaming.AwareGaming.dto.RouletteBetResponseDto;
-import com.awaregaming.AwareGaming.model.Enum.BetType;
+import com.awaregaming.AwareGaming.model.Enum.BetTypeRoulette;
 import com.awaregaming.AwareGaming.model.Game;
 import com.awaregaming.AwareGaming.model.User;
 import com.awaregaming.AwareGaming.repository.IGameRepository;
@@ -81,7 +81,7 @@ public class GameService implements IGameService{
         List<Integer> secondRow = Arrays.asList(2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35);
         List<Integer> thirdRow = Arrays.asList(3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36);
 
-        return switch (betRequest.getBetType()) {
+        return switch (betRequest.getBetTypeRoulette()) {
             case RED -> redNumbers.contains(randomNumber) ? "WIN" : "LOSE";
             case BLACK -> blackNumbers.contains(randomNumber) ? "WIN" : "LOSE";
             case EVEN -> (randomNumber % 2 == 0 && randomNumber != 0) ? "WIN" : "LOSE";
@@ -109,13 +109,12 @@ public class GameService implements IGameService{
         Random random = new Random();
         int dice1 = random.nextInt(6) + 1; // Número entre 1 y 6 para el primer dado
         int dice2 = random.nextInt(6) + 1; // Número entre 1 y 6 para el segundo dado
-        int totalDice = dice1 + dice2; // Suma total de los dos dados
 
         User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
         int newCredit = user.getCredits();
-        String result = calculateDiceResult(diceBetRequestDto, totalDice, newCredit);
+        String result = calculateDiceResult(diceBetRequestDto, dice1, dice2, newCredit);
 
         // Actualizar el crédito del usuario y guardar en la base de datos
         user.setCredits(newCredit);
@@ -127,26 +126,34 @@ public class GameService implements IGameService{
         diceBetResponseDto.setNewCredit(newCredit);
         diceBetResponseDto.setDice1(dice1);
         diceBetResponseDto.setDice2(dice2);
-        diceBetResponseDto.setTotalDice(totalDice);
+        diceBetResponseDto.setTotalDice(dice1 + dice2);
 
         return diceBetResponseDto;
     }
 
-    private String calculateDiceResult(DiceBetRequestDto betRequest, int totalDice, int currentCredit) {
-        if (betRequest.getBetType() == BetType.NUMBER) {
-            if (betRequest.getBetNumber() < 2 || betRequest.getBetNumber() > 12 || betRequest.getBetAmount() < 0) {
-                throw new RuntimeException("Invalid number bet or bet amount");
-            }
+    private String calculateDiceResult(DiceBetRequestDto betRequest, int dice1, int dice2, int currentCredit) {
+        switch (betRequest.getBetType()) {
+            case INDIVIDUAL:
+                if (dice1 == betRequest.getBetDice1() && dice2 == betRequest.getBetDice2()) {
+                    currentCredit += betRequest.getBetAmount() * 36; // Pago 36 a 1 en apuestas a ambos dados
+                    return "WIN";
+                } else {
+                    currentCredit -= betRequest.getBetAmount();
+                    return "LOSE";
+                }
 
-            if (totalDice == betRequest.getBetNumber()) {
-                currentCredit += betRequest.getBetAmount() * 6; // Pago 6 a 1 en apuestas a un número específico
-                return "WIN";
-            } else {
-                currentCredit -= betRequest.getBetAmount();
-                return "LOSE";
-            }
-        } else {
-            throw new RuntimeException("Invalid bet type");
+            case TOTAL:
+                int totalDice = dice1 + dice2;
+                if (totalDice == betRequest.getBetDice1()) {
+                    currentCredit += betRequest.getBetAmount() * 6; // Pago 6 a 1 en apuestas a la suma de los dados
+                    return "WIN";
+                } else {
+                    currentCredit -= betRequest.getBetAmount();
+                    return "LOSE";
+                }
+
+            default:
+                throw new RuntimeException("Invalid bet type");
         }
     }
 
