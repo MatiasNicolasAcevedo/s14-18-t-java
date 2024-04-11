@@ -21,4 +21,8 @@ public interface IUserService extends UserDetailsService {
 
     ResponseEntity<String> deleteUser(int id) throws UsernameNotFoundException;
 
+    @Transactional(readOnly = true)
+    ResponseEntity<UserResponseDto> getUserByEmail(String email);
+
+
 }

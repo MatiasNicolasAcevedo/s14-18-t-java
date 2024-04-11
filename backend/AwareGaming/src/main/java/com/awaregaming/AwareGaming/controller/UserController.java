@@ -7,12 +7,13 @@ import com.awaregaming.AwareGaming.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(name = "/api/user")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
@@ -36,6 +37,12 @@ public class UserController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable int id){
         return userService.deleteUser(id);
+    }
+
+    @GetMapping()
+    public ResponseEntity<UserResponseDto> getCurrentUser(Authentication authentication) {
+        String userEmail = authentication.getName();
+        return userService.getUserByEmail(userEmail);
     }
 
 }

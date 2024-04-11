@@ -109,4 +109,12 @@ public class UserService implements IUserService {
         return userResponseDtoList;
     }
 
+    @Override
+    public ResponseEntity<UserResponseDto> getUserByEmail(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return new ResponseEntity<>(new UserResponseDto(user), HttpStatus.OK);
+    }
+
+
 }
