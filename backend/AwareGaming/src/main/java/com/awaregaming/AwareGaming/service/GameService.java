@@ -4,7 +4,6 @@ import com.awaregaming.AwareGaming.dto.DiceBetRequestDto;
 import com.awaregaming.AwareGaming.dto.DiceBetResponseDto;
 import com.awaregaming.AwareGaming.dto.RouletteBetRequestDto;
 import com.awaregaming.AwareGaming.dto.RouletteBetResponseDto;
-import com.awaregaming.AwareGaming.model.Enum.BetTypeRoulette;
 import com.awaregaming.AwareGaming.model.Game;
 import com.awaregaming.AwareGaming.model.User;
 import com.awaregaming.AwareGaming.repository.IGameRepository;

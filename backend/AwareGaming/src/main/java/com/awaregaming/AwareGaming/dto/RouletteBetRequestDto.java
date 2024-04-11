@@ -8,5 +8,4 @@ public class RouletteBetRequestDto {
     private BetTypeRoulette betTypeRoulette;
     private Integer betAmount;
     private Integer betNumber;
-    private Long userId;
 }
