@@ -56,9 +56,20 @@ public class GameService implements IGameService{
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
         int newCredit = user.getCredits();
-        String result;
+        String result = calculateRouletteResult(rouletteBetRequestDto, randomNumber, newCredit);
 
-        // Listas de numeros con las jugadas posibles para la ruleta americana.
+        user.setCredits(newCredit);
+        userRepository.save(user);
+
+        RouletteBetResponseDto rouletteBetResponseDto = new RouletteBetResponseDto();
+        rouletteBetResponseDto.setResult(result);
+        rouletteBetResponseDto.setNewCredit(newCredit);
+        rouletteBetResponseDto.setWinningNumber(randomNumber);
+
+        return rouletteBetResponseDto;
+    }
+
+    private String calculateRouletteResult(RouletteBetRequestDto betRequest, int randomNumber, int currentCredit) {
         List<Integer> redNumbers = Arrays.asList(1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36);
         List<Integer> blackNumbers = Arrays.asList(2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35);
         List<Integer> lowerNumbers = IntStream.rangeClosed(1, 18).boxed().toList();
@@ -70,80 +81,27 @@ public class GameService implements IGameService{
         List<Integer> secondRow = Arrays.asList(2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35);
         List<Integer> thirdRow = Arrays.asList(3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36);
 
-        switch (rouletteBetRequestDto.getBetType()) {
-            case RED:
-                result = redNumbers.contains(randomNumber) ? "WIN" : "LOSE";
-                newCredit += (result.equals("WIN")) ? rouletteBetRequestDto.getBetAmount() : -rouletteBetRequestDto.getBetAmount();
-                break;
-            case BLACK:
-                result = blackNumbers.contains(randomNumber) ? "WIN" : "LOSE";
-                newCredit += (result.equals("WIN")) ? rouletteBetRequestDto.getBetAmount() : -rouletteBetRequestDto.getBetAmount();
-                break;
-            case EVEN:
-                result = (randomNumber % 2 == 0 && randomNumber != 0) ? "WIN" : "LOSE";
-                newCredit += (result.equals("WIN")) ? rouletteBetRequestDto.getBetAmount() : -rouletteBetRequestDto.getBetAmount();
-                break;
-            case ODD:
-                result = (randomNumber % 2 != 0) ? "WIN" : "LOSE";
-                newCredit += (result.equals("WIN")) ? rouletteBetRequestDto.getBetAmount() : -rouletteBetRequestDto.getBetAmount();
-                break;
-            case NUMBER:
-                if (rouletteBetRequestDto.getBetNumber() < 0 || rouletteBetRequestDto.getBetNumber() > 36 || rouletteBetRequestDto.getBetAmount() < 0) {
+        return switch (betRequest.getBetType()) {
+            case RED -> redNumbers.contains(randomNumber) ? "WIN" : "LOSE";
+            case BLACK -> blackNumbers.contains(randomNumber) ? "WIN" : "LOSE";
+            case EVEN -> (randomNumber % 2 == 0 && randomNumber != 0) ? "WIN" : "LOSE";
+            case ODD -> (randomNumber % 2 != 0) ? "WIN" : "LOSE";
+            case NUMBER -> {
+                if (betRequest.getBetNumber() < 0 || betRequest.getBetNumber() > 36 || betRequest.getBetAmount() < 0) {
                     throw new RuntimeException("Invalid number bet or bet amount");
                 }
-                result = (randomNumber == rouletteBetRequestDto.getBetNumber()) ? "WIN" : "LOSE";
-                if (result.equals("WIN")) {
-                    newCredit += rouletteBetRequestDto.getBetAmount() * 35;
-                } else {
-                    newCredit -= rouletteBetRequestDto.getBetAmount();
-                }
-                break;
-            case LOWER_NUMBERS:
-                result = lowerNumbers.contains(randomNumber) ? "WIN" : "LOSE";
-                newCredit += (result.equals("WIN")) ? rouletteBetRequestDto.getBetAmount() : -rouletteBetRequestDto.getBetAmount();
-                break;
-            case HIGH_NUMBERS:
-                result = highNumbers.contains(randomNumber) ? "WIN" : "LOSE";
-                newCredit += (result.equals("WIN")) ? rouletteBetRequestDto.getBetAmount() : -rouletteBetRequestDto.getBetAmount();
-                break;
-            case FIRST_DOZEN:
-                result = firstDozen.contains(randomNumber) ? "WIN" : "LOSE";
-                newCredit += (result.equals("WIN")) ? rouletteBetRequestDto.getBetAmount() * 2 : -rouletteBetRequestDto.getBetAmount();
-                break;
-            case SECOND_DOZEN:
-                result = secondDozen.contains(randomNumber) ? "WIN" : "LOSE";
-                newCredit += (result.equals("WIN")) ? rouletteBetRequestDto.getBetAmount() * 2 : -rouletteBetRequestDto.getBetAmount();
-                break;
-            case THIRD_DOZEN:
-                result = thirdDozen.contains(randomNumber) ? "WIN" : "LOSE";
-                newCredit += (result.equals("WIN")) ? rouletteBetRequestDto.getBetAmount() * 2 : -rouletteBetRequestDto.getBetAmount();
-                break;
-            case FIRST_ROW:
-                result = firstRow.contains(randomNumber) ? "WIN" : "LOSE";
-                newCredit += (result.equals("WIN")) ? rouletteBetRequestDto.getBetAmount() * 3 : -rouletteBetRequestDto.getBetAmount();
-                break;
-            case SECOND_ROW:
-                result = secondRow.contains(randomNumber) ? "WIN" : "LOSE";
-                newCredit += (result.equals("WIN")) ? rouletteBetRequestDto.getBetAmount() * 3 : -rouletteBetRequestDto.getBetAmount();
-                break;
-            case THIRD_ROW:
-                result = thirdRow.contains(randomNumber) ? "WIN" : "LOSE";
-                newCredit += (result.equals("WIN")) ? rouletteBetRequestDto.getBetAmount() * 3 : -rouletteBetRequestDto.getBetAmount();
-                break;
-
-            default:
-                throw new RuntimeException("Invalid bet type");
-        }
-
-        user.setCredits(newCredit);
-        userRepository.save(user);
-
-        RouletteBetResponseDto rouletteBetResponseDto = new RouletteBetResponseDto();
-        rouletteBetResponseDto.setResult(result);
-        rouletteBetResponseDto.setNewCredit(newCredit);
-        rouletteBetResponseDto.setWinningNumber(randomNumber);
-
-        return rouletteBetResponseDto;
+                yield (randomNumber == betRequest.getBetNumber()) ? "WIN" : "LOSE";
+            }
+            case LOWER_NUMBERS -> lowerNumbers.contains(randomNumber) ? "WIN" : "LOSE";
+            case HIGH_NUMBERS -> highNumbers.contains(randomNumber) ? "WIN" : "LOSE";
+            case FIRST_DOZEN -> firstDozen.contains(randomNumber) ? "WIN" : "LOSE";
+            case SECOND_DOZEN -> secondDozen.contains(randomNumber) ? "WIN" : "LOSE";
+            case THIRD_DOZEN -> thirdDozen.contains(randomNumber) ? "WIN" : "LOSE";
+            case FIRST_ROW -> firstRow.contains(randomNumber) ? "WIN" : "LOSE";
+            case SECOND_ROW -> secondRow.contains(randomNumber) ? "WIN" : "LOSE";
+            case THIRD_ROW -> thirdRow.contains(randomNumber) ? "WIN" : "LOSE";
+            default -> throw new RuntimeException("Invalid bet type");
+        };
     }
 
     @Override
@@ -157,24 +115,7 @@ public class GameService implements IGameService{
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
         int newCredit = user.getCredits();
-        String result;
-
-        // Verificar el tipo de apuesta
-        if (diceBetRequestDto.getBetType() == BetType.NUMBER) {
-            if (diceBetRequestDto.getBetNumber() < 2 || diceBetRequestDto.getBetNumber() > 12 || diceBetRequestDto.getBetAmount() < 0) {
-                throw new RuntimeException("Invalid number bet or bet amount");
-            }
-
-            result = (totalDice == diceBetRequestDto.getBetNumber()) ? "WIN" : "LOSE";
-
-            if (result.equals("WIN")) {
-                newCredit += diceBetRequestDto.getBetAmount() * 6; // Pago 6 a 1 en apuestas a un número específico
-            } else {
-                newCredit -= diceBetRequestDto.getBetAmount();
-            }
-        } else {
-            throw new RuntimeException("Invalid bet type");
-        }
+        String result = calculateDiceResult(diceBetRequestDto, totalDice, newCredit);
 
         // Actualizar el crédito del usuario y guardar en la base de datos
         user.setCredits(newCredit);
@@ -189,6 +130,24 @@ public class GameService implements IGameService{
         diceBetResponseDto.setTotalDice(totalDice);
 
         return diceBetResponseDto;
+    }
+
+    private String calculateDiceResult(DiceBetRequestDto betRequest, int totalDice, int currentCredit) {
+        if (betRequest.getBetType() == BetType.NUMBER) {
+            if (betRequest.getBetNumber() < 2 || betRequest.getBetNumber() > 12 || betRequest.getBetAmount() < 0) {
+                throw new RuntimeException("Invalid number bet or bet amount");
+            }
+
+            if (totalDice == betRequest.getBetNumber()) {
+                currentCredit += betRequest.getBetAmount() * 6; // Pago 6 a 1 en apuestas a un número específico
+                return "WIN";
+            } else {
+                currentCredit -= betRequest.getBetAmount();
+                return "LOSE";
+            }
+        } else {
+            throw new RuntimeException("Invalid bet type");
+        }
     }
 
 }
