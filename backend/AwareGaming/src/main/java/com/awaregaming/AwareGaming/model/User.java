@@ -26,7 +26,7 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUser;
+    private int idUser;
 
     @NotEmpty(message = "El campo nombre no puede estar vacio")
     private String firstName;
@@ -53,7 +53,6 @@ public class User implements UserDetails {
     private Role role;
 
     private boolean isActive;
-
     private int age;
 
     @Override

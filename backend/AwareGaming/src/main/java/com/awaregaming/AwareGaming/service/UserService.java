@@ -1,12 +1,12 @@
 package com.awaregaming.AwareGaming.service;
 
+import com.awaregaming.AwareGaming.dto.UserRequestDto;
 import com.awaregaming.AwareGaming.model.User;
 import com.awaregaming.AwareGaming.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import com.awaregaming.AwareGaming.dto.UserRequestDto;
 import com.awaregaming.AwareGaming.dto.UserResponseDto;
 import com.awaregaming.AwareGaming.exceptions.UserDeleteException;
 import com.awaregaming.AwareGaming.exceptions.UserUpdateException;
@@ -63,11 +63,11 @@ public class UserService implements IUserService {
         try {
             if (user.isPresent()) {
                 User user1 = user.get();
-                if (!Objects.equals(user1.getFirstName(), userRequestDto.getFirstname())) {
-                    user1.setFirstName(userRequestDto.getFirstname());
+                if (!Objects.equals(user1.getFirstName(), userRequestDto.getFirstName())) {
+                    user1.setFirstName(userRequestDto.getFirstName());
                 }
-                if (!Objects.equals(user1.getLastName(), userRequestDto.getLastname())) {
-                    user1.setFirstName(userRequestDto.getLastname());
+                if (!Objects.equals(user1.getLastName(), userRequestDto.getLastName())) {
+                    user1.setLastName(userRequestDto.getLastName());
                 }
                 if (!passwordEncoder.matches(userRequestDto.getPassword(), user1.getPassword())) {
                     user1.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
@@ -99,7 +99,6 @@ public class UserService implements IUserService {
             throw new UserDeleteException("Error deleting user", e);
         }
     }
-
 
     public static List<UserResponseDto> userListToUserDtoList(List<User> users){
         List<UserResponseDto> userResponseDtoList = new ArrayList<>();
