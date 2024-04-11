@@ -16,6 +16,6 @@ public interface IGameService {
 
     RouletteBetResponseDto playRoulette(RouletteBetRequestDto rouletteBetRequestDto, String userEmail);
 
-    DiceBetResponseDto playDice(DiceBetRequestDto diceBetRequestDto);
+    DiceBetResponseDto playDice(DiceBetRequestDto diceBetRequestDto, String userEmail);
 }
 

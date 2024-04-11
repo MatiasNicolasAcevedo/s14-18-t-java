@@ -46,8 +46,9 @@ public class GameController {
     }
 
     @PostMapping("/play-dice")
-    public DiceBetResponseDto playDice(@RequestBody DiceBetRequestDto diceBetRequestDto) {
-        return gameService.playDice(diceBetRequestDto);
+    public DiceBetResponseDto playDice(@RequestBody DiceBetRequestDto diceBetRequestDto, Authentication authentication) {
+        String userEmail = authentication.getName();
+        return gameService.playDice(diceBetRequestDto, userEmail);
     }
 
 }

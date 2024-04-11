@@ -4,6 +4,7 @@ import com.awaregaming.AwareGaming.dto.DiceBetRequestDto;
 import com.awaregaming.AwareGaming.dto.DiceBetResponseDto;
 import com.awaregaming.AwareGaming.dto.RouletteBetRequestDto;
 import com.awaregaming.AwareGaming.dto.RouletteBetResponseDto;
+import com.awaregaming.AwareGaming.model.Enum.BetType;
 import com.awaregaming.AwareGaming.model.Game;
 import com.awaregaming.AwareGaming.model.User;
 import com.awaregaming.AwareGaming.repository.IGameRepository;
@@ -146,8 +147,48 @@ public class GameService implements IGameService{
     }
 
     @Override
-    public DiceBetResponseDto playDice(DiceBetRequestDto diceBetRequestDto) {
-        return null;
+    public DiceBetResponseDto playDice(DiceBetRequestDto diceBetRequestDto, String userEmail) {
+        Random random = new Random();
+        int dice1 = random.nextInt(6) + 1; // Número entre 1 y 6 para el primer dado
+        int dice2 = random.nextInt(6) + 1; // Número entre 1 y 6 para el segundo dado
+        int totalDice = dice1 + dice2; // Suma total de los dos dados
+
+        User user = userRepository.findByEmail(userEmail)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        int newCredit = user.getCredits();
+        String result;
+
+        // Verificar el tipo de apuesta
+        if (diceBetRequestDto.getBetType() == BetType.NUMBER) {
+            if (diceBetRequestDto.getBetNumber() < 2 || diceBetRequestDto.getBetNumber() > 12 || diceBetRequestDto.getBetAmount() < 0) {
+                throw new RuntimeException("Invalid number bet or bet amount");
+            }
+
+            result = (totalDice == diceBetRequestDto.getBetNumber()) ? "WIN" : "LOSE";
+
+            if (result.equals("WIN")) {
+                newCredit += diceBetRequestDto.getBetAmount() * 6; // Pago 6 a 1 en apuestas a un número específico
+            } else {
+                newCredit -= diceBetRequestDto.getBetAmount();
+            }
+        } else {
+            throw new RuntimeException("Invalid bet type");
+        }
+
+        // Actualizar el crédito del usuario y guardar en la base de datos
+        user.setCredits(newCredit);
+        userRepository.save(user);
+
+        // Crear y retornar el DTO con los resultados de los dados
+        DiceBetResponseDto diceBetResponseDto = new DiceBetResponseDto();
+        diceBetResponseDto.setResult(result);
+        diceBetResponseDto.setNewCredit(newCredit);
+        diceBetResponseDto.setDice1(dice1);
+        diceBetResponseDto.setDice2(dice2);
+        diceBetResponseDto.setTotalDice(totalDice);
+
+        return diceBetResponseDto;
     }
 
 }
