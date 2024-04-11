@@ -49,18 +49,25 @@ public class GameService implements IGameService{
 
     @Override
     public RouletteBetResponseDto playRoulette(RouletteBetRequestDto rouletteBetRequestDto, String userEmail) {
+        // Generar un número aleatorio entre 0 y 36 para la ruleta.
         Random random = new Random();
         int randomNumber = random.nextInt(37); // Número entre 0 y 36
 
+        // Obtener el usuario desde la base de datos utilizando el correo electrónico.
         User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
+        // Obtener el crédito actual del usuario.
         int newCredit = user.getCredits();
+
+        // Calcular el resultado de la apuesta.
         String result = calculateRouletteResult(rouletteBetRequestDto, randomNumber, newCredit);
 
+        // Actualizar el crédito del usuario y guardar en la base de datos.
         user.setCredits(newCredit);
         userRepository.save(user);
 
+        // Crear y retornar el DTO con los resultados de la ruleta.
         RouletteBetResponseDto rouletteBetResponseDto = new RouletteBetResponseDto();
         rouletteBetResponseDto.setResult(result);
         rouletteBetResponseDto.setNewCredit(newCredit);
@@ -69,7 +76,16 @@ public class GameService implements IGameService{
         return rouletteBetResponseDto;
     }
 
+    /**
+     * Método privado para calcular el resultado de la apuesta en la ruleta.
+     *
+     * @param betRequest    Objeto con la información de la apuesta
+     * @param randomNumber  Número aleatorio generado para la ruleta
+     * @param currentCredit  Crédito actual del usuario
+     * @return              Resultado de la apuesta ("WIN" o "LOSE")
+     */
     private String calculateRouletteResult(RouletteBetRequestDto betRequest, int randomNumber, int currentCredit) {
+        // Listas de números para las diferentes apuestas en la ruleta.
         List<Integer> redNumbers = Arrays.asList(1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36);
         List<Integer> blackNumbers = Arrays.asList(2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35);
         List<Integer> lowerNumbers = IntStream.rangeClosed(1, 18).boxed().toList();
@@ -81,15 +97,18 @@ public class GameService implements IGameService{
         List<Integer> secondRow = Arrays.asList(2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35);
         List<Integer> thirdRow = Arrays.asList(3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36);
 
+        // Evaluar el tipo de apuesta y calcular el resultado.
         return switch (betRequest.getBetTypeRoulette()) {
             case RED -> redNumbers.contains(randomNumber) ? "WIN" : "LOSE";
             case BLACK -> blackNumbers.contains(randomNumber) ? "WIN" : "LOSE";
             case EVEN -> (randomNumber % 2 == 0 && randomNumber != 0) ? "WIN" : "LOSE";
             case ODD -> (randomNumber % 2 != 0) ? "WIN" : "LOSE";
             case NUMBER -> {
+                // Validar la apuesta y el monto.
                 if (betRequest.getBetNumber() < 0 || betRequest.getBetNumber() > 36 || betRequest.getBetAmount() < 0) {
                     throw new RuntimeException("Invalid number bet or bet amount");
                 }
+                // Calcular el resultado para la apuesta a un número específico.
                 yield (randomNumber == betRequest.getBetNumber()) ? "WIN" : "LOSE";
             }
             case LOWER_NUMBERS -> lowerNumbers.contains(randomNumber) ? "WIN" : "LOSE";
@@ -106,21 +125,26 @@ public class GameService implements IGameService{
 
     @Override
     public DiceBetResponseDto playDice(DiceBetRequestDto diceBetRequestDto, String userEmail) {
+        // Generar números aleatorios entre 1 y 6 para los dos dados.
         Random random = new Random();
-        int dice1 = random.nextInt(6) + 1; // Número entre 1 y 6 para el primer dado
-        int dice2 = random.nextInt(6) + 1; // Número entre 1 y 6 para el segundo dado
+        int dice1 = random.nextInt(6) + 1;
+        int dice2 = random.nextInt(6) + 1;
 
+        // Obtener el usuario desde la base de datos utilizando el correo electrónico.
         User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
+        // Obtener el crédito actual del usuario.
         int newCredit = user.getCredits();
+
+        // Calcular el resultado de la apuesta.
         String result = calculateDiceResult(diceBetRequestDto, dice1, dice2, newCredit);
 
-        // Actualizar el crédito del usuario y guardar en la base de datos
+        // Actualizar el crédito del usuario y guardar en la base de datos.
         user.setCredits(newCredit);
         userRepository.save(user);
 
-        // Crear y retornar el DTO con los resultados de los dados
+        // Crear y retornar el DTO con los resultados de los dados.
         DiceBetResponseDto diceBetResponseDto = new DiceBetResponseDto();
         diceBetResponseDto.setResult(result);
         diceBetResponseDto.setNewCredit(newCredit);
@@ -131,11 +155,22 @@ public class GameService implements IGameService{
         return diceBetResponseDto;
     }
 
+    /**
+     * Método privado para calcular el resultado de la apuesta en el juego de dados.
+     *
+     * @param betRequest    Objeto con la información de la apuesta
+     * @param dice1         Resultado del primer dado
+     * @param dice2         Resultado del segundo dado
+     * @param currentCredit Crédito actual del usuario
+     * @return              Resultado de la apuesta ("WIN" o "LOSE")
+     */
     private String calculateDiceResult(DiceBetRequestDto betRequest, int dice1, int dice2, int currentCredit) {
+        // Evaluar el tipo de apuesta y calcular el resultado.
         switch (betRequest.getBetType()) {
             case INDIVIDUAL:
+                // Verificar si ambos dados coinciden con los valores apostados.
                 if (dice1 == betRequest.getBetDice1() && dice2 == betRequest.getBetDice2()) {
-                    currentCredit += betRequest.getBetAmount() * 36; // Pago 36 a 1 en apuestas a ambos dados
+                    currentCredit += betRequest.getBetAmount() * 36; // Pago 36 a 1 en apuestas a ambos dados.
                     return "WIN";
                 } else {
                     currentCredit -= betRequest.getBetAmount();
@@ -143,9 +178,11 @@ public class GameService implements IGameService{
                 }
 
             case TOTAL:
+                // Calcular la suma de los dados.
                 int totalDice = dice1 + dice2;
+                // Verificar si la suma coincide con el valor apostado.
                 if (totalDice == betRequest.getBetDice1()) {
-                    currentCredit += betRequest.getBetAmount() * 6; // Pago 6 a 1 en apuestas a la suma de los dados
+                    currentCredit += betRequest.getBetAmount() * 6; // Pago 6 a 1 en apuestas a la suma de los dados.
                     return "WIN";
                 } else {
                     currentCredit -= betRequest.getBetAmount();
