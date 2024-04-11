@@ -14,11 +14,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 import java.util.Optional;
 
 @Service
@@ -29,7 +27,6 @@ public class UserService implements IUserService {
   
     @Autowired
     PasswordEncoder passwordEncoder;
-
 
     //para pooder obtener el usuario por email
     @Override
@@ -103,7 +100,6 @@ public class UserService implements IUserService {
         }
     }
 
-
     public static List<UserResponseDto> userListToUserDtoList(List<User> users){
         List<UserResponseDto> userResponseDtoList = new ArrayList<>();
         for (User user : users){
@@ -112,4 +108,5 @@ public class UserService implements IUserService {
         }
         return userResponseDtoList;
     }
+
 }

@@ -32,4 +32,5 @@ public class UserResponseDto {
         this.credits = user.getCredits();
         this.role = user.getRole();
     }
+
 }
