@@ -5,11 +5,22 @@ import com.awaregaming.AwareGaming.dto.DiceBetResponseDto;
 import com.awaregaming.AwareGaming.dto.RouletteBetRequestDto;
 import com.awaregaming.AwareGaming.dto.RouletteBetResponseDto;
 import com.awaregaming.AwareGaming.model.Game;
+import com.awaregaming.AwareGaming.repository.IGameRepository;
+import com.awaregaming.AwareGaming.repository.IUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class GameService implements IGameService{
 
+    @Autowired
+    IGameRepository gameRepository;
+
+    @Autowired
+    IUserRepository userRepository;
+    
     @Override
     public List<Game> getAllGames() {
         return null;
@@ -39,5 +50,5 @@ public class GameService implements IGameService{
     public DiceBetResponseDto playDice(DiceBetRequestDto diceBetRequestDto) {
         return null;
     }
-    
+
 }
