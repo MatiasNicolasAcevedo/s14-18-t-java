@@ -20,7 +20,7 @@ public class GameService implements IGameService{
 
     @Autowired
     IUserRepository userRepository;
-    
+
     @Override
     public List<Game> getAllGames() {
         return null;
