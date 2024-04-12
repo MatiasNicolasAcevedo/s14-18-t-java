@@ -2,13 +2,12 @@ package com.awaregaming.AwareGaming.auth;
 
 import com.awaregaming.AwareGaming.jwt.JwtService;
 import com.awaregaming.AwareGaming.model.Enum.Role;
-import com.awaregaming.AwareGaming.model.User;
+import com.awaregaming.AwareGaming.entities.User;
 import com.awaregaming.AwareGaming.repository.IUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

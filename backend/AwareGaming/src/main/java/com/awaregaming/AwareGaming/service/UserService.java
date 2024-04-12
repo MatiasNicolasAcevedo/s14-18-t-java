@@ -1,8 +1,9 @@
 package com.awaregaming.AwareGaming.service;
 
 import com.awaregaming.AwareGaming.dto.UserRequestDto;
-import com.awaregaming.AwareGaming.model.User;
+import com.awaregaming.AwareGaming.entities.User;
 import com.awaregaming.AwareGaming.repository.IUserRepository;
+import com.awaregaming.AwareGaming.repository.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,10 +15,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+
+import java.util.*;
+
 
 @Service
 public class UserService implements IUserService {
@@ -27,6 +27,7 @@ public class UserService implements IUserService {
   
     @Autowired
     PasswordEncoder passwordEncoder;
+
 
     //para pooder obtener el usuario por email
     @Override
@@ -115,6 +116,7 @@ public class UserService implements IUserService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
         return new ResponseEntity<>(new UserResponseDto(user), HttpStatus.OK);
     }
+
 
 
 }

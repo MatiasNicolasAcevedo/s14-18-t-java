@@ -1,4 +1,4 @@
-package com.awaregaming.AwareGaming.service;
+package com.awaregaming.AwareGaming.repository;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import com.awaregaming.AwareGaming.dto.UserRequestDto;
@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
+
 
 public interface IUserService extends UserDetailsService {
 

@@ -1,4 +1,4 @@
-package com.awaregaming.AwareGaming.model;
+package com.awaregaming.AwareGaming.entities;
 
 import com.awaregaming.AwareGaming.model.Enum.Role;
 import jakarta.persistence.*;

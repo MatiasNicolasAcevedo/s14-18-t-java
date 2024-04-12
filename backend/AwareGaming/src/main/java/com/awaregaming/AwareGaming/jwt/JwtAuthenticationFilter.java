@@ -1,6 +1,6 @@
 package com.awaregaming.AwareGaming.jwt;
 
-import com.awaregaming.AwareGaming.service.IUserService;
+import com.awaregaming.AwareGaming.repository.IUserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
