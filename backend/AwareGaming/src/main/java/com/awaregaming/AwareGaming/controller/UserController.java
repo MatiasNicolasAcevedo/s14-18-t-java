@@ -2,10 +2,8 @@ package com.awaregaming.AwareGaming.controller;
 
 import com.awaregaming.AwareGaming.dto.UserRequestDto;
 import com.awaregaming.AwareGaming.dto.UserResponseDto;
-import com.awaregaming.AwareGaming.model.User;
 import com.awaregaming.AwareGaming.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
