@@ -1,4 +1,4 @@
-package com.awaregaming.AwareGaming.entities;
+package com.awaregaming.AwareGaming.model;
 
 
 import jakarta.persistence.*;
@@ -14,7 +14,7 @@ public class RecordByGame {
     String rules;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    //@JoinColumn(name = "user_id")
     private User user;
 
     public RecordByGame() {

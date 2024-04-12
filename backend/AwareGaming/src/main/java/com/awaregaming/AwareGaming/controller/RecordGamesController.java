@@ -1,6 +1,6 @@
 package com.awaregaming.AwareGaming.controller;
 
-import com.awaregaming.AwareGaming.entities.RecordGames;
+import com.awaregaming.AwareGaming.model.RecordGames;
 import com.awaregaming.AwareGaming.service.RecordGamesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,12 +13,9 @@ import org.springframework.security.core.Authentication;
 @RequestMapping("/api/record-games")
 public class RecordGamesController {
 
-    private final RecordGamesService recordGamesService;
-
     @Autowired
-    public RecordGamesController(RecordGamesService recordGamesService){
-        this.recordGamesService = recordGamesService;
-    }
+    private RecordGamesService recordGamesService;
+
 
     @GetMapping
     public List<RecordGames> getAllRecordGames() {
@@ -49,7 +46,7 @@ public class RecordGamesController {
 
 
     //consultar con el equipo de backend
-    @GetMapping("/weekly-summary")
+    /*@GetMapping("/weekly-summary")
     public ResponseEntity<List<RecordGames>> getWeeklyActivitySummary(Authentication authentication) {
         //ID del usuario autenticado utilizando Authentication
         Long userId = getUserIdFromAuthentication(authentication);
@@ -67,6 +64,6 @@ public class RecordGamesController {
         // return userId;
 
         return null;
-    }
+    }*/
 
 }

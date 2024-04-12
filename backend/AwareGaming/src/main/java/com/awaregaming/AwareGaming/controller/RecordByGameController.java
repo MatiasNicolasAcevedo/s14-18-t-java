@@ -1,6 +1,6 @@
 package com.awaregaming.AwareGaming.controller;
 
-import com.awaregaming.AwareGaming.entities.RecordByGame;
+import com.awaregaming.AwareGaming.model.RecordByGame;
 import com.awaregaming.AwareGaming.service.RecordByGameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,12 +11,9 @@ import java.util.List;
 @RequestMapping("/api/games")
 public class RecordByGameController {
 
-    private final RecordByGameService recordByGameService;
-
     @Autowired
-    public RecordByGameController(RecordByGameService recordByGameService){
-        this.recordByGameService = recordByGameService;
-    }
+    private RecordByGameService recordByGameService;
+
 
     @GetMapping
     public List<RecordByGame> getAllGames(){

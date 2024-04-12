@@ -2,7 +2,7 @@ package com.awaregaming.AwareGaming.auth;
 
 import com.awaregaming.AwareGaming.jwt.JwtService;
 import com.awaregaming.AwareGaming.model.Enum.Role;
-import com.awaregaming.AwareGaming.entities.User;
+import com.awaregaming.AwareGaming.model.User;
 import com.awaregaming.AwareGaming.repository.IUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

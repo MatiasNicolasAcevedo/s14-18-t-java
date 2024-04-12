@@ -1,7 +1,7 @@
 package com.awaregaming.AwareGaming.dto;
 
 import com.awaregaming.AwareGaming.model.Enum.Role;
-import com.awaregaming.AwareGaming.entities.User;
+import com.awaregaming.AwareGaming.model.User;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

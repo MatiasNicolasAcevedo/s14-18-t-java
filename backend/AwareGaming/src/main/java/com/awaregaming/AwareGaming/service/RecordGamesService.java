@@ -1,11 +1,10 @@
 package com.awaregaming.AwareGaming.service;
 
-import com.awaregaming.AwareGaming.entities.RecordGames;
+import com.awaregaming.AwareGaming.model.RecordGames;
 import com.awaregaming.AwareGaming.repository.RecordGamesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class RecordGamesService {
@@ -41,8 +40,8 @@ public class RecordGamesService {
 
 
     ///consultar con el equipo de backend
-    public List<RecordGames> getWeeklyActivitySummaryByUserId(Long userId) {
-        return recordGamesRepository.findWeeklyActivitySummaryByUserId(userId);
-    }
+    //public List<RecordGames> getWeeklyActivitySummaryByUserId(Long userId) {
+    //    return recordGamesRepository.findWeeklyActivitySummaryByUserId(userId);
+   // }
 
 }

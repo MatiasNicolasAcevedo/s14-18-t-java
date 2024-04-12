@@ -1,4 +1,4 @@
-package com.awaregaming.AwareGaming.entities;
+package com.awaregaming.AwareGaming.model;
 
 import jakarta.persistence.*;
 
@@ -8,13 +8,13 @@ public class RecordGames {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    int id;
     Integer totalGames;
     Integer wonGames;
     Integer lostGames;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    //@JoinColumn(name = "user_id")
     private User user;
 
     public RecordGames() {
@@ -27,11 +27,11 @@ public class RecordGames {
         this.user = user;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
