@@ -12,19 +12,19 @@ public class UserResponseDto {
 
     @Id
     private int idUser;
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
     private String dni;
     private int age;
-    private double credits;
+    private int credits;
     private Role role;
 
     public UserResponseDto(User user){
         this.idUser = user.getIdUser();
-        this.firstname = user.getFirstName();
-        this.lastname = user.getLastName();
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.dni = user.getDni();
@@ -32,4 +32,5 @@ public class UserResponseDto {
         this.credits = user.getCredits();
         this.role = user.getRole();
     }
+
 }

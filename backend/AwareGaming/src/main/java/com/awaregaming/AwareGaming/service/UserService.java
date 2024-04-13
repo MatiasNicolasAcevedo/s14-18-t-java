@@ -1,34 +1,22 @@
 package com.awaregaming.AwareGaming.service;
 
-
+import com.awaregaming.AwareGaming.dto.UserRequestDto;
 import com.awaregaming.AwareGaming.model.User;
 import com.awaregaming.AwareGaming.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-
-import com.awaregaming.AwareGaming.dto.UserRequestDto;
 import com.awaregaming.AwareGaming.dto.UserResponseDto;
 import com.awaregaming.AwareGaming.exceptions.UserDeleteException;
 import com.awaregaming.AwareGaming.exceptions.UserUpdateException;
-import com.awaregaming.AwareGaming.model.User;
-import com.awaregaming.AwareGaming.repository.IUserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 import java.util.Optional;
 
 @Service
@@ -39,7 +27,6 @@ public class UserService implements IUserService {
 
     @Autowired
     PasswordEncoder passwordEncoder;
-
 
     //para pooder obtener el usuario por email
     @Override
@@ -65,6 +52,7 @@ public class UserService implements IUserService {
             Optional<User> user = userRepository.findById(id);
             if (user.isPresent()) {
                 return new ResponseEntity<>(new UserResponseDto(user.get()), HttpStatus.OK);
+
             } else {
                 throw new UsernameNotFoundException("User not found");
             }
@@ -97,6 +85,7 @@ public class UserService implements IUserService {
             }
         }
 
+
         @Override
         public ResponseEntity<String> deleteUser ( int id) throws UsernameNotFoundException {
             Optional<User> user = userRepository.findById(id);
@@ -125,4 +114,46 @@ public class UserService implements IUserService {
         }
     }
 
+    @Override
+    public ResponseEntity<UserResponseDto> getUserByEmail(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return new ResponseEntity<>(new UserResponseDto(user), HttpStatus.OK);
+    }
 
+    @Override
+    public ResponseEntity<String> addCreditsToUser(String email, int amount) {
+        try {
+            User user = userRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+            user.setCredits(user.getCredits() + amount);
+            userRepository.save(user);
+
+            return new ResponseEntity<>("Credits added successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error adding credits", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Override
+    public ResponseEntity<String> addCreditsToUserById(int id, int amount) {
+        try {
+            Optional<User> userOptional = userRepository.findById(id);
+
+            if (userOptional.isPresent()) {
+                User user = userOptional.get();
+                user.setCredits(user.getCredits() + amount);
+                userRepository.save(user);
+
+                return new ResponseEntity<>("Credits added successfully", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error adding credits", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+}
