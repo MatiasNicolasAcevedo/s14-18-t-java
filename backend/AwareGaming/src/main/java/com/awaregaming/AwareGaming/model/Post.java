@@ -29,6 +29,7 @@ public class Post {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
     private LocalDateTime updated_at;
-    private int userId;
+    @ManyToOne
+    private User user;
 
 }

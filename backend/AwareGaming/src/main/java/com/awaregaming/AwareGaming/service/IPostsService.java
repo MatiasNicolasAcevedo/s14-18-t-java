@@ -1,22 +1,25 @@
 package com.awaregaming.AwareGaming.service;
 
+import com.awaregaming.AwareGaming.dto.PostsRequestDTO;
+import com.awaregaming.AwareGaming.dto.PostsResponseDTO;
 import com.awaregaming.AwareGaming.model.Post;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IPostsService {
 
     //get all posts
 
-    public List<Post> getAllPosts();
+    public List<PostsResponseDTO> getAllPosts();
 
     //get post by id
 
-    public Post getPost(Integer idPost);
+    public Optional<PostsResponseDTO> getPost(Integer idPost);
 
     //save post
 
-    public void savePost(Post post);
+    public PostsResponseDTO savePost(PostsRequestDTO postsRequestDTO);
 
     //delete post
 
@@ -24,6 +27,6 @@ public interface IPostsService {
 
     //edit post
 
-    public void editPost(Post post);
+    public PostsResponseDTO editPost(Integer idPost, PostsRequestDTO postsRequestDTO);
 
 }

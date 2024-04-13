@@ -10,14 +10,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserRequestDto {
 
-    private int id;
+    private int idUser;
     private String firstname;
     private String lastname;
     private String email;
     private String password;
     private String dni;
     private int age;
-    private double balance;
+    private double credits;
     private Role role;
 
 }

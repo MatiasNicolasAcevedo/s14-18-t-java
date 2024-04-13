@@ -33,7 +33,7 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUser;
+    private int idUser;
     @NotEmpty(message = "El campo nombre no puede estar vacio")
     private String firstName;
     @NotEmpty(message = "El campo apellido no puede estar vacio")
@@ -51,6 +51,7 @@ public class User implements UserDetails {
     private int credits;
     @Enumerated(EnumType.STRING)
     private Role role;
+    private int age;
     private boolean isActive;
 
     @Override
