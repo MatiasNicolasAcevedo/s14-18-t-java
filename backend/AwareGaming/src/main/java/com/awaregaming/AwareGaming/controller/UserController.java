@@ -4,6 +4,7 @@ import com.awaregaming.AwareGaming.dto.UserRequestDto;
 import com.awaregaming.AwareGaming.dto.UserResponseDto;
 import com.awaregaming.AwareGaming.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -41,6 +42,16 @@ public class UserController {
     public ResponseEntity<UserResponseDto> getCurrentUser(Authentication authentication) {
         String userEmail = authentication.getName();
         return userService.getUserByEmail(userEmail);
+    }
+
+    @PostMapping("/credits")
+    public ResponseEntity<String> addCreditsToCurrentUser(@RequestParam int amount, Authentication authentication) {
+        try {
+            String userEmail = authentication.getName();
+            return userService.addCreditsToUser(userEmail, amount);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error adding credits", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }

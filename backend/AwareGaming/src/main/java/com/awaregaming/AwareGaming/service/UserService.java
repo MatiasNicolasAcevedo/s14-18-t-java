@@ -116,5 +116,20 @@ public class UserService implements IUserService {
         return new ResponseEntity<>(new UserResponseDto(user), HttpStatus.OK);
     }
 
+    @Override
+    public ResponseEntity<String> addCreditsToUser(String email, int amount) {
+        try {
+            User user = userRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+            user.setCredits(user.getCredits() + amount);
+            userRepository.save(user);
+
+            return new ResponseEntity<>("Credits added successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error adding credits", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
 }
