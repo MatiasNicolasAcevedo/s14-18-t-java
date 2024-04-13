@@ -24,5 +24,8 @@ public interface IUserService extends UserDetailsService {
     @Transactional(readOnly = true)
     ResponseEntity<UserResponseDto> getUserByEmail(String email);
 
+    ResponseEntity<String> addCreditsToUser(String email, int amount);
+
+    ResponseEntity<String> addCreditsToUserById(int id, int amount);
 
 }
