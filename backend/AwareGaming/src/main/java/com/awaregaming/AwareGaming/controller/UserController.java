@@ -54,4 +54,13 @@ public class UserController {
         }
     }
 
+    @PostMapping("/credits-by-id")
+    public ResponseEntity<String> addCreditsToUserById(@RequestParam int id, @RequestParam int amount) {
+        try {
+            return userService.addCreditsToUserById(id, amount);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error adding credits", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

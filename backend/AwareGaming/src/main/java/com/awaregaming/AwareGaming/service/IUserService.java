@@ -26,4 +26,6 @@ public interface IUserService extends UserDetailsService {
 
     ResponseEntity<String> addCreditsToUser(String email, int amount);
 
+    ResponseEntity<String> addCreditsToUserById(int id, int amount);
+
 }

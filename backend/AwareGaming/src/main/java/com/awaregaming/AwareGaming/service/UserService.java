@@ -131,5 +131,24 @@ public class UserService implements IUserService {
         }
     }
 
+    @Override
+    public ResponseEntity<String> addCreditsToUserById(int id, int amount) {
+        try {
+            Optional<User> userOptional = userRepository.findById(id);
+
+            if (userOptional.isPresent()) {
+                User user = userOptional.get();
+                user.setCredits(user.getCredits() + amount);
+                userRepository.save(user);
+
+                return new ResponseEntity<>("Credits added successfully", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error adding credits", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
 }
