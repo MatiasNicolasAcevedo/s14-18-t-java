@@ -64,11 +64,11 @@ public class UserService implements IUserService {
             try {
                 if (user.isPresent()) {
                     User user1 = user.get();
-                    if (!Objects.equals(user1.getFirstName(), userRequestDto.getFirstname())) {
-                        user1.setFirstName(userRequestDto.getFirstname());
+                    if (!Objects.equals(user1.getFirstName(), userRequestDto.getFirstName())) {
+                        user1.setFirstName(userRequestDto.getFirstName());
                     }
-                    if (!Objects.equals(user1.getLastName(), userRequestDto.getLastname())) {
-                        user1.setLastName(userRequestDto.getLastname());
+                    if (!Objects.equals(user1.getLastName(), userRequestDto.getLastName())) {
+                        user1.setLastName(userRequestDto.getLastName());
                     }
                     if (!passwordEncoder.matches(userRequestDto.getPassword(), user1.getPassword())) {
                         user1.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
@@ -112,7 +112,7 @@ public class UserService implements IUserService {
             return userResponseDtoList;
 
         }
-    }
+
 
     @Override
     public ResponseEntity<UserResponseDto> getUserByEmail(String email) {
@@ -154,6 +154,6 @@ public class UserService implements IUserService {
             return new ResponseEntity<>("Error adding credits", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-
 }
+
+
