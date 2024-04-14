@@ -95,6 +95,12 @@
 			<version>42.7.2</version>
 		</dependency>
 
+		<!-- Envío de email -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
 
 	</dependencies>
 
