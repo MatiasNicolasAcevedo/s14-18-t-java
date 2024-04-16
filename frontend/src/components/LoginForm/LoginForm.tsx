@@ -1,12 +1,10 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { login } from '../../store/users/actions';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState, FormEvent } from 'react';
+import { Link } from 'react-router-dom';
+//import { useAuth } from '@/hooks';
 
-interface FormData {
-	email: string;
-	password: string;
+interface Errors {
+	email: boolean;
+	password: boolean;
 }
 
 interface Errors {
@@ -14,165 +12,107 @@ interface Errors {
 	password: boolean;
 }
 
-const LoginForm = () => {
-	const navigate = useNavigate();
-	const dispatch = useDispatch();
-	const [showPassword, setShowPassword] = useState<boolean>(false);
-	const { loading, userInfo, error } = useSelector(state => state.user);
-	const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-
-	const handleToggleVisibility = () => {
-		setShowPassword(prevShowPassword => !prevShowPassword);
-	};
-
-	const [formData, setFormData] = useState<FormData>({
-		email: '',
-		password: '',
-	});
-
+export function LoginForm(): JSX.Element {
 	const [errors, setErrors] = useState<Errors>({
 		email: false,
 		password: false,
 	});
-
-	const handleSubmit = async (e: FormEvent) => {
-		e.preventDefault();
-		setIsSubmitting(true);
-		try {
-			dispatch(login(formData));
-			setIsSubmitting(false);
-			if (userInfo) {
-				toast.success('¡Inicio de sesión exitoso!');
-				navigate('/home');
-			} else {
-				toast.error('Ocurrió un error inesperado. Vuelve a intentarlo');
-				navigate('/login');
-			}
-		} catch (error) {
-			setIsSubmitting(false);
-			toast.error(
-				'Ocurrió un error inesperado. Comprueba los datos en el formulario',
-			);
+	const validateForm = (email: string, password: string): boolean => {
+		let validate = false;
+		setErrors({
+			email: false,
+			password: false,
+		});
+		if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+			setErrors(prevErrors => ({
+				...prevErrors,
+				email: true,
+			}));
+			validate = true;
 		}
+		if (!password || !(password.length >= 5 && password.length <= 10)) {
+			setErrors(prevErrors => ({
+				...prevErrors,
+				password: true,
+			}));
+			validate = true;
+		}
+		return validate;
 	};
 
-	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-		const { name, value } = e.target;
-		setFormData(prevData => ({
-			...prevData,
-			[name]: value,
-		}));
-		if (name === 'email') {
-			setErrors(prevErrors => ({
-				...prevErrors,
-				email: !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value),
-			}));
-		} else if (name === 'password') {
-			setErrors(prevErrors => ({
-				...prevErrors,
-				password: value.trim().length < 6,
-			}));
-		}
+	const handlerOnSubmitLogin = (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		const form = event.target as HTMLFormElement;
+		const formData = new FormData(form);
+		const email = formData.get('email') as string;
+		const password = formData.get('password') as string;
+
+		if (validateForm(email, password)) return;
+
+		//	authLogin({ email, password });
 	};
 
 	return (
-		<div>
-			<form
-				onSubmit={handleSubmit}
-				className='p-8 relative z-20'
-			>
-				<div>
-					<label
-						htmlFor='email'
-						className='block text-sm font-medium text-gray-700'
-					>
-						Correo Electrónico
-					</label>
-					<input
-						type='email'
-						id='email'
-						name='email'
-						value={formData.email}
-						onChange={handleChange}
-						placeholder='ejemplo@gmail.com'
-						required
-						className='w-64 p-2 border border-blue-500 rounded-lg bg-white mb-2'
-					/>
-				</div>
-				{errors.email && (
-					<div className='text-red-500 text-sm font-semibold ml-1'>
-						Ingresa un Correo Electrónico válido.
-					</div>
-				)}
-				<label
-					htmlFor='password'
-					className='block text-sm font-medium text-gray-700'
+		<>
+			<div className='flex flex-col items-center justify-center space-y-4  bg-[#0c959526] backdrop-blur-md  p-20 w-[668px] h-[1220px]'>
+				<h1 className='w-96 h-20 text-black text-4xl font-extrabold leading-9'>
+					Iniciar sesión
+				</h1>
+				<form
+					className='w-96 flex flex-col gap-6'
+					onSubmit={handlerOnSubmitLogin}
 				>
-					Contraseña
-				</label>
-				<div className='flex border border-blue-500 rounded-lg bg-white mb-2'>
-					<input
-						type={showPassword ? 'text' : 'password'}
-						id='password'
-						name='password'
-						value={formData.password}
-						onChange={handleChange}
-						placeholder='Contraseña'
-						required
-						className='w-56 p-2 rounded-l h-10 focus:outline-none  bg-white'
-					/>
-					<button
-						type='button'
-						onClick={handleToggleVisibility}
-						className='h-10 w-8'
-					>
-						{showPassword ? (
-							<img
-								src='https://cdn-icons-png.flaticon.com/512/709/709612.png'
-								className='w-5'
-								alt='Visible'
-							/>
-						) : (
-							<img
-								src='https://cdn-icons-png.flaticon.com/512/2767/2767146.png'
-								className='w-5'
-								alt='No Visible'
-							/>
+					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
+						<label className='text-black text-sm font-semibold leading-normal'>
+							Correo Electrónico(*)
+						</label>
+						<input
+							type='text'
+							name='email'
+							placeholder='ejemplo@gmail.com'
+							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.email ? 'border-red-500 border-[3px]' : 'border border-black'}`}
+						/>
+						{errors.email && (
+							<div className='text-red-500 text-sm font-semibold ml-1'>
+								❌ Ingresa un correo electrónico válido.
+							</div>
 						)}
-					</button>
-				</div>
-				{errors.password && (
-					<div className='text-red-500 text-sm font-semibold ml-1'>
-						La contraseña debe tener al menos 6 caracteres.
 					</div>
-				)}
-
-				<button
-					type='submit'
-					className='bg-white w-64 p-2 rounded-lg text-black mt-4 shadow-custom'
-					disabled={errors.email || errors.password || isSubmitting}
-				>
-					Iniciar Sesión
-				</button>
-			</form>
-			{loading && (
-				<img
-					alt='loading'
-					src='https://i.gifer.com/ZKZg.gif'
-				/>
-			)}
-			{error && (
-				<p className='text-red-500 text-sm font-semibold ml-1'>
-					Error: {error}
-				</p>
-			)}
-			{userInfo && (
-				<p className='text-green-500 text-sm font-semibold ml-1'>
-					¡Inicio de sesión exitoso! Bienvenid@, {userInfo.name}!
-				</p>
-			)}
-		</div>
+					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
+						<label className='text-black text-sm font-semibold leading-normal'>
+							Contraseña(*)
+						</label>
+						<input
+							type='password'
+							name='password'
+							placeholder='*************'
+							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.password ? 'border-red-500 border-[3px]' : 'border border-black'}`}
+						/>
+						{errors.password && (
+							<div className='text-red-500 text-sm font-semibold ml-1'>
+								❌ La contraseña debe tener entre 5 y 10 caracteres.
+							</div>
+						)}
+					</div>
+					<button
+						type='submit'
+						className='bg-white w-96 h-14 px-7 py-3 rounded-lg text-black text-lg shadow-custom font-bold leading-normal'
+					>
+						Iniciar sesión
+					</button>
+				</form>
+				<div className='mt-4'>
+					<div className='flex flex-col items-center text-white'>
+						<Link to={'/register'}>Registrarse</Link>
+						<Link
+							to={'/reset-password'}
+							className='text-white text-center font-nunito text-lg font-bold leading-9'
+						>
+							¿Olvidaste tu contraseña?
+						</Link>
+					</div>
+				</div>
+			</div>
+		</>
 	);
-};
-
-export default LoginForm;
+}

@@ -19,8 +19,6 @@ export function RegisterPage() {
 					alt='fondo'
 				/>
 				<section className='flex flex-col items-end pr-32 absolute top-0 right-0'>
-					{/* <h1 className='text-3xl font-bold mb-4'>Registrarse</h1>
-				<p className='w-19em h-3em overflow-hidden'> Bienvenido a Aware Gaming</p> */}
 					<RegisterForm />
 				</section>
 			</figure>
