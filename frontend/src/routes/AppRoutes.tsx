@@ -1,13 +1,13 @@
 import { useRoutes } from 'react-router-dom';
-import RegisterPage from '@/pages/RegisterPage';
+import { RegisterPage } from '@/pages/RegisterPage';
 
 export const AppRoutes = () => {
-  const routes = [
-    {
-      path: '/register',
-      element: <RegisterPage />
-    }
-  ];
+	const routes = [
+		{
+			path: '/register',
+			element: <RegisterPage />,
+		},
+	];
 
-  return useRoutes(routes);
+	return useRoutes(routes);
 };

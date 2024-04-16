@@ -1,28 +1,27 @@
-import React from 'react';
+import { RegisterForm } from '@/components';
 import { Link } from 'react-router-dom';
-import RegisterForm from "../components/RegisterForm/RegisterForm";
 
-const RegisterPage: React.FC = () => {
-  return (
-  <div className='flex flex-col items-center w-15em h-40em float-right p-10'>
-      <h1 className="text-3xl font-bold mb-4">Registrarse</h1>
-      <p className="w-19em h-3em overflow-hidden"> Bienvenido a Aware Gaming</p>
-      <RegisterForm />
-      <div className="w-full">
-        <div className="flex flex-col items-center">
-          <div className="w-full flex items-center">
-            <div className="items-center">
-              <p className="text-xs p-4">By signing up you agree to our Terms & Conditions</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center">
-            <p>¿Ya estás registrado?</p>
-            <Link to={'/login'} className="text-blue-500">Inicia sesión</Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default RegisterPage;
+export function RegisterPage() {
+	return (
+		<>
+			<Link to='/'>
+				<figure className='w-36 h-14 absolute top-6 left-14'>
+					<img
+						src='https://res.cloudinary.com/dnxjwcku6/image/upload/v1713222392/AwareGaming/logo_ed2n0h.png'
+						alt='logo'
+					/>
+				</figure>
+			</Link>
+			<iframe
+				// src='https://my.spline.design/untitledcopycopy-fe16648ef55af397ffd102b7f327c661/'
+				width='100%'
+				height='990px'
+			></iframe>
+			<section className='flex flex-col items-end pr-32 absolute top-0 right-0'>
+				{/* <h1 className='text-3xl font-bold mb-4'>Registrarse</h1>
+			<p className='w-19em h-3em overflow-hidden'> Bienvenido a Aware Gaming</p> */}
+				<RegisterForm />
+			</section>
+		</>
+	);
+}
