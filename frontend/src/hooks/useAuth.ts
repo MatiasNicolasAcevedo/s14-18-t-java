@@ -1,10 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useStore } from './useStore';
 import { setToken } from '@/store/token/slice';
 import { login, register } from '@/services';
-import type { Login, Register } from '@/types/auth';
+import type { Login, RegisterDTO } from '@/types/auth';
 
 export function useAuth() {
+	const navigate = useNavigate();
 	const { appSelector, appDispatch } = useStore();
 	const token = appSelector(state => state.token);
 	const dispatch = appDispatch();
@@ -23,13 +25,15 @@ export function useAuth() {
 		}
 	};
 
-	const authRegister = async (data: Register) => {
+	const authRegister = async (data: RegisterDTO) => {
 		try {
-			await toast.promise(register(data), {
+			const { token } = await toast.promise(register(data), {
 				pending: 'Enviando...',
 				success: '¡Registro exitoso!',
 				error: 'Error en el Servidor',
 			});
+			dispatch(setToken(token));
+			navigate('/dashboard');
 		} catch (error) {
 			console.log(error);
 			toast.error('Error en la Aplicación');
