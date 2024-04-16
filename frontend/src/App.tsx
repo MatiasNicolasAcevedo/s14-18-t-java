@@ -1,17 +1,18 @@
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { AppRoutes } from '@/routes/AppRoutes';
-import Navbar from './components/NavBar/NavBar';
+import { Footer } from './components/Footer/Footer';
 
 function App() {
 	return (
 		<>
 			<main>
-				<Navbar/>
 				<BrowserRouter>
 					<AppRoutes />
 				</BrowserRouter>
 			</main>
+
+			<Footer />
 			<ToastContainer
 				autoClose={1500}
 				position='bottom-right'
