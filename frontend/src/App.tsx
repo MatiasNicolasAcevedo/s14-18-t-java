@@ -1,11 +1,13 @@
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { AppRoutes } from '@/routes/AppRoutes';
+import Navbar from './components/NavBar/NavBar';
 
 function App() {
 	return (
 		<>
 			<main>
+				<Navbar/>
 				<BrowserRouter>
 					<AppRoutes />
 				</BrowserRouter>
