@@ -3,19 +3,31 @@ import daisyui from 'daisyui'
 export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
-		screens:{
+		/*screens:{
 			sm:'480px',
 			md: '768px',
 			lg: '976px',
 			xl: '1440px',
-		},
+		},*/
 		extend: {
-			maxWidth: {
-        'custom': '300px', // Ajusta este valor a lo que necesites
+			backdropFilter: {
+        'none': 'none',
+        'blur': 'blur(15px)',
       },
+			maxWidth: {
+        'sm': '480px',
+        'md': '768px',
+        'lg': '976px',
+        'xl': '1440px',
+      },
+			zIndex: {
+				'1': '1',
+				'2': '2',
+			},
 			colors: {
         'custom-purple': '#8D3DA5',
       },
+
 			fontFamily: {
 				body: ['Nunito'],
       },
@@ -45,6 +57,11 @@ export default {
 						},
 				],
 		},
+		},
+		variants: {
+			extend: {
+		  backdropFilter: ['responsive'],
+			},
 		},
 	},
 	plugins: [
