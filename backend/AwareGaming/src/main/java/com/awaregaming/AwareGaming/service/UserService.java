@@ -48,14 +48,10 @@ public class UserService implements IUserService {
 
         @Override
         @Transactional(readOnly = true)
-        public ResponseEntity<UserResponseDto> getUser ( int id) throws UsernameNotFoundException {
-            Optional<User> user = userRepository.findById(id);
-            if (user.isPresent()) {
-                return new ResponseEntity<>(new UserResponseDto(user.get()), HttpStatus.OK);
-
-            } else {
-                throw new UsernameNotFoundException("User not found");
-            }
+        public ResponseEntity<UserResponseDto> getUserById(int id) throws UsernameNotFoundException {
+            User user = userRepository.findById(id)
+                    .orElseThrow(()-> new UsernameNotFoundException("User not found"));
+            return new ResponseEntity<>(new UserResponseDto(user), HttpStatus.OK);
         }
 
         @Override
@@ -64,13 +60,13 @@ public class UserService implements IUserService {
             try {
                 if (user.isPresent()) {
                     User user1 = user.get();
-                    if (!Objects.equals(user1.getFirstName(), userRequestDto.getFirstName())) {
+                    if (!userRequestDto.getFirstName().isBlank() && !Objects.equals(user1.getFirstName(), userRequestDto.getFirstName())) {
                         user1.setFirstName(userRequestDto.getFirstName());
                     }
-                    if (!Objects.equals(user1.getLastName(), userRequestDto.getLastName())) {
+                    if (!userRequestDto.getLastName().isBlank() && !Objects.equals(user1.getLastName(), userRequestDto.getLastName())) {
                         user1.setLastName(userRequestDto.getLastName());
                     }
-                    if (!passwordEncoder.matches(userRequestDto.getPassword(), user1.getPassword())) {
+                    if (!userRequestDto.getPassword().isBlank() && !passwordEncoder.matches(userRequestDto.getPassword(), user1.getPassword())) {
                         user1.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
                     }
                     userRepository.save(user1);

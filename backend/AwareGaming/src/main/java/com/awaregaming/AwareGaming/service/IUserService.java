@@ -15,7 +15,7 @@ public interface IUserService extends UserDetailsService {
     List<UserResponseDto> getAllUsers();
 
     @Transactional(readOnly = true)
-    ResponseEntity<UserResponseDto> getUser(int id) throws UsernameNotFoundException;
+    ResponseEntity<UserResponseDto> getUserById(int id) throws UsernameNotFoundException;
 
     ResponseEntity<String> updateUser(int id, UserRequestDto userRequestDto) throws UserUpdateException;
 
