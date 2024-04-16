@@ -30,7 +30,7 @@ export function Footer() {
 				<p>Seguinos en</p>
 				<ul className='flex'>
 					{redes.map(red => (
-						<li>
+						<li key={red.name}>
 							<a className='link link-hover'>
 								<img
 									src={red.src}

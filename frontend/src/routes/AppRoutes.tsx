@@ -1,5 +1,5 @@
 import { useRoutes } from 'react-router-dom';
-import RegisterPage from '@/pages/RegisterPage';
+import { RegisterPage } from '@/pages/RegisterPage';
 import LandingPage from '@/pages/LandingPage';
 import LoginPage from '@/pages/LoginPage';
 import SphereBackground from '@/components/SphereBackground/SphereBackground';

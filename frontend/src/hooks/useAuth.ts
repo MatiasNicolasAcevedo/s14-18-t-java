@@ -1,8 +1,8 @@
 import { toast } from 'react-toastify';
 import { useStore } from './useStore';
 import { setToken } from '@/store/token/slice';
-import { login } from '@/services';
-import type { Login } from '@/types/auth';
+import { login, register } from '@/services';
+import type { Login, Register } from '@/types/auth';
 
 export function useAuth() {
 	const { appSelector, appDispatch } = useStore();
@@ -23,5 +23,18 @@ export function useAuth() {
 		}
 	};
 
-	return { token, authLogin };
+	const authRegister = async (data: Register) => {
+		try {
+			await toast.promise(register(data), {
+				pending: 'Enviando...',
+				success: '¡Registro exitoso!',
+				error: 'Error en el Servidor',
+			});
+		} catch (error) {
+			console.log(error);
+			toast.error('Error en la Aplicación');
+		}
+	};
+
+	return { token, authLogin, authRegister };
 }
