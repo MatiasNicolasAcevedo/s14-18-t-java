@@ -16,4 +16,11 @@ export interface RegisterFormData {
 	password?: string;
 	repeatPassword?: string;
 	birthDate?: string;
+	accepted?: string;
+}
+
+export interface RegisterDTO extends Login {
+	firstName: string;
+	lastName: string;
+	age: number;
 }
