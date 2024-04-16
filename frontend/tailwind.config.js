@@ -10,6 +10,9 @@ export default {
 			xl: '1440px',
 		},*/
 		extend: {
+			boxShadow: {
+        'custom': '8px 8px 16px 0px rgba(107, 38, 128, 0.60), -2px -2px 16px 0px #D2B1DB inset, -4px -4px 10px 0px #8D3DA5 inset'
+      },
 			backdropFilter: {
         'none': 'none',
         'blur': 'blur(15px)',
@@ -29,7 +32,7 @@ export default {
       },
 
 			fontFamily: {
-				body: ['Nunito'],
+				 'nunito': ['Nunito', 'sans-serif'],
       },
 			fontSize: {
         'xs': '12px',    // Extra pequeño
