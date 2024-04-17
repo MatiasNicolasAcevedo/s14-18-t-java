@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import livingroom from '../images/livingroom.png';
 import { NavBar } from '@/components/NavBar/NavBar';
 import { Link } from 'react-router-dom';
+import { Footer } from '@/components';
 const LandingPage: React.FC = () => {
 	// Función para manejar el scroll suave
 	const divRef = useRef<HTMLDivElement>(null);
@@ -55,6 +56,8 @@ const LandingPage: React.FC = () => {
 					</div>
 				</div>
 			</div>
+			{/* LANDING 2, 3...*/}
+			<Footer />
 		</div>
 	);
 };
