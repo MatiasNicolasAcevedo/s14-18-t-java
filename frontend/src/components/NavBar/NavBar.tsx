@@ -1,87 +1,46 @@
-import { useState } from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Navbar = () => {
-  const [open, setOpen] = useState(false);
-
+export function NavBar() {
   return (
-    <header className={`flex w-full items-center bg-white dark:bg-dark`}>
-      <div className="container">
-        <div className="relative -mx-4 flex items-center justify-between">
-          <div className="flex w-full items-center justify-between px-4">
-            <div>
-              <button
-                onClick={() => setOpen(!open)}
-                id="navbarToggler"
-                className={` ${open && "navbarTogglerActive"
-                  } absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden`}
-              >
-                <span className="relative my-[6px] block h-[2px] w-[30px] bg-body-color dark:bg-white"></span>
-                <span className="relative my-[6px] block h-[2px] w-[30px] bg-body-color dark:bg-white"></span>
-                <span className="relative my-[6px] block h-[2px] w-[30px] bg-body-color dark:bg-white"></span>
-              </button>
-              <nav
-                // :className="!navbarOpen && 'hidden' "
-                id="navbarCollapse"
-                className={`absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white px-6 py-5 shadow dark:bg-dark-2 lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none lg:dark:bg-transparent ${!open && "hidden"
-                  } `}
-              >
-                <ul className="block lg:flex">
-                  <ListItem NavLink="/#">Home</ListItem>
-                  <ListItem NavLink="/#">Payment</ListItem>
-                  <ListItem NavLink="/#">About</ListItem>
-                  <ListItem NavLink="/#">Blog</ListItem>
-                </ul>
-              </nav>
-            </div>
-            <div className="w-60 max-w-full px-4">
-            <a href="/#" className="block w-full py-5">
-              <img
-                src="https://res.cloudinary.com/dnxjwcku6/image/upload/v1713282439/Group_1000004234-min_uj3vv7.png"
-                alt="logo"
-                className="dark:hidden"
-              />
-              <img
-                src="https://res.cloudinary.com/dnxjwcku6/image/upload/v1713282439/Group_1000004234-min_uj3vv7.png"
-                alt="logo"
-                className="hidden dark:block"
-              />
-            </a>
-          </div>
-            <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
-              <a
-                href="/#"
-                className="px-7 py-3 text-base font-medium text-dark hover:text-primary dark:text-white"
-              >
-                Sign in
-              </a>
+    <nav className=" container w-full mx-auto p-4 flex justify-between items-center fixed relative top-0">
+      {/* Links a la izquierda */}
+      <div className="w-96 h-6 justify-start items-center gap-8 inline-flex">
+        <div className="flex-col justify-center items-start inline-flex">
+          <div className="text-center text-gray-900 text-base font-normal font-['Nunito'] leading-normal">Home</div>
+        </div>
+        <div className="flex-col justify-center items-start inline-flex">
+          <div className="text-center text-gray-900 text-base font-normal font-['Nunito'] leading-normal">Foro</div>
+        </div>
+        <div className="flex-col justify-center items-start inline-flex">
+          <div className="text-center text-gray-900 text-base font-normal font-['Nunito'] leading-normal">Juegos</div>
+        </div>
+        <div className="flex-col justify-center items-start inline-flex">
+          <div className="text-center text-gray-900 text-base font-normal font-['Nunito'] leading-normal">Contacto</div>
+        </div>
+        <div />
+      </div>
 
-              <a
-                href="/#"
-                className="rounded-md bg-primary px-7 py-3 text-base font-medium text-white hover:bg-primary/90"
-              >
-                Sign Up
-              </a>
-            </div>
+      {/* Logo en el centro */}
+      <div className="flex flex-shrink-0 items-center">
+        <img
+          className=" h-16 w-36"
+          src="https://res.cloudinary.com/dnxjwcku6/image/upload/v1713282432/Group_1000004231logo-min_fvzzlq.png"
+          alt="Your Company"
+        />
+      </div>
+
+      {/* Botones a la derecha */}
+      <div className="flex items-center gap-8">
+        <div
+          className='bg-white w-36 h-12 px-7 py-3 rounded-3xl text-black text-sm font-normal leading-tight shadow-custom' >
+          <div className='flex flex-col items-center'>
+            <Link to={'/login'}>Iniciar sesión</Link>
           </div>
         </div>
+        <div className="text-black text-sm font-normal font-['Nunito'] leading-tight">Registrarse</div>
       </div>
-    </header>
+    </nav>
   );
 };
 
-export default Navbar;
-
-const ListItem = ({ children, NavLink }) => {
-  return (
-    <>
-      <li>
-        <a
-          href={NavLink}
-          className="flex py-2 text-base font-medium text-body-color hover:text-dark dark:text-dark-6 dark:hover:text-white lg:ml-12 lg:inline-flex"
-        >
-          {children}
-        </a>
-      </li>
-    </>
-  );
-};
