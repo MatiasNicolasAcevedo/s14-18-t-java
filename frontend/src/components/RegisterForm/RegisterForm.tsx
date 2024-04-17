@@ -277,13 +277,13 @@ export function RegisterForm() {
 					<button
 						type='submit'
 						className='bg-white w-96 h-14 px-7 py-3 rounded-lg text-black text-lg shadow-custom font-bold leading-normal'
-					>
+						>
 						Registrarse
 					</button>
 				</form>
 				<div className='mt-4'>
 					<div className='flex flex-col items-center text-white'>
-						<Link to={'/login'}>Iniciar sesión</Link>
+							<Link to={'/login'}>Iniciar sesión</Link>
 					</div>
 				</div>
 			</div>
