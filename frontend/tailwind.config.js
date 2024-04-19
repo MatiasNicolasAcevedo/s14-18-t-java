@@ -50,6 +50,10 @@ export default {
         '2xl': '64px',   // Doble extra grande
         // Agrega más tamaños de texto personalizados si es necesario
       },
+			borderRadius: {
+				"50p":"50%",
+				"10p":"80px"
+		 },
 			daisyui: {
 				themes: [
 						{
