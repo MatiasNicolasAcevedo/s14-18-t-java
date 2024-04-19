@@ -7,6 +7,7 @@ interface Errors {
 	firstName: boolean;
 	lastName: boolean;
 	email: boolean;
+	dni: boolean;
 	password: boolean;
 	birthDate: boolean;
 	repearPassword: boolean;
@@ -19,27 +20,29 @@ export function RegisterForm() {
 		lastName: false,
 		email: false,
 		password: false,
+		dni: false,
 		birthDate: false,
 		repearPassword: false,
 		accepted: false,
 	});
 	const { authRegister } = useAuth();
 
-	const validateForm = (data: RegisterFormData): boolean => {
-		const {
-			firstName,
-			lastName,
-			email,
-			password,
-			repeatPassword,
-			birthDate,
-			accepted,
-		} = data;
+	const validateForm = ({
+		firstName,
+		lastName,
+		email,
+		dni,
+		password,
+		repeatPassword,
+		birthDate,
+		accepted,
+	}: RegisterFormData): boolean => {
 		let validate = false;
 		setErrors({
 			firstName: false,
 			lastName: false,
 			email: false,
+			dni: false,
 			password: false,
 			birthDate: false,
 			repearPassword: false,
@@ -63,6 +66,13 @@ export function RegisterForm() {
 			setErrors(prevErrors => ({
 				...prevErrors,
 				email: true,
+			}));
+			validate = true;
+		}
+		if (!dni) {
+			setErrors(prevErrors => ({
+				...prevErrors,
+				dni: true,
 			}));
 			validate = true;
 		}
@@ -122,6 +132,7 @@ export function RegisterForm() {
 		const firstName = formData.get('firstName') as string;
 		const lastName = formData.get('lastName') as string;
 		const email = formData.get('email') as string;
+		const dni = formData.get('dni') as string;
 		const password = formData.get('password') as string;
 		const repeatPassword = formData.get('repeatPassword') as string;
 		const birthDate = formData.get('birthDate') as string;
@@ -132,6 +143,7 @@ export function RegisterForm() {
 				firstName,
 				lastName,
 				email,
+				dni,
 				password,
 				repeatPassword,
 				birthDate,
@@ -144,8 +156,9 @@ export function RegisterForm() {
 		authRegister({
 			firstName,
 			lastName,
-			password,
 			email,
+			dni,
+			password,
 			age: currentDate.getFullYear() - birth.getFullYear(),
 		});
 	};
@@ -187,7 +200,7 @@ export function RegisterForm() {
 							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.lastName ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.lastName && (
-							<div className='text-red-500 text-sm font-semibold ml-1'>
+							<div className='text-black text-sm font-semibold ml-1'>
 								❌ Tu apellido debe tener al menos 3 caracteres.
 							</div>
 						)}
@@ -203,8 +216,25 @@ export function RegisterForm() {
 							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.email ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.email && (
-							<div className='text-red-500 text-sm font-semibold ml-1'>
+							<div className='text-black text-sm font-semibold ml-1'>
 								❌ Ingresa un correo electrónico válido.
+							</div>
+						)}
+					</div>
+					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
+						<label className='text-black text-sm font-semibold leading-normal'>
+							DNI(*)
+						</label>
+						<input
+							type='number'
+							name='dni'
+							placeholder='12345678'
+							step='1'
+							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.dni ? 'border-red-500 border-[3px]' : 'border border-black'}`}
+						/>
+						{errors.dni && (
+							<div className='text-black text-sm font-semibold ml-1'>
+								❌ Ingresa tu DNI.
 							</div>
 						)}
 					</div>
@@ -218,7 +248,7 @@ export function RegisterForm() {
 							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.birthDate ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.birthDate && (
-							<div className='text-red-500 text-sm font-semibold ml-1'>
+							<div className='text-black text-sm font-semibold ml-1'>
 								❌ Debes ser mayor de 18 años.
 							</div>
 						)}
@@ -255,7 +285,7 @@ export function RegisterForm() {
 							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.repearPassword ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.repearPassword && (
-							<div className='text-red-500 text-sm font-semibold ml-1'>
+							<div className='text-black text-sm font-semibold ml-1'>
 								❌ Las contraseñas no coinciden.
 							</div>
 						)}
@@ -277,13 +307,13 @@ export function RegisterForm() {
 					<button
 						type='submit'
 						className='bg-white w-96 h-14 px-7 py-3 rounded-lg text-black text-lg shadow-custom font-bold leading-normal'
-						>
+					>
 						Registrarse
 					</button>
 				</form>
 				<div className='mt-4'>
 					<div className='flex flex-col items-center text-white'>
-							<Link to={'/login'}>Iniciar sesión</Link>
+						<Link to={'/login'}>Iniciar sesión</Link>
 					</div>
 				</div>
 			</div>

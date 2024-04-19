@@ -1,24 +1,31 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { config } from '@/config';
 import type { Login, RegisterDTO } from '@/types/auth';
 
 const { apiUrl } = config;
 
-export const login = async (_data: Login) => {
-	const token = 'asrasr12412412';
-	return token;
+export const login = async ({ email, password }: Login) => {
+	const response = await fetch(`${apiUrl}/auth/login`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({ email, password }),
+	});
+	const { data, message } = await response.json();
+	if (!response.ok) return { message };
+	const { token } = data;
+	return { token };
 };
 
-export const register = async (data: RegisterDTO) => {
+export const register = async (dto: RegisterDTO) => {
 	const response = await fetch(`${apiUrl}/auth/register`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify(data),
+		body: JSON.stringify(dto),
 	});
-	if (!response.ok) return;
-	const responseData = await response.json();
-	return responseData;
+	const { message } = await response.json();
+	if (!response.ok) return { message };
+	return { message: undefined };
 };
