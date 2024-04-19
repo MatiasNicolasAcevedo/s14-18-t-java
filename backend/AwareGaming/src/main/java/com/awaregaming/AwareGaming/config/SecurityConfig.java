@@ -14,7 +14,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
+import org.springframework.web.filter.CorsFilter;
 import java.util.List;
 
 import static org.springframework.security.config.Customizer.withDefaults;
@@ -44,8 +44,6 @@ public class SecurityConfig {
                                 .requestMatchers("/auth/**").permitAll() //todas las request que matcheen con la ruta auth van a ser publicos
                                 .anyRequest().authenticated() //cualquier otra ruta que se identifique
                                 )
-                /** Configuracion de CORS */
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .sessionManagement(sessionManager-> //deshabilitamos las sesiones
                         sessionManager
                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -56,15 +54,5 @@ public class SecurityConfig {
                 .build();
     }
 
-    CorsConfigurationSource corsConfigurationSource(){
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigin("*");
-        corsConfiguration.addAllowedHeader("*");
-        corsConfiguration.addAllowedMethod("*");
-        corsConfiguration.setAllowCredentials(true);
-        UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
-        urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
-        return urlBasedCorsConfigurationSource;
-    }
 
 }
