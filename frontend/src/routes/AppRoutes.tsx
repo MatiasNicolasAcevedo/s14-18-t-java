@@ -1,5 +1,5 @@
 import { useRoutes } from 'react-router-dom';
-import { RegisterPage } from '@/pages/RegisterPage';
+import { RegisterPage, RoulletePage } from '@/pages';
 import LandingPage from '@/pages/LandingPage';
 import LoginPage from '@/pages/LoginPage';
 
@@ -16,6 +16,10 @@ export const AppRoutes = () => {
 		{
 			path: '/login',
 			element: <LoginPage />,
+		},
+		{
+			path: '/roullete',
+			element: <RoulletePage />,
 		},
 	];
 
