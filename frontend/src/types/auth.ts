@@ -13,7 +13,7 @@ export interface RegisterFormData {
 	firstName?: string;
 	lastName?: string;
 	email?: string;
-	dni?: number;
+	dni?: string;
 	password?: string;
 	repeatPassword?: string;
 	birthDate?: string;
@@ -24,4 +24,5 @@ export interface RegisterDTO extends Login {
 	firstName: string;
 	lastName: string;
 	age: number;
+	dni: string;
 }

@@ -14,7 +14,7 @@ export const tokenSlice = createSlice({
 			const { payload } = action;
 			state = payload;
 			localStorage.setItem(TOKEN_KEY, payload);
-			console.log('state: ', state);
+			return state;
 		},
 	},
 });

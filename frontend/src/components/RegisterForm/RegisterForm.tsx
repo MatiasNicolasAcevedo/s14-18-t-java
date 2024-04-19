@@ -132,7 +132,7 @@ export function RegisterForm() {
 		const firstName = formData.get('firstName') as string;
 		const lastName = formData.get('lastName') as string;
 		const email = formData.get('email') as string;
-		const dni = parseInt(formData.get('dni') as string);
+		const dni = formData.get('dni') as string;
 		const password = formData.get('password') as string;
 		const repeatPassword = formData.get('repeatPassword') as string;
 		const birthDate = formData.get('birthDate') as string;
@@ -156,8 +156,9 @@ export function RegisterForm() {
 		authRegister({
 			firstName,
 			lastName,
-			password,
 			email,
+			dni,
+			password,
 			age: currentDate.getFullYear() - birth.getFullYear(),
 		});
 	};

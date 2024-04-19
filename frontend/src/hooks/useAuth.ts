@@ -19,7 +19,7 @@ export function useAuth() {
 					success: 'Ingresando...',
 					error: 'Error en el Servidor',
 				});
-			if (message) return toast.error(message);
+			if (message != null) return toast.error(message);
 			if (token) dispatch(setToken(token));
 			navigate('/dashboard');
 		} catch (error) {
@@ -30,15 +30,17 @@ export function useAuth() {
 
 	const authRegister = async (data: RegisterDTO) => {
 		try {
-			const { token, message }: { token?: string; message?: string } =
-				await toast.promise(register(data), {
+			const { message }: { message?: string } = await toast.promise(
+				register(data),
+				{
 					pending: 'Enviando...',
 					success: '¡Registro exitoso!',
 					error: 'Error en el Servidor',
-				});
-			if (message) return toast.error(message);
-			if (token) dispatch(setToken(token));
-			navigate('/dashboard');
+				},
+			);
+			if (message != null) return toast.error(message);
+			const { email, password } = data;
+			authLogin({ email, password });
 		} catch (error) {
 			console.log(error);
 			toast.error('Error en la Aplicación');

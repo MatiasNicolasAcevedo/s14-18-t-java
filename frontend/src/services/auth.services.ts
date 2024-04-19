@@ -25,8 +25,7 @@ export const register = async (dto: RegisterDTO) => {
 		},
 		body: JSON.stringify(dto),
 	});
-	const { data, message } = await response.json();
+	const { message } = await response.json();
 	if (!response.ok) return { message };
-	const { token } = data;
-	return { token };
+	return { message: undefined };
 };
