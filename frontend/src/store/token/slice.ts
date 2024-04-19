@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 const initialState: string = '';
@@ -8,6 +10,7 @@ export const tokenSlice = createSlice({
 	reducers: {
 		setToken: (state, action: PayloadAction<string>) => {
 			state = action.payload;
+			console.log('state: ', state);
 		},
 	},
 });

@@ -5,22 +5,10 @@ import {
 	USER_SIGNIN_FAIL,
 	USER_SIGNOUT,*/
 	USER_REGISTER_REQUEST,
-	USER_REGISTER_SUCCESS,
-	USER_REGISTER_FAIL,
 } from './constants';
 
-const URL = ''; //FALTA URL BACK
-
-
-
 export const register =
-	(
-		name: string,
-		lastname: string,
-		email: string,
-		password: string,
-		dateOfBirth: string,
-	) =>
+	(name: string, email: string, password: string, dateOfBirth: string) =>
 	async (dispatch: Dispatch) => {
 		dispatch({
 			type: USER_REGISTER_REQUEST,
@@ -48,13 +36,13 @@ export const register =
 		// }
 	};
 
-
-	export const login = (email: string, password: string) => async (dispatch: Dispatch) => {
+export const login =
+	(email: string, password: string) => async (dispatch: Dispatch) => {
 		dispatch({
 			type: USER_SIGNIN_REQUEST,
 			payload: { email, password },
 		});
-/*
+		/*
 		try {
 			// const response = await fetch(`${URL}/login`, { method: 'POST', body: JSON.stringify({ email, password }) });
 			// const data = await response.json();
@@ -73,4 +61,3 @@ export const register =
 		}
 		*/
 	};
-
