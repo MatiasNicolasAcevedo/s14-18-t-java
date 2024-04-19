@@ -6,7 +6,7 @@ const LoginPage: React.FC = () => {
 	return (
 		<>
 			<Link to='/'>
-				<figure className='w-36 h-14 absolute top-6 left-14'>
+				<figure className='w-36 h-14 absolute top-6 left-14 z-10'>
 					<img
 						src='https://res.cloudinary.com/dnxjwcku6/image/upload/v1713282432/Group_1000004231logo-min_fvzzlq.png'
 						alt='logo'
