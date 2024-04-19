@@ -13,12 +13,15 @@ export function useAuth() {
 
 	const authLogin = async (data: Login) => {
 		try {
-			const token: string = await toast.promise(login(data), {
-				pending: 'Enviando...',
-				success: 'Ingresando...',
-				error: 'Error en el Servidor',
-			});
-			dispatch(setToken(token));
+			const { token, message }: { token?: string; message?: string } =
+				await toast.promise(login(data), {
+					pending: 'Enviando...',
+					success: 'Ingresando...',
+					error: 'Error en el Servidor',
+				});
+			if (message) return toast.error(message);
+			if (token) dispatch(setToken(token));
+			navigate('/dashboard');
 		} catch (error) {
 			console.log(error);
 			toast.error('Error en la Aplicación');
@@ -27,12 +30,14 @@ export function useAuth() {
 
 	const authRegister = async (data: RegisterDTO) => {
 		try {
-			const { token } = await toast.promise(register(data), {
-				pending: 'Enviando...',
-				success: '¡Registro exitoso!',
-				error: 'Error en el Servidor',
-			});
-			dispatch(setToken(token));
+			const { token, message }: { token?: string; message?: string } =
+				await toast.promise(register(data), {
+					pending: 'Enviando...',
+					success: '¡Registro exitoso!',
+					error: 'Error en el Servidor',
+				});
+			if (message) return toast.error(message);
+			if (token) dispatch(setToken(token));
 			navigate('/dashboard');
 		} catch (error) {
 			console.log(error);

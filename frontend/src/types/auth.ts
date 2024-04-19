@@ -13,6 +13,7 @@ export interface RegisterFormData {
 	firstName?: string;
 	lastName?: string;
 	email?: string;
+	dni?: number;
 	password?: string;
 	repeatPassword?: string;
 	birthDate?: string;
