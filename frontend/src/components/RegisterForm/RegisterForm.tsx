@@ -187,7 +187,7 @@ export function RegisterForm() {
 							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.lastName ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.lastName && (
-							<div className='text-red-500 text-sm font-semibold ml-1'>
+							<div className='text-black-500 text-sm font-semibold ml-1'>
 								❌ Tu apellido debe tener al menos 3 caracteres.
 							</div>
 						)}
@@ -203,7 +203,7 @@ export function RegisterForm() {
 							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.email ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.email && (
-							<div className='text-red-500 text-sm font-semibold ml-1'>
+							<div className='text-black-500 text-sm font-semibold ml-1'>
 								❌ Ingresa un correo electrónico válido.
 							</div>
 						)}
@@ -218,7 +218,7 @@ export function RegisterForm() {
 							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.birthDate ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.birthDate && (
-							<div className='text-red-500 text-sm font-semibold ml-1'>
+							<div className='text-black-500 text-sm font-semibold ml-1'>
 								❌ Debes ser mayor de 18 años.
 							</div>
 						)}
@@ -255,7 +255,7 @@ export function RegisterForm() {
 							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.repearPassword ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.repearPassword && (
-							<div className='text-red-500 text-sm font-semibold ml-1'>
+							<div className='text-black-500 text-sm font-semibold ml-1'>
 								❌ Las contraseñas no coinciden.
 							</div>
 						)}
@@ -277,13 +277,13 @@ export function RegisterForm() {
 					<button
 						type='submit'
 						className='bg-white w-96 h-14 px-7 py-3 rounded-lg text-black text-lg shadow-custom font-bold leading-normal'
-						>
+					>
 						Registrarse
 					</button>
 				</form>
 				<div className='mt-4'>
 					<div className='flex flex-col items-center text-white'>
-							<Link to={'/login'}>Iniciar sesión</Link>
+						<Link to={'/login'}>Iniciar sesión</Link>
 					</div>
 				</div>
 			</div>
