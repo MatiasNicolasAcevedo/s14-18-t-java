@@ -1,6 +1,7 @@
 import { useState, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
-//import { useAuth } from '@/hooks';
+import { Login } from '@/types/auth';
+import { useAuth } from '@/hooks';
 
 interface Errors {
 	email: boolean;
@@ -17,7 +18,9 @@ export function LoginForm(): JSX.Element {
 		email: false,
 		password: false,
 	});
-	const validateForm = (email: string, password: string): boolean => {
+	const { authLogin } = useAuth();
+
+	const validateForm = ({ email, password }: Login): boolean => {
 		let validate = false;
 		setErrors({
 			email: false,
@@ -47,9 +50,9 @@ export function LoginForm(): JSX.Element {
 		const email = formData.get('email') as string;
 		const password = formData.get('password') as string;
 
-		if (validateForm(email, password)) return;
+		if (validateForm({ email, password })) return;
 
-		//	authLogin({ email, password });
+		authLogin({ email, password });
 	};
 
 	return (

@@ -1,14 +1,16 @@
 import daisyui from 'daisyui';
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+	mode: 'jit', // habilita el modo JIT
+	purge: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
-		/*screens:{
-			sm:'480px',
-			md: '768px',
-			lg: '976px',
-			xl: '1440px',
-		},*/
+		screens:{
+			'sm': '640px',
+      'md': '768px',
+      'lg': '1000px',
+      'xl': '1024px',
+      '2xl': '1500px',
+		},
 		extend: {
 			boxShadow: {
 				custom:
@@ -29,9 +31,14 @@ export default {
 				2: '2',
 			},
 			colors: {
-				'custom-purple': '#8D3DA5',
-			},
-
+        'custom-purple': '#8D3DA5',
+				'custom-pink': '#f77fb9',
+				'cool-gray-900': '#111827',
+      },
+			backgroundImage:{
+        'aware-pattern': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713478180/AwareGaming/LANDING_13-min_1_xn7q1d.png')",
+				'spin-wise' :" url(https://res.cloudinary.com/dnxjwcku6/image/upload/v1713555467/AwareGaming/Group_1000004299-min_1_cczntx.png)",
+      },
 			fontFamily: {
 				Nunito: ['Nunito'],
 				Inter: ['Inter'],

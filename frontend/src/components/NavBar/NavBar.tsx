@@ -46,8 +46,8 @@ export function NavBar() {
 						</div>
 					</div>
 					<div className="text-black text-sm font-normal font-['Nunito'] leading-tight">
-						Registrarse
-					</div>
+					<Link to='/register'>Registrarse</Link>
+				</div>
 				</div>
 			</nav>
 		</div>
