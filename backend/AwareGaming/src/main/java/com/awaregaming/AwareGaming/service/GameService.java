@@ -96,8 +96,8 @@ public class GameService implements IGameService{
      */
     private String calculateRouletteResult(RouletteBetRequestDto betRequest, int randomNumber) {
         // Listas de números para las diferentes apuestas en la ruleta.
-        List<Integer> redNumbers = Arrays.asList(1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36);
-        List<Integer> blackNumbers = Arrays.asList(2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35);
+        List<Integer> colorNumbers = Arrays.asList(2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35);
+        List<Integer> whiteNumbers = Arrays.asList(1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36);
         List<Integer> lowerNumbers = IntStream.rangeClosed(1, 18).boxed().toList();
         List<Integer> highNumbers = IntStream.rangeClosed(19, 36).boxed().toList();
         List<Integer> firstDozen = IntStream.rangeClosed(1, 12).boxed().toList();
@@ -109,8 +109,8 @@ public class GameService implements IGameService{
 
         // Evaluar el tipo de apuesta y calcular el resultado.
         return switch (betRequest.getBetTypeRoulette()) {
-            case RED -> redNumbers.contains(randomNumber) ? "WIN" : "LOSE";
-            case BLACK -> blackNumbers.contains(randomNumber) ? "WIN" : "LOSE";
+            case COLOR -> colorNumbers.contains(randomNumber) ? "WIN" : "LOSE";
+            case WHITE -> whiteNumbers.contains(randomNumber) ? "WIN" : "LOSE";
             case EVEN -> (randomNumber % 2 == 0 && randomNumber != 0) ? "WIN" : "LOSE";
             case ODD -> (randomNumber % 2 != 0) ? "WIN" : "LOSE";
             case NUMBER -> {
