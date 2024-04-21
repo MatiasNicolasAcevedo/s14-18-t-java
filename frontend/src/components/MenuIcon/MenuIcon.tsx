@@ -183,7 +183,7 @@ const MenuIcon: React.FC = () => {
 						</a>
 					</li>
 				</ul>
-				<ul className='menu bg-[#0c959526] backdrop-blur-[15px] w-[200px]  rounded-[20px] rounded-t-none'>
+				<ul className='menu bg-[#0c959526] backdrop-blur-[15px] w-[200px]  '>
 					<li>
 						<a>
 							<svg
@@ -244,6 +244,13 @@ const MenuIcon: React.FC = () => {
 						</a>
 					</li>
 				</ul>
+				<div className="className='menu bg-[#0c959526] backdrop-blur-[15px] w-[200px]  rounded-[20px] rounded-t-none">
+					<button className='bg-white w-[133px] h-10 px-2 py-1 rounded-full flex justify-center items-center text-black text-lg shadow-custom font-bold leading-normal'>
+						<span className='text-neutral-800 text-sm font-medium text-center font-nunito'>
+							Cerrar sesión
+						</span>
+					</button>
+				</div>
 			</div>
 		</>
 	);
