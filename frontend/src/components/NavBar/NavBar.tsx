@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 
 export function NavBar() {
 	return (
-		<div className='w-full bg-white'>
-			<nav className=' container mx-auto p-4 flex justify-between items-center relative top-0'>
+		<div className='w-full bg-teal-600 bg-opacity-20 border border-zinc-500 backdrop-blur-xl sticky top-0 left-0'>
+			<nav className='container mx-auto p-4 flex justify-between items-center relative top-0'>
 				{/* Links a la izquierda */}
 				<div className='w-96 h-6 justify-start items-center gap-8 inline-flex'>
 					<div className='flex-col justify-center items-start inline-flex'>
@@ -46,8 +46,8 @@ export function NavBar() {
 						</div>
 					</div>
 					<div className="text-black text-sm font-normal font-['Nunito'] leading-tight">
-					<Link to='/register'>Registrarse</Link>
-				</div>
+						<Link to='/register'>Registrarse</Link>
+					</div>
 				</div>
 			</nav>
 		</div>
