@@ -4,12 +4,12 @@ export default {
 	mode: 'jit', // habilita el modo JIT
 	purge: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
-		screens:{
-			'sm': '640px',
-      'md': '768px',
-      'lg': '1000px',
-      'xl': '1024px',
-      '2xl': '1500px',
+		screens: {
+			sm: '640px',
+			md: '768px',
+			lg: '1000px',
+			xl: '1024px',
+			'2xl': '1500px',
 		},
 		extend: {
 			boxShadow: {
@@ -31,13 +31,13 @@ export default {
 				2: '2',
 			},
 			colors: {
+				'custom-purple': '#8D3DA5',
+				'custom-pink': '#f77fb9',
+				'cool-gray-900': '#111827',
 				'custom-blue': '#abb0eb',
 				'custom-dark': '#374151',
         'custom-purple': '#ae75e4',
-				'custom-pink': '#f77fb9',
-				'cool-gray-900': '#111827',
       },
-
 			fontFamily: {
 				Nunito: ['Nunito'],
 				Inter: ['Inter'],
@@ -61,8 +61,16 @@ export default {
 				'dashboard-background':"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486827/LANDING_14_3_-min_ozbkmp.png')",
 				'joystick-land3':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713478927/Group_1000004354-min_spicix.png')",
-				'landing-p':
-					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713540939/LANDING_14_2_-min_esjtsw.png ')",
+				'landing-1':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486393/LANDING_14_6_-min_jiuh9i.png')",
+				'landing-2':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713492707/LANDING_14_1_-min_gwbqea.png')",
+				'landing-3':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486825/LANDING_14_2_-min_imxvlz.png')",
+				'landing-4':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486621/LANDING_14-min_omw6b9.png')",
+				'landing-5':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713487123/contacto_1_-min_u24ot9.png')",
 				'card-roll':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713288751/Group_1000004326-min_weetqq.png')",
 				'card-ruleta': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713281902/Group_1000004324-min_bzyrgg.png')",
@@ -70,6 +78,10 @@ export default {
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486621/LANDING_14-min_omw6b9.png')",
 				'chat-landing3':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713478927/Chat-min_igthn1.png')",
+				'aware-pattern':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713478180/AwareGaming/LANDING_13-min_1_xn7q1d.png')",
+				'spin-wise':
+					' url(https://res.cloudinary.com/dnxjwcku6/image/upload/v1713555467/AwareGaming/Group_1000004299-min_1_cczntx.png)',
 			},
 			daisyui: {
 				themes: [

@@ -32,7 +32,7 @@ const LandingPage: React.FC = () => {
 	}, []);
 
 	return (
-		<div className='w-full bg-landing-p bg-no-repeat bg-cover'>
+		<div className='w-full bg-landing-5 bg-bottom bg-cover bg-fixed'>
 			<NavBar />
 			<ViewLanding1 />
 			<ViewLanding2 />

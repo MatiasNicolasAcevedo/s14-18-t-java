@@ -5,7 +5,7 @@ import MenuIcon from '@/components/MenuIcon/MenuIcon';
 const DashboardPage: React.FC = () => {
 	return (
 		<>
-			<div className=' flex flex-col justify-around items-center w-full bg-dashboard-background min-h-screen bg-cover pb-20'>
+			<div className=' flex flex-col justify-around items-center w-full bg-aware-pattern min-h-screen bg-cover pb-20'>
 				<div className=' w-11/12 flex justify-end '>
 					<Link to='/'>
 						<figure className='w-36 h-14 top-6 right-6 z-10'>
@@ -20,7 +20,7 @@ const DashboardPage: React.FC = () => {
 					<div className=' block'>
 						<MenuIcon />
 					</div>
-					<main className='flex space-x-4'>
+					<main className='flex'>
 						<Outlet />
 					</main>
 				</div>

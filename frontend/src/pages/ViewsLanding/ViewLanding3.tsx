@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 
 export const ViewLanding3 = () => {
 	return (
-		<div className='w-full h-[80hv] '>
+		<div className='w-full h-[80hv] bg-landing-3	bg-center bg-cover '>
 			<div className='max-w-7xl mx-auto pt-28 flex items-center justify-end h-screen'>
 				<div className=' w-2/4 hero-content h-full flex-col justify-start items-start'>
-					<h4 className='text-white text-base font-bold font-Nunito leading-normal'>
+					<h4 className='text-black text-base font-bold font-Nunito leading-normal'>
 						Descubrí
 					</h4>
-					<div className=' w-full h-28 text-left font-black text-5xl font-Nunito text-neutral-100'>
+					<div className=' w-full h-28 text-left font-black text-5xl font-Nunito text-black'>
 						Únete a nuestra comunidad
 					</div>
 					<div className=' w-4/5  text-left text-black text-base font-normal font-Nunito'>

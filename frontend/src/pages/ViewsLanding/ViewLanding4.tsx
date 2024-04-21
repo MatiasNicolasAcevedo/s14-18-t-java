@@ -31,7 +31,7 @@ export const ViewLanding4: React.FC<CardLandingList> = () => {
 		},
 	];
 	return (
-		<div className='w-full h-screen'>
+		<div className='w-full bg-landing-5 bg-cover bg-bottom bg-fixed pt-28'>
 			<div className='container max-w-7xl mx-auto'>
 				<p className='text-center text-5xl bg-gradient-to-r from-[#8D3DA5] to-[#FC9A53] bg-clip-text text-[transparent] font-Nunito  font-black'>
 					Descubre nuestros juegos disponibles
