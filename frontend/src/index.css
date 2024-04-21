@@ -8,3 +8,8 @@
 html {
   scroll-behavior: smooth;
 }
+
+h1 {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #FFF;
+}
