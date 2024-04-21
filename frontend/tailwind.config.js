@@ -31,14 +31,13 @@ export default {
 				2: '2',
 			},
 			colors: {
-        'custom-purple': '#8D3DA5',
+				'custom-blue': '#abb0eb',
+				'custom-dark': '#374151',
+        'custom-purple': '#ae75e4',
 				'custom-pink': '#f77fb9',
 				'cool-gray-900': '#111827',
       },
-			backgroundImage:{
-        'aware-pattern': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713478180/AwareGaming/LANDING_13-min_1_xn7q1d.png')",
-				'spin-wise' :" url(https://res.cloudinary.com/dnxjwcku6/image/upload/v1713555467/AwareGaming/Group_1000004299-min_1_cczntx.png)",
-      },
+
 			fontFamily: {
 				Nunito: ['Nunito'],
 				Inter: ['Inter'],
@@ -57,13 +56,16 @@ export default {
 				'10p': '80px',
 			},
 			backgroundImage: {
+				'blog-background': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713661673/Group_1000004323chat_vzwuxv.png')",
+				'dice-background': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713655396/image_62_vvlcov.png')",
+				'dashboard-background':"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486827/LANDING_14_3_-min_ozbkmp.png')",
 				'joystick-land3':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713478927/Group_1000004354-min_spicix.png')",
 				'landing-p':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713540939/LANDING_14_2_-min_esjtsw.png ')",
 				'card-roll':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713288751/Group_1000004326-min_weetqq.png')",
-				'card-ruleta': "url('/img/footer-texture.png')",
+				'card-ruleta': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713281902/Group_1000004324-min_bzyrgg.png')",
 				'login-r':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486621/LANDING_14-min_omw6b9.png')",
 				'chat-landing3':
