@@ -66,7 +66,7 @@ public class GameService implements IGameService{
         int randomNumber = random.nextInt(37); // Número entre 0 y 36
 
         // Calcular el resultado de la apuesta.
-        int winningAmount = calculateWinningAmount(rouletteBetRequestDto.getBetTypeRoulette(), rouletteBetRequestDto.getBetAmount(), randomNumber);
+        int winningAmount = calculateWinningAmount(rouletteBetRequestDto.getBetTypeRoulette(), rouletteBetRequestDto.getBetAmount(), randomNumber, rouletteBetRequestDto.getBetNumber());
         String result = winningAmount > 0 ? "WIN" : "LOSE";
 
         // Actualizar el crédito del usuario.
@@ -92,15 +92,16 @@ public class GameService implements IGameService{
      * @param betType       Tipo de apuesta
      * @param betAmount     Monto de la apuesta
      * @param winningNumber Número ganador en la ruleta
+     * @param betNumber     Número apostado por el usuario
      * @return              Monto ganado
      */
-    private int calculateWinningAmount(BetTypeRoulette betType, int betAmount, int winningNumber) {
+    private int calculateWinningAmount(BetTypeRoulette betType, int betAmount, int winningNumber, int betNumber) {
         return switch (betType) {
             case COLOR -> betAmount * (winningNumberIsColor(winningNumber) ? 2 : 0);
             case WHITE -> betAmount * (winningNumberIsWhite(winningNumber) ? 2 : 0);
             case EVEN -> betAmount * (winningNumberIsEven(winningNumber) ? 2 : 0);
             case ODD -> betAmount * (winningNumberIsOdd(winningNumber) ? 2 : 0);
-            case NUMBER -> betAmount * (winningNumber == 0 ? 35 : 36);
+            case NUMBER -> betAmount * (winningNumberIsRandomNumber(winningNumber, betNumber) ? 36 : 0);
             case LOWER_NUMBERS -> betAmount * (winningNumberIsLower(winningNumber) ? 2 : 0);
             case HIGH_NUMBERS -> betAmount * (winningNumberIsHigh(winningNumber) ? 2 : 0);
             case FIRST_DOZEN -> betAmount * (winningNumberIsInDozen(winningNumber, 1) ? 3 : 0);
@@ -157,6 +158,9 @@ public class GameService implements IGameService{
         };
     }
 
+    private boolean winningNumberIsRandomNumber(int winningNumber, int betNumber) {
+        return winningNumber == betNumber;
+    }
 
     @Override
     public DiceBetResponseDto playDice(DiceBetRequestDto diceBetRequestDto, String userEmail) {
