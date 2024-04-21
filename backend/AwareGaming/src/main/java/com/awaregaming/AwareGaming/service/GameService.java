@@ -92,10 +92,10 @@ public class GameService implements IGameService{
      * @param betType       Tipo de apuesta
      * @param betAmount     Monto de la apuesta
      * @param winningNumber Número ganador en la ruleta
-     * @param betNumber     Número apostado por el usuario
+     * @param betNumber     Número apostado por el usuario (sólo para el tipo de apuesta NUMBER)
      * @return              Monto ganado
      */
-    private int calculateWinningAmount(BetTypeRoulette betType, int betAmount, int winningNumber, int betNumber) {
+    private int calculateWinningAmount(BetTypeRoulette betType, int betAmount, int winningNumber, Integer betNumber) {
         return switch (betType) {
             case COLOR -> betAmount * (winningNumberIsColor(winningNumber) ? 2 : 0);
             case WHITE -> betAmount * (winningNumberIsWhite(winningNumber) ? 2 : 0);
@@ -158,7 +158,7 @@ public class GameService implements IGameService{
         };
     }
 
-    private boolean winningNumberIsRandomNumber(int winningNumber, int betNumber) {
+    private boolean winningNumberIsRandomNumber(int winningNumber, Integer betNumber) {
         return winningNumber == betNumber;
     }
 
