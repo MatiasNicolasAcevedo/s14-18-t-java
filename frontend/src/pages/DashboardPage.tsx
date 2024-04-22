@@ -20,7 +20,7 @@ const DashboardPage: React.FC = () => {
 					<div className=' block'>
 						<MenuIcon />
 					</div>
-					<main className='flex'>
+					<main className='flex space-x-2'>
 						<Outlet />
 					</main>
 				</div>
