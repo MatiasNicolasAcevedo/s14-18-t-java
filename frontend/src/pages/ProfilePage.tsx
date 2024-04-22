@@ -1,6 +1,11 @@
 import TimeChart from '@/components/TimeChart/TimeChart';
+import React, { useState } from 'react';
+import EditProfileForm from '@/components/EditProfileForm/EditProfileForm';
+import { Link } from 'react-router-dom';
 
 const Profile: React.FC = () => {
+	const [showProfile2, setShowProfile2] = useState(false);
+
 	return (
 		<>
 			<div className='w-1/2 space-x-1 space-y-2 h-full flex flex-col '>
@@ -26,6 +31,7 @@ const Profile: React.FC = () => {
 							</div>
 
 							<button
+								onClick={() => setShowProfile2(!showProfile2)}
 								type='button'
 								className='w-full h-8 px-3 py-1.5 p-3 bg-gray-100 rounded-lg border border-gray-100 flex justify-center items-center gap-2 '
 							>
@@ -132,18 +138,19 @@ const Profile: React.FC = () => {
 					</div>
 				</div>
 			</div>
-
-			<div className='space-y-1 w-2/3 '>
+			{showProfile2 && <EditProfileForm />}
+			<div className={`space-y-1 ${showProfile2 ? 'w-1/5' : 'w-2/3'}`}>
 				<div className='flex items-start  p-8 space-y-4  w-full h-[241px] rounded-[17px]  bg-card-ruleta bg-contain bg-right bg-no-repeat bg-custom-pink  backdrop-blur-[15px] '>
 					<div className='flex flex-col justify-end items-start p-8 w-1/2 rounded-[17px] '>
 						<h1 className='text-gray-700 text-[32px] font-black font-Nunito leading-loose'>
 							SPIN WISE
 						</h1>
-						<button className='w-[86px] h-8 px-3 py-1.5 bg-gray-100 rounded-lg border border-gray-100 flex justify-center items-center gap-2 '>
-							<div className='text-gray-800 text-sm font-bold font-Nunito leading-tight'>
-								jugar
-							</div>
-						</button>
+						<Link
+							to='/dashboard/roullete'
+							className='w-[86px] h-8 px-3 py-1.5 text-gray-800 text-sm font-bold font-Nunito leading-tight bg-gray-100 rounded-lg border border-gray-100 flex justify-center items-center gap-2 hover:bg-gray-200 focus:bg-gray-300 active:bg-gray-400'
+						>
+							jugar
+						</Link>
 					</div>
 				</div>
 

@@ -1,5 +1,4 @@
 import { useState, FormEvent } from 'react';
-import { Link } from 'react-router-dom';
 import { useAuth } from '@/hooks';
 import { RegisterFormData } from '@/types/auth';
 
@@ -10,22 +9,28 @@ interface Errors {
 	dni: boolean;
 	password: boolean;
 	birthDate: boolean;
-	repearPassword: boolean;
-	accepted: boolean;
 }
 
-export function RegisterForm() {
+export default function ProfileEditForm() {
 	const [errors, setErrors] = useState<Errors>({
 		firstName: false,
 		lastName: false,
 		email: false,
-		password: false,
 		dni: false,
+		password: false,
 		birthDate: false,
-		repearPassword: false,
-		accepted: false,
 	});
 	const { authRegister } = useAuth();
+
+	function calculateAge(birthDate: Date): number {
+		const today = new Date();
+		let age = today.getFullYear() - birthDate.getFullYear();
+		const m = today.getMonth() - birthDate.getMonth();
+		if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+			age--;
+		}
+		return age;
+	}
 
 	const validateForm = ({
 		firstName,
@@ -33,9 +38,7 @@ export function RegisterForm() {
 		email,
 		dni,
 		password,
-		repeatPassword,
 		birthDate,
-		accepted,
 	}: RegisterFormData): boolean => {
 		let validate = false;
 		setErrors({
@@ -45,17 +48,15 @@ export function RegisterForm() {
 			dni: false,
 			password: false,
 			birthDate: false,
-			repearPassword: false,
-			accepted: false,
 		});
-		if (!firstName || firstName?.length <= 3) {
+		if (!firstName || firstName.length <= 3) {
 			setErrors(prevErrors => ({
 				...prevErrors,
 				firstName: true,
 			}));
 			validate = true;
 		}
-		if (!lastName || lastName?.length <= 3) {
+		if (!lastName || lastName.length <= 3) {
 			setErrors(prevErrors => ({
 				...prevErrors,
 				lastName: true,
@@ -88,44 +89,17 @@ export function RegisterForm() {
 			}));
 			validate = true;
 		}
-		if (!repeatPassword || !(password === repeatPassword)) {
-			setErrors(prevErrors => ({
-				...prevErrors,
-				repearPassword: true,
-			}));
-			validate = true;
-		}
 		if (!birthDate) {
 			setErrors(prevErrors => ({
 				...prevErrors,
 				birthDate: true,
 			}));
 			validate = true;
-		} else {
-			const currentDate = new Date();
-			const birth = new Date(birthDate);
-			const limitDate = new Date(
-				currentDate.getFullYear() - 18,
-				currentDate.getMonth(),
-				currentDate.getDate(),
-			);
-			setErrors(prevErrors => ({
-				...prevErrors,
-				birthDate: birth > limitDate,
-			}));
-			validate = birth > limitDate;
-		}
-		if (!accepted) {
-			setErrors(prevErrors => ({
-				...prevErrors,
-				accepted: true,
-			}));
-			validate = true;
 		}
 		return validate;
 	};
 
-	const handlerOnSubmitRegister = (event: FormEvent<HTMLFormElement>) => {
+	const handleSubmitRegister = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		const form = event.target as HTMLFormElement;
 		const formData = new FormData(form);
@@ -134,9 +108,9 @@ export function RegisterForm() {
 		const email = formData.get('email') as string;
 		const dni = formData.get('dni') as string;
 		const password = formData.get('password') as string;
-		const repeatPassword = formData.get('repeatPassword') as string;
-		const birthDate = formData.get('birthDate') as string;
-		const accepted = formData.get('accepted') as string;
+		const birthDateString = formData.get('birthDate') as string;
+		const birthDate = new Date(birthDateString); // Convertir la cadena a un objeto Date
+		const birthDateStringISO = birthDate.toISOString(); // Convertir el objeto Date a una cadena
 
 		if (
 			validateForm({
@@ -145,43 +119,49 @@ export function RegisterForm() {
 				email,
 				dni,
 				password,
-				repeatPassword,
-				birthDate,
-				accepted,
+				birthDate: birthDateStringISO,
 			})
 		)
 			return;
-		const currentDate = new Date();
-		const birth = new Date(birthDate);
+
 		authRegister({
 			firstName,
 			lastName,
 			email,
 			dni,
-			birthDate: birthDateString, // Asegúrate de que birthDateString esté definido en tu código
-			age: currentDate.getFullYear() - birth.getFullYear(),
+			password,
+			birthDate: new Date(birthDateStringISO),
+			age: calculateAge(new Date(birthDateStringISO)),
 		});
 	};
 
 	return (
 		<>
-			<div className='flex flex-col items-center justify-center bg-teal-600 bg-opacity-20 border border-zinc-500 p-20 w-[668px] h-[1220px]'>
+			<div className='flex flex-col items-center justify-centerbg rounded-[20px] bg-[rgba(12,149,149,0.20)] backdrop-blur-[15px] border-zinc-500 p-20 w-[668px] h-[1220px]'>
 				<h1 className='w-96 h-20 text-black text-4xl font-extrabold leading-9'>
-					Registro
+					Editar Perfil
 				</h1>
 				<form
 					className='w-96 flex flex-col gap-6'
-					onSubmit={handlerOnSubmitRegister}
+					onSubmit={handleSubmitRegister}
 				>
 					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
-						<label className='text-black text-sm font-semibold leading-normal'>
+						<label
+							htmlFor='firstName'
+							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
+						>
 							Nombre(*)
 						</label>
 						<input
+							id='firstName'
 							type='text'
 							name='firstName'
-							placeholder='María'
-							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.firstName ? 'border-red-500 border-[3px]' : 'border border-black'}`}
+							placeholder='Juan Martín'
+							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${
+								errors.firstName
+									? 'border-red-500 border-[3px]'
+									: 'border border-black'
+							}`}
 						/>
 						{errors.firstName && (
 							<div className='text-black text-sm font-semibold ml-1'>
@@ -190,10 +170,14 @@ export function RegisterForm() {
 						)}
 					</div>
 					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
-						<label className='text-black text-sm font-semibold leading-normal'>
+						<label
+							htmlFor='lastName'
+							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
+						>
 							Apellido(*)
 						</label>
 						<input
+							id='lastName'
 							type='text'
 							name='lastName'
 							placeholder='Gonzalez'
@@ -206,26 +190,14 @@ export function RegisterForm() {
 						)}
 					</div>
 					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
-						<label className='text-black text-sm font-semibold leading-normal'>
-							Correo Electrónico(*)
-						</label>
-						<input
-							type='text'
-							name='email'
-							placeholder='ejemplo@gmail.com'
-							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.email ? 'border-red-500 border-[3px]' : 'border border-black'}`}
-						/>
-						{errors.email && (
-							<div className='text-black text-sm font-semibold ml-1'>
-								❌ Ingresa un correo electrónico válido.
-							</div>
-						)}
-					</div>
-					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
-						<label className='text-black text-sm font-semibold leading-normal'>
+						<label
+							htmlFor='DNI'
+							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
+						>
 							DNI(*)
 						</label>
 						<input
+							id='DNI'
 							type='number'
 							name='dni'
 							placeholder='12345678'
@@ -233,31 +205,20 @@ export function RegisterForm() {
 							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.dni ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.dni && (
-							<div className='text-black text-sm font-semibold ml-1'>
+							<div className='text-gray-900 text-sm font-bold font-nunito leading-normal'>
 								❌ Ingresa tu DNI.
 							</div>
 						)}
 					</div>
 					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
-						<label className='text-black text-sm font-semibold leading-normal'>
-							Fecha de nacimiento(*)
-						</label>
-						<input
-							type='date'
-							name='birthDate'
-							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.birthDate ? 'border-red-500 border-[3px]' : 'border border-black'}`}
-						/>
-						{errors.birthDate && (
-							<div className='text-black text-sm font-semibold ml-1'>
-								❌ Debes ser mayor de 18 años.
-							</div>
-						)}
-					</div>
-					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
-						<label className='text-black text-sm font-semibold leading-normal'>
+						<label
+							htmlFor='password'
+							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
+						>
 							Contraseña(*)
 						</label>
 						<input
+							id='password'
 							type='password'
 							name='password'
 							placeholder='*************'
@@ -275,47 +236,44 @@ export function RegisterForm() {
 						)}
 					</div>
 					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
-						<label className='text-black text-sm font-semibold leading-normal'>
-							Repetir Contraseña(*)
+						<label
+							htmlFor='birthDate'
+							className='text-black text-sm font-semibold leading-normal'
+						>
+							Fecha de nacimiento(*)
 						</label>
 						<input
-							type='password'
-							name='repeatPassword'
-							placeholder='*************'
-							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.repearPassword ? 'border-red-500 border-[3px]' : 'border border-black'}`}
+							id='birthDate'
+							type='date'
+							name='birthDate'
+							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.birthDate ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
-						{errors.repearPassword && (
+						{errors.birthDate && (
 							<div className='text-black text-sm font-semibold ml-1'>
-								❌ Las contraseñas no coinciden.
+								❌ Debes ser mayor de 18 años.
 							</div>
 						)}
 					</div>
-					<div className='flex flex-col justify-center items-center'>
-						<div className='w-96 h-7 text-white text-base font-bold leading-9 flex gap-2 justify-center items-center'>
-							<input
-								type='checkbox'
-								name='accepted'
-							/>
-							<label>Acepto Términos y Condiciones</label>
-						</div>
-						{errors.accepted && (
-							<div className='text-black text-sm font-semibold ml-1'>
-								❌ Debes aceptar los Términos y Condiciones.
+
+					<div className='flex justify-around flex-end w-full'>
+						<button
+							type='submit'
+							className='w-[86px] h-8 px-3 py-1.5 bg-gray-100 rounded-lg border border-gray-100 flex justify-center items-center gap-2'
+						>
+							<div className='text-gray-800 text-sm font-bold font-Nunito leading-tight'>
+								Editar
 							</div>
-						)}
+						</button>
+						<button
+							type='button'
+							className='w-[86px] h-8 px-3 py-1.5 bg-gray-100 rounded-lg border border-gray-100 flex justify-center items-center gap-2'
+						>
+							<div className='text-gray-800 text-sm font-bold font-Nunito leading-tight'>
+								Cancelar
+							</div>
+						</button>
 					</div>
-					<button
-						type='submit'
-						className='bg-white w-96 h-14 px-7 py-3 rounded-lg text-black text-lg shadow-custom font-bold leading-normal'
-					>
-						Registrarse
-					</button>
 				</form>
-				<div className='mt-4'>
-					<div className='flex flex-col items-center text-white'>
-						<Link to={'/login'}>Iniciar sesión</Link>
-					</div>
-				</div>
 			</div>
 		</>
 	);
