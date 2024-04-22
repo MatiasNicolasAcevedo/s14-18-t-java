@@ -21,7 +21,7 @@ export function useAuth() {
 				});
 			if (message != null) return toast.error(message);
 			if (token) dispatch(setToken(token));
-			navigate('/dashboard');
+			navigate('/dashboard/profile');
 		} catch (error) {
 			console.log(error);
 			toast.error('Error en la Aplicación');

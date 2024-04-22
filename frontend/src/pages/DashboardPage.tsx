@@ -5,7 +5,7 @@ import MenuIcon from '@/components/MenuIcon/MenuIcon';
 const DashboardPage: React.FC = () => {
 	return (
 		<>
-			<div className='relative flex justify-center items-center w-[1440px] h-[1024px] bg-aware-pattern'>
+			<div className='relative flex justify-center items-center w-full h-[1024px] bg-aware-pattern'>
 				<Link to='/'>
 					<figure className='w-36 h-14 absolute top-6 right-6 z-10'>
 						<img
