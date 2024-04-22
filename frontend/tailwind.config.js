@@ -36,7 +36,7 @@ export default {
 				'cool-gray-900': '#111827',
 				'custom-blue': '#abb0eb',
 				'custom-dark': '#374151',
-        'custom-purple': '#ae75e4',
+        'custom-violate': '#ae75e4',
       },
 			fontFamily: {
 				Nunito: ['Nunito'],
@@ -56,7 +56,7 @@ export default {
 				'10p': '80px',
 			},
 			backgroundImage: {
-				'blog-background': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713661673/Group_1000004323chat_vzwuxv.png')",
+				'blog-background': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713744016/Frame_63-min_zcpmck.png')",
 				'dice-background': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713655396/image_62_vvlcov.png')",
 				'dashboard-background':"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486827/LANDING_14_3_-min_ozbkmp.png')",
 				'joystick-land3':

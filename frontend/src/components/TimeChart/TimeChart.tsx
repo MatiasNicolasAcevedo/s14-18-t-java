@@ -1,4 +1,4 @@
-import { BarChart, Bar, XAxis, Tooltip, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, Tooltip } from 'recharts';
 
 // Tus datos de horas en pantalla por día
 const data = [
@@ -52,11 +52,10 @@ const TimeChart = () => (
 				color: '#ffffff', // Color del texto
 			}}
 		/>
-		<Legend />
 		<Bar
 			dataKey='Horas'
 			fill='url(#colorUv)'
-			barSize={20} // El ancho de las barras
+			barSize={12} // El ancho de las barras
 			radius={[10, 10, 0, 0]} // El radio de las esquinas de las barras. Esto redondeará las esquinas superiores.
 		/>
 	</BarChart>
