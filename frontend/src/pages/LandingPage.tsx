@@ -1,8 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import livingroom from '../images/livingroom.png';
 import { NavBar } from '@/components/NavBar/NavBar';
-import { Link } from 'react-router-dom';
 import { Footer } from '@/components';
+import { ViewLanding4 } from './ViewsLanding/ViewLanding4';
+import { ViewLanding1 } from './ViewsLanding/ViewLanding1';
+import { ViewLanding2 } from './ViewsLanding/ViewLanding2';
+import { ViewLanding3 } from './ViewsLanding/ViewLanding3';
+import { ViewLanding5 } from './ViewsLanding/ViewLanding5';
 const LandingPage: React.FC = () => {
 	// Función para manejar el scroll suave
 	const divRef = useRef<HTMLDivElement>(null);
@@ -29,34 +32,13 @@ const LandingPage: React.FC = () => {
 	}, []);
 
 	return (
-		<div className='w-full bg-gradient-to-b from-white to-custom-purple'>
+		<div className='w-full bg-landing-5 bg-bottom bg-cover bg-fixed'>
 			<NavBar />
-			<div
-				ref={divRef}
-				className='max-w-7xl mx-auto py-28 items-center justify-center'
-			>
-				<div className='hero flex gap-12'>
-					<div className=' w-6/12 hero-content flex-col'>
-						<h1 className=' text-xl text-black font-bold'>Aware Gaming</h1>
-						<p className=' text-black text-base'>
-							Bienvenido a nuestra plataforma de juegos, donde creemos en el
-							juego responsable. Únete a esta experiencia y aprende acerca de la
-							importancia divertirse conscientemente
-						</p>
-						<div className='bg-white w-36 h-12 px-7 py-3 rounded-3xl text-black text-sm font-semibold text-center leading-tight shadow-custom'>
-							<Link to={'/login'}>Jugar</Link>
-						</div>
-					</div>
-					<div className='w-6/12 bg-black bg-opacity-20 rounded-full shadow shadow-inner'>
-						<img
-							className=' rounded-10p max-w-custom'
-							src={livingroom}
-							alt='living room'
-						/>
-					</div>
-				</div>
-			</div>
-			{/* LANDING 2, 3...*/}
+			<ViewLanding1 />
+			<ViewLanding2 />
+			<ViewLanding3 />
+			<ViewLanding4 cards={[]} />
+			<ViewLanding5 />
 			<Footer />
 		</div>
 	);
