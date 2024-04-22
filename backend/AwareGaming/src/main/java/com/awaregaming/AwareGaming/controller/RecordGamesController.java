@@ -34,7 +34,7 @@ public class RecordGamesController {
     }
 
     @PutMapping("/{id}")
-    public RecordGames updateRecordGame(@PathVariable Long id, @RequestBody RecordGames recordGame) {
+    public RecordGames updateRecordGame(@PathVariable Integer id, @RequestBody RecordGames recordGame) {
         return recordGamesService.updateRecordGame(id, recordGame);
     }
 

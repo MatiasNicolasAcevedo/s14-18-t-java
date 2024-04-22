@@ -1,5 +1,6 @@
 package com.awaregaming.AwareGaming.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,9 +9,13 @@ public class RecordGames {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Integer id;
+
+    @JsonProperty("total_games")
     Integer totalGames;
+    @JsonProperty("won_games")
     Integer wonGames;
+    @JsonProperty("lost_games")
     Integer lostGames;
 
     @OneToOne

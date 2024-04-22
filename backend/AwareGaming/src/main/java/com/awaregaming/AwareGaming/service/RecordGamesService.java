@@ -29,7 +29,7 @@ public class RecordGamesService {
         return recordGamesRepository.save(recordGame);
     }
 
-    public RecordGames updateRecordGame(Long id, RecordGames recordGame) {
+    public RecordGames updateRecordGame(Integer id, RecordGames recordGame) {
         recordGame.setId(id);
         return recordGamesRepository.save(recordGame);
     }
