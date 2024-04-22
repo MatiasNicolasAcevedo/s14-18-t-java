@@ -24,7 +24,7 @@ public class UserService implements IUserService {
 
     @Autowired
     IUserRepository userRepository;
-  
+
     @Autowired
     PasswordEncoder passwordEncoder;
 
@@ -41,74 +41,75 @@ public class UserService implements IUserService {
         );
     }
 
-    @Override
-    @Transactional(readOnly = true)
-    public List<UserResponseDto> getAllUsers(){
-        return userListToUserDtoList(userRepository.findAll());
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public ResponseEntity<UserResponseDto> getUser(int id) throws UsernameNotFoundException {
-        Optional<User> user = userRepository.findById(id);
-        if(user.isPresent()){
-            return new ResponseEntity<>(new UserResponseDto(user.get()), HttpStatus.OK);
-        } else {
-            throw new UsernameNotFoundException("User not found");
+        @Override
+        @Transactional(readOnly = true)
+        public List<UserResponseDto> getAllUsers () {
+            return userListToUserDtoList(userRepository.findAll());
         }
-    }
 
-    @Override
-    public ResponseEntity<String> updateUser(int id, UserRequestDto userRequestDto) throws UserUpdateException {
-        Optional<User> user = userRepository.findById(id);
-        try {
-            if (user.isPresent()) {
-                User user1 = user.get();
-                if (!Objects.equals(user1.getFirstName(), userRequestDto.getFirstName())) {
-                    user1.setFirstName(userRequestDto.getFirstName());
+        @Override
+        @Transactional(readOnly = true)
+        public ResponseEntity<UserResponseDto> getUserById(int id) throws UsernameNotFoundException {
+            User user = userRepository.findById(id)
+                    .orElseThrow(()-> new UsernameNotFoundException("User not found"));
+            return new ResponseEntity<>(new UserResponseDto(user), HttpStatus.OK);
+        }
+
+        @Override
+        public ResponseEntity<String> updateUser ( int id, UserRequestDto userRequestDto) throws UserUpdateException {
+            Optional<User> user = userRepository.findById(id);
+            try {
+                if (user.isPresent()) {
+                    User user1 = user.get();
+                    if (!userRequestDto.getFirstName().isBlank() && !Objects.equals(user1.getFirstName(), userRequestDto.getFirstName())) {
+                        user1.setFirstName(userRequestDto.getFirstName());
+                    }
+                    if (!userRequestDto.getLastName().isBlank() && !Objects.equals(user1.getLastName(), userRequestDto.getLastName())) {
+                        user1.setLastName(userRequestDto.getLastName());
+                    }
+                    if (!userRequestDto.getPassword().isBlank() && !passwordEncoder.matches(userRequestDto.getPassword(), user1.getPassword())) {
+                        user1.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
+                    }
+                    userRepository.save(user1);
+                    return new ResponseEntity<>("User update successful", HttpStatus.OK);
+                } else {
+                    return new ResponseEntity<>("No user found for update", HttpStatus.NOT_FOUND);
                 }
-                if (!Objects.equals(user1.getLastName(), userRequestDto.getLastName())) {
-                    user1.setLastName(userRequestDto.getLastName());
-                }
-                if (!passwordEncoder.matches(userRequestDto.getPassword(), user1.getPassword())) {
-                    user1.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
-                }
-                userRepository.save(user1);
-                return new ResponseEntity<>("User update successful", HttpStatus.OK);
-            } else {
-                return new ResponseEntity<>("No user found for update", HttpStatus.NOT_FOUND);
+            } catch (UserUpdateException e) {
+                throw new UserUpdateException("Error updating user");
+            } catch (UsernameNotFoundException e) {
+                throw new UsernameNotFoundException("User not found");
             }
-        } catch (UserUpdateException e){
-            throw new UserUpdateException("Error updating user");
-        } catch (UsernameNotFoundException e){
-            throw new UsernameNotFoundException("User not found");
         }
-    }
 
-    @Override
-    public ResponseEntity<String> deleteUser(int id) throws UsernameNotFoundException {
-        Optional<User> user = userRepository.findById(id);
-        try {
-            if(user.isPresent()){
-                user.get().setActive(false);
-                userRepository.save(user.get());
-                return new ResponseEntity<>("User delete successful", HttpStatus.OK);
-            } else {
-                return new ResponseEntity<>("User not found for delete", HttpStatus.NOT_FOUND);
+
+        @Override
+        public ResponseEntity<String> deleteUser ( int id) throws UsernameNotFoundException {
+            Optional<User> user = userRepository.findById(id);
+            try {
+                if (user.isPresent()) {
+                    user.get().setActive(false);
+                    userRepository.save(user.get());
+                    return new ResponseEntity<>("User delete successful", HttpStatus.OK);
+                } else {
+                    return new ResponseEntity<>("User not found for delete", HttpStatus.NOT_FOUND);
+                }
+            } catch (UserDeleteException e) {
+                throw new UserDeleteException("Error deleting user", e);
             }
-        } catch (UserDeleteException e){
-            throw new UserDeleteException("Error deleting user", e);
         }
-    }
 
-    public static List<UserResponseDto> userListToUserDtoList(List<User> users){
-        List<UserResponseDto> userResponseDtoList = new ArrayList<>();
-        for (User user : users){
-            UserResponseDto userResponseDto = new UserResponseDto(user);
-            userResponseDtoList.add(userResponseDto);
+
+        public static List<UserResponseDto> userListToUserDtoList (List<User> users) {
+            List<UserResponseDto> userResponseDtoList = new ArrayList<>();
+            for (User user : users) {
+                UserResponseDto userResponseDto = new UserResponseDto(user);
+                userResponseDtoList.add(userResponseDto);
+            }
+            return userResponseDtoList;
+
         }
-        return userResponseDtoList;
-    }
+
 
     @Override
     public ResponseEntity<UserResponseDto> getUserByEmail(String email) {
@@ -117,6 +118,41 @@ public class UserService implements IUserService {
         return new ResponseEntity<>(new UserResponseDto(user), HttpStatus.OK);
     }
 
+    @Override
+    public ResponseEntity<String> addCreditsToUser(String email, int amount) {
+        try {
+            User user = userRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
+
+            user.setCredits(user.getCredits() + amount);
+            userRepository.save(user);
+
+            return new ResponseEntity<>("Credits added successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error adding credits", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Override
+    public ResponseEntity<String> addCreditsToUserById(int id, int amount) {
+        try {
+            Optional<User> userOptional = userRepository.findById(id);
+
+            if (userOptional.isPresent()) {
+                User user = userOptional.get();
+                user.setCredits(user.getCredits() + amount);
+                userRepository.save(user);
+
+                return new ResponseEntity<>("Credits added successfully", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error adding credits", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 }
+
+

@@ -1,8 +1,8 @@
 package com.awaregaming.AwareGaming.model.Enum;
 
 public enum BetTypeRoulette {
-    RED,
-    BLACK,
+    COLOR,
+    WHITE,
     EVEN,
     ODD,
     NUMBER,

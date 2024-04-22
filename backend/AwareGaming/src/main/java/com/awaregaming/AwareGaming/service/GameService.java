@@ -4,6 +4,8 @@ import com.awaregaming.AwareGaming.dto.DiceBetRequestDto;
 import com.awaregaming.AwareGaming.dto.DiceBetResponseDto;
 import com.awaregaming.AwareGaming.dto.RouletteBetRequestDto;
 import com.awaregaming.AwareGaming.dto.RouletteBetResponseDto;
+import com.awaregaming.AwareGaming.model.Enum.BetTypeRoulette;
+import com.awaregaming.AwareGaming.model.Game;
 import com.awaregaming.AwareGaming.model.User;
 import com.awaregaming.AwareGaming.model.Game;
 import com.awaregaming.AwareGaming.repository.IGameRepository;
@@ -65,14 +67,12 @@ public class GameService implements IGameService{
         int randomNumber = random.nextInt(37); // Número entre 0 y 36
 
         // Calcular el resultado de la apuesta.
-        String result = calculateRouletteResult(rouletteBetRequestDto, randomNumber);
+        int winningAmount = calculateWinningAmount(rouletteBetRequestDto.getBetTypeRoulette(), rouletteBetRequestDto.getBetAmount(), randomNumber, rouletteBetRequestDto.getBetNumber());
+        String result = winningAmount > 0 ? "WIN" : "LOSE";
 
         // Actualizar el crédito del usuario.
-        if ("WIN".equals(result)) {
-            currentCredit += rouletteBetRequestDto.getBetAmount() * 36; // Pago 36 a 1 en apuestas a un número específico.
-        } else {
-            currentCredit -= rouletteBetRequestDto.getBetAmount();
-        }
+        currentCredit += winningAmount;
+        currentCredit -= rouletteBetRequestDto.getBetAmount(); // Restar la apuesta realizada
 
         // Actualizar y guardar el crédito en la base de datos.
         user.setCredits(currentCredit);
@@ -88,51 +88,80 @@ public class GameService implements IGameService{
     }
 
     /**
-     * Método privado para calcular el resultado de la apuesta en la ruleta.
+     * Método privado para calcular el monto ganado en la apuesta en la ruleta.
      *
-     * @param betRequest    Objeto con la información de la apuesta
-     * @param randomNumber  Número aleatorio generado para la ruleta
-     * @return              Resultado de la apuesta ("WIN" o "LOSE")
+     * @param betType       Tipo de apuesta
+     * @param betAmount     Monto de la apuesta
+     * @param winningNumber Número ganador en la ruleta
+     * @param betNumber     Número apostado por el usuario (sólo para el tipo de apuesta NUMBER)
+     * @return              Monto ganado
      */
-    private String calculateRouletteResult(RouletteBetRequestDto betRequest, int randomNumber) {
-        // Listas de números para las diferentes apuestas en la ruleta.
-        List<Integer> redNumbers = Arrays.asList(1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36);
-        List<Integer> blackNumbers = Arrays.asList(2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35);
-        List<Integer> lowerNumbers = IntStream.rangeClosed(1, 18).boxed().toList();
-        List<Integer> highNumbers = IntStream.rangeClosed(19, 36).boxed().toList();
-        List<Integer> firstDozen = IntStream.rangeClosed(1, 12).boxed().toList();
-        List<Integer> secondDozen = IntStream.rangeClosed(13, 24).boxed().toList();
-        List<Integer> thirdDozen = IntStream.rangeClosed(25, 36).boxed().toList();
-        List<Integer> firstRow = Arrays.asList(1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34);
-        List<Integer> secondRow = Arrays.asList(2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35);
-        List<Integer> thirdRow = Arrays.asList(3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36);
-
-        // Evaluar el tipo de apuesta y calcular el resultado.
-        return switch (betRequest.getBetTypeRoulette()) {
-            case RED -> redNumbers.contains(randomNumber) ? "WIN" : "LOSE";
-            case BLACK -> blackNumbers.contains(randomNumber) ? "WIN" : "LOSE";
-            case EVEN -> (randomNumber % 2 == 0 && randomNumber != 0) ? "WIN" : "LOSE";
-            case ODD -> (randomNumber % 2 != 0) ? "WIN" : "LOSE";
-            case NUMBER -> {
-                // Validar la apuesta y el monto.
-                if (betRequest.getBetNumber() < 0 || betRequest.getBetNumber() > 36 || betRequest.getBetAmount() < 0) {
-                    throw new RuntimeException("Invalid number bet or bet amount");
-                }
-                // Calcular el resultado para la apuesta a un número específico.
-                yield (randomNumber == betRequest.getBetNumber()) ? "WIN" : "LOSE";
-            }
-            case LOWER_NUMBERS -> lowerNumbers.contains(randomNumber) ? "WIN" : "LOSE";
-            case HIGH_NUMBERS -> highNumbers.contains(randomNumber) ? "WIN" : "LOSE";
-            case FIRST_DOZEN -> firstDozen.contains(randomNumber) ? "WIN" : "LOSE";
-            case SECOND_DOZEN -> secondDozen.contains(randomNumber) ? "WIN" : "LOSE";
-            case THIRD_DOZEN -> thirdDozen.contains(randomNumber) ? "WIN" : "LOSE";
-            case FIRST_ROW -> firstRow.contains(randomNumber) ? "WIN" : "LOSE";
-            case SECOND_ROW -> secondRow.contains(randomNumber) ? "WIN" : "LOSE";
-            case THIRD_ROW -> thirdRow.contains(randomNumber) ? "WIN" : "LOSE";
+    private int calculateWinningAmount(BetTypeRoulette betType, int betAmount, int winningNumber, Integer betNumber) {
+        return switch (betType) {
+            case COLOR -> betAmount * (winningNumberIsColor(winningNumber) ? 2 : 0);
+            case WHITE -> betAmount * (winningNumberIsWhite(winningNumber) ? 2 : 0);
+            case EVEN -> betAmount * (winningNumberIsEven(winningNumber) ? 2 : 0);
+            case ODD -> betAmount * (winningNumberIsOdd(winningNumber) ? 2 : 0);
+            case NUMBER -> betAmount * (winningNumberIsRandomNumber(winningNumber, betNumber) ? 36 : 0);
+            case LOWER_NUMBERS -> betAmount * (winningNumberIsLower(winningNumber) ? 2 : 0);
+            case HIGH_NUMBERS -> betAmount * (winningNumberIsHigh(winningNumber) ? 2 : 0);
+            case FIRST_DOZEN -> betAmount * (winningNumberIsInDozen(winningNumber, 1) ? 3 : 0);
+            case SECOND_DOZEN -> betAmount * (winningNumberIsInDozen(winningNumber, 2) ? 3 : 0);
+            case THIRD_DOZEN -> betAmount * (winningNumberIsInDozen(winningNumber, 3) ? 3 : 0);
+            case FIRST_ROW -> betAmount * (winningNumberIsInRow(winningNumber, 1) ? 3 : 0);
+            case SECOND_ROW -> betAmount * (winningNumberIsInRow(winningNumber, 2) ? 3 : 0);
+            case THIRD_ROW -> betAmount * (winningNumberIsInRow(winningNumber, 3) ? 3 : 0);
             default -> throw new RuntimeException("Invalid bet type");
         };
     }
 
+    private boolean winningNumberIsColor(int number) {
+        List<Integer> colorNumbers = Arrays.asList(2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35);
+        return colorNumbers.contains(number);
+    }
+
+    private boolean winningNumberIsWhite(int number) {
+        List<Integer> whiteNumbers = Arrays.asList(1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36);
+        return whiteNumbers.contains(number);
+    }
+
+    private boolean winningNumberIsEven(int number) {
+        return number != 0 && number % 2 == 0;
+    }
+
+    private boolean winningNumberIsOdd(int number) {
+        return number % 2 != 0;
+    }
+
+    private boolean winningNumberIsLower(int number) {
+        return number >= 1 && number <= 18;
+    }
+
+    private boolean winningNumberIsHigh(int number) {
+        return number >= 19 && number <= 36;
+    }
+
+    private boolean winningNumberIsInDozen(int number, int dozen) {
+        return switch (dozen) {
+            case 1 -> number >= 1 && number <= 12;
+            case 2 -> number >= 13 && number <= 24;
+            case 3 -> number >= 25 && number <= 36;
+            default -> false;
+        };
+    }
+
+    private boolean winningNumberIsInRow(int number, int row) {
+        return switch (row) {
+            case 1 -> Arrays.asList(1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34).contains(number);
+            case 2 -> Arrays.asList(2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35).contains(number);
+            case 3 -> Arrays.asList(3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36).contains(number);
+            default -> false;
+        };
+    }
+
+    private boolean winningNumberIsRandomNumber(int winningNumber, Integer betNumber) {
+        return winningNumber == betNumber;
+    }
 
     @Override
     public DiceBetResponseDto playDice(DiceBetRequestDto diceBetRequestDto, String userEmail) {

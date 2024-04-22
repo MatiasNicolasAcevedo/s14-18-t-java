@@ -14,7 +14,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
+import org.springframework.web.filter.CorsFilter;
 import java.util.List;
 
 import static org.springframework.security.config.Customizer.withDefaults;
@@ -44,8 +44,6 @@ public class SecurityConfig {
                                 .requestMatchers("/auth/**").permitAll() //todas las request que matcheen con la ruta auth van a ser publicos
                                 .anyRequest().authenticated() //cualquier otra ruta que se identifique
                                 )
-                /** Configuracion de CORS */
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .sessionManagement(sessionManager-> //deshabilitamos las sesiones
                         sessionManager
                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -54,17 +52,6 @@ public class SecurityConfig {
                 //agregamos el filtro relacionado al jwt
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
-    }
-
-    CorsConfigurationSource corsConfigurationSource(){
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(List.of("http://localhost:5173"));
-        corsConfiguration.addAllowedHeader("*");
-        corsConfiguration.addAllowedMethod("*");
-        corsConfiguration.setAllowCredentials(true);
-        UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
-        urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
-        return urlBasedCorsConfigurationSource;
     }
 
 }
