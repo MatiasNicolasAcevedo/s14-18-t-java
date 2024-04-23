@@ -1,16 +1,20 @@
 package com.awaregaming.AwareGaming.service;
 
 
+import com.awaregaming.AwareGaming.dto.RecordByGameResponseDTO;
 import com.awaregaming.AwareGaming.model.RecordByGame;
+import com.awaregaming.AwareGaming.model.User;
 import com.awaregaming.AwareGaming.repository.IUserRepository;
 import com.awaregaming.AwareGaming.repository.IRecordByGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
-public class RecordByGameService {
+public class RecordByGameService implements IRecordByGameService {
 
     @Autowired
     private IRecordByGameRepository recordByGameRepository;
@@ -38,5 +42,23 @@ public class RecordByGameService {
 
     public void deleteGame(Long id) {
         recordByGameRepository.deleteById(id);
+    }
+
+
+    @Override
+    public List<RecordByGameResponseDTO> getAllUserRecords(String userEmail) {
+        User user = userRepository.findByEmail(userEmail)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        List<RecordByGame> recordGames = recordByGameRepository.findByUser(user);
+        return recordGames.stream().map(this::mapToResponseDTO).collect(Collectors.toList());
+    }
+    private RecordByGameResponseDTO mapToResponseDTO(RecordByGame recordByGame){
+        return RecordByGameResponseDTO.builder()
+                .betTypeRoulette(recordByGame.getBetTypeRoulette())
+                .betAmount(recordByGame.getBetAmount())
+                .betNumber(recordByGame.getBetNumber())
+                .winningNumber(recordByGame.getWinningNumber())
+                .result(recordByGame.getResult())
+                .build();
     }
 }
