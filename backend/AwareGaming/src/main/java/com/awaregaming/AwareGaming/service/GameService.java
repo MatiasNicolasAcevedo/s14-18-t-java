@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.IntStream;
 
 @Service
 public class GameService implements IGameService{
@@ -68,6 +67,7 @@ public class GameService implements IGameService{
         // Calcular el resultado de la apuesta.
         int winningAmount = calculateWinningAmount(rouletteBetRequestDto.getBetTypeRoulette(), rouletteBetRequestDto.getBetAmount(), randomNumber, rouletteBetRequestDto.getBetNumber());
         String result = winningAmount > 0 ? "WIN" : "LOSE";
+        String numberColor = winningNumberIsColor(randomNumber) ? "COLOR" : "WHITE"; // Añadir el color del número ganador
 
         // Actualizar el crédito del usuario.
         currentCredit += winningAmount;
@@ -78,12 +78,14 @@ public class GameService implements IGameService{
         userRepository.save(user);
 
         // Crear y retornar el DTO con los resultados de la ruleta.
-        RouletteBetResponseDto rouletteBetResponseDto = new RouletteBetResponseDto();
-        rouletteBetResponseDto.setResult(result);
-        rouletteBetResponseDto.setNewCredit(currentCredit);
-        rouletteBetResponseDto.setWinningNumber(randomNumber);
 
-        return rouletteBetResponseDto;
+        return RouletteBetResponseDto.builder()
+                .result(result)
+                .newCredit(currentCredit)
+                .winningNumber(randomNumber)
+                .numberColor(numberColor) // Añadir el color del número ganador al DTO
+                .winningAmount(winningAmount) // Añadir los créditos ganados al DTO
+                .build();
     }
 
     /**
