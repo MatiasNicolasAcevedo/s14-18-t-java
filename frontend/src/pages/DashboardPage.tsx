@@ -31,10 +31,9 @@ const DashboardPage: React.FC = () => {
 
 	return (
 		<>
-			<div
 				className={`flex flex-col justify-around items-center w-full ${background} min-h-screen bg-cover pb-20`}
 			>
-				<div className=' w-11/12 flex justify-end '>
+				<div className='w-full flex bg-white flex-col justify-center items-center'>
 					<Link to='/'>
 						<figure className='w-36 h-14 top-6 right-6 z-10'>
 							<img

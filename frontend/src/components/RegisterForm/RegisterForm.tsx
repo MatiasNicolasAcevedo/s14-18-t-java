@@ -158,7 +158,7 @@ export function RegisterForm() {
 			lastName,
 			email,
 			dni,
-			password,
+			birthDate: birthDateString, // Asegúrate de que birthDateString esté definido en tu código
 			age: currentDate.getFullYear() - birth.getFullYear(),
 		});
 	};
