@@ -1,12 +1,21 @@
 package com.awaregaming.AwareGaming.auth;
 
+import com.awaregaming.AwareGaming.exceptions.RegistrationException;
+import jakarta.servlet.Registration;
+import jakarta.validation.ConstraintViolationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
 
 //esta clase nos va a permitir exponer las rutas con los endpoints
 @RestController
@@ -18,13 +27,30 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest loginRequest){
-        return ResponseEntity.ok(authService.login(loginRequest));
+    public ResponseEntity<Map<String, Object>> login(@RequestBody LoginRequest loginRequest){ //MAP para que podamos incluir el mensaje como los datos de la respuesta
+        Map<String, Object> response = new HashMap<>();
+        AuthResponse authResponse = authService.login(loginRequest);
+        if(authResponse!=null){
+            response.put("message", "Welcome to AwareGaming");
+            response.put("data", authResponse); //el data es para que nos mande el token en el body
+            return ResponseEntity.ok(response);
+        } else {
+            response.put("message", "Incorrect email and/or password");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+        }
     }
 
     @PostMapping("/register")
-    public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest registerRequest){
-        return ResponseEntity.ok(authService.register(registerRequest));
+    public ResponseEntity<Map<String, Object>> register(@RequestBody RegisterRequest registerRequest){
+        Map<String, Object> response = new HashMap<>();
+        try {
+            AuthResponse authResponse = authService.register(registerRequest);
+            response.put("message", "Successful registration");
+            response.put("data", authResponse);
+            return ResponseEntity.ok(response);
+        } catch (RegistrationException e) {
+            response.put("message", e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        }
+        }
     }
-
-}
