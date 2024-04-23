@@ -1,8 +1,10 @@
 package com.awaregaming.AwareGaming.utils;
 
+import com.awaregaming.AwareGaming.model.Comment;
 import com.awaregaming.AwareGaming.model.Enum.Role;
 import com.awaregaming.AwareGaming.model.Post;
 import com.awaregaming.AwareGaming.model.User;
+import com.awaregaming.AwareGaming.repository.ICommentRepository;
 import com.awaregaming.AwareGaming.repository.IPostsRepository;
 import com.awaregaming.AwareGaming.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class DataLoader implements CommandLineRunner {
 
     @Autowired
     private IPostsRepository postsRepository;
+
+    @Autowired
+    private ICommentRepository commentRepository;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -59,6 +64,15 @@ public class DataLoader implements CommandLineRunner {
 
             postsRepository.save(post1);
 
+            Comment comment1 = new Comment();
+            comment1.setComment("Excelente post");
+            comment1.setUser(user1);
+            comment1.setPost(post1);
+            comment1.setCreatedAt(LocalDateTime.now());
+            comment1.setUpdatedAt(null);
+            commentRepository.save(comment1);
+
+
             //User 2
             User user2 = new User();
             user2.setFirstName("Lionel");
@@ -94,6 +108,14 @@ public class DataLoader implements CommandLineRunner {
 
             postsRepository.save(post2);
 
+            Comment comment2 = new Comment();
+            comment2.setComment("Muy buen post");
+            comment2.setUser(user3);
+            comment2.setPost(post2);
+            comment2.setCreatedAt(LocalDateTime.now());
+            comment2.setUpdatedAt(null);
+            commentRepository.save(comment2);
+
             //User 4
             User user4 = new User();
             user4.setFirstName("Ruben");
@@ -116,6 +138,14 @@ public class DataLoader implements CommandLineRunner {
 
             postsRepository.save(post4);
 
+            Comment comment3 = new Comment();
+            comment3.setComment("Que gran testimonio");
+            comment3.setUser(user4);
+            comment3.setPost(post4);
+            comment3.setCreatedAt(LocalDateTime.now());
+            comment3.setUpdatedAt(null);
+            commentRepository.save(comment3);
+
             //User 5
             User user5 = new User();
             user5.setFirstName("Lucas");
@@ -137,6 +167,14 @@ public class DataLoader implements CommandLineRunner {
             post5.setUser(user5);
 
             postsRepository.save(post5);
+
+            Comment comment4 = new Comment();
+            comment4.setComment("Gracias por tu testimonio");
+            comment4.setUser(user5);
+            comment4.setPost(post5);
+            comment4.setCreatedAt(LocalDateTime.now());
+            comment4.setUpdatedAt(null);
+            commentRepository.save(comment4);
 
             //User 6
             User user6 = new User();

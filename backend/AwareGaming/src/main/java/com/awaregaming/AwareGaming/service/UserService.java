@@ -4,6 +4,8 @@ import com.awaregaming.AwareGaming.dto.UserRequestDto;
 import com.awaregaming.AwareGaming.model.User;
 import com.awaregaming.AwareGaming.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -14,12 +16,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 @Service
+@EnableScheduling
 public class UserService implements IUserService {
 
     @Autowired
@@ -149,6 +154,20 @@ public class UserService implements IUserService {
         } catch (Exception e) {
             return new ResponseEntity<>("Error adding credits", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    //con este metodo todos los dias a las 00 se le va a recargar 100 creditos
+    @Scheduled(cron = "0 0 0 * * *", zone = "America/Argentina/Buenos_Aires")
+    public void rechargeCredits(){
+
+        //traemos todos los usuarios
+        List<User> userList = userRepository.findAll();
+        //recorremos todos los usuarios
+        for(User user:userList ){
+            user.setCredits(user.getCredits() + 100); //a los creditos que ya tiene los usuarios que se le sumen 100 creditos
+        }
+        //guardamos lo que hicimos en la BD
+        userRepository.saveAll(userList);
     }
 }
 
