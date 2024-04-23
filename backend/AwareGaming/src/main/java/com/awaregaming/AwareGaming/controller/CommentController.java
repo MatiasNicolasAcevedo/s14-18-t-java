@@ -23,7 +23,7 @@ public class CommentController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<CommentResponseDto>> getComments() {
+    public ResponseEntity<List<CommentResponseDto>> getAllComments() {
         return commentService.getAllComments();
     }
 
