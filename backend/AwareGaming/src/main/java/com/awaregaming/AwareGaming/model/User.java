@@ -54,6 +54,7 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
     private boolean isActive;
+    @NotNull(message = "El campo edad no puede estar vacío")
     private int age;
 
     @Override

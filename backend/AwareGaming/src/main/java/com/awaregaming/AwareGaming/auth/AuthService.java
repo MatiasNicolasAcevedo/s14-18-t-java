@@ -46,7 +46,7 @@ public class AuthService {
     }
 
     public AuthResponse register(RegisterRequest registerRequest) throws AuthenticationException {
-            try {
+        try {
                 User user = User.builder() //builder para la construccion de objeto
                         .email(registerRequest.getEmail())
                         .dni(registerRequest.getDni())
@@ -57,11 +57,16 @@ public class AuthService {
                         .credits(1000)
                         .role(Role.USER)
                         .build(); //para que se construya el objeto
-                //guardamos el registro en la bd
-                userRepository.save(user);
-                return AuthResponse.builder()
-                        .token(jwtService.getToken(user)) //le pasamos el token que generamos, le mandamos por parametro nuestro objeto user
-                        .build();
+                if(user.getAge()>=18){
+                    //guardamos el registro en la bd
+                    userRepository.save(user);
+                    return AuthResponse.builder()
+                            .token(jwtService.getToken(user)) //le pasamos el token que generamos, le mandamos por parametro nuestro objeto user
+                            .build();
+                } else {
+                    throw new RegistrationException("Eres menor de edad, no puedes ingresar");
+                }
+
             } catch (DataIntegrityViolationException e) {
                 String errorMessage = e.getCause().getMessage();
                 if (errorMessage.contains(registerRequest.getEmail())) {
