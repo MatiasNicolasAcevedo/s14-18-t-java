@@ -31,6 +31,7 @@ const DashboardPage: React.FC = () => {
 
 	return (
 		<>
+			<div
 				className={`flex flex-col justify-around items-center w-full ${background} min-h-screen bg-cover pb-20`}
 			>
 				<div className='w-full flex bg-white flex-col justify-center items-center'>
