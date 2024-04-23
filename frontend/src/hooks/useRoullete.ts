@@ -4,6 +4,8 @@ import { useStore } from './useStore';
 import {
 	setSelectedBetType,
 	setSelectedBetAmount,
+	setResult,
+	reset,
 } from '@/store/roullete/slice';
 import { playRoullete } from '@/services/roullete.services';
 import { PlayRoulleteDTO, Roullete } from '@/types/roullete';
@@ -21,6 +23,10 @@ export function useRoullete() {
 
 	const setBetAmount = (betAmount: Roullete['selectedBetAmount']) => {
 		dispatch(setSelectedBetAmount(betAmount));
+	};
+
+	const resetRoullete = () => {
+		dispatch(reset());
 	};
 
 	const bet = async () => {
@@ -71,12 +77,13 @@ export function useRoullete() {
 				navigate('/login');
 				return;
 			}
-			alert(data.result);
+			const { result, winningNumber } = data;
+			dispatch(setResult({ result, winningNumber }));
 		} catch (error) {
 			console.log(error);
 			toast.error('Error en la Aplicación');
 		}
 	};
 
-	return { roullete, setBetType, setBetAmount, bet };
+	return { roullete, setBetType, setBetAmount, bet, resetRoullete };
 }
