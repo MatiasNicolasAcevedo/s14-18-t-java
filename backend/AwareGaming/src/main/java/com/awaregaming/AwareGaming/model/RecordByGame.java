@@ -1,70 +1,51 @@
 package com.awaregaming.AwareGaming.model;
 
 
+import com.awaregaming.AwareGaming.model.Enum.BetTypeRoulette;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import lombok.Data;
 
+
+@Data
 @Entity
 @Table(name = "Record_By_Game")
 public class RecordByGame {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String name;
-    String features;
-    String rules;
+
 
     @ManyToOne
-    //@JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
-    public RecordByGame() {
-    }
+    //aca se guarda el registro de la jugada
+    // user, type roulette, bet amount, bet number, winning number, result
 
-    public RecordByGame(String name, String features, String rules, User user) {
-        this.name = name;
-        this.features = features;
-        this.rules = rules;
-        this.user = user;
-    }
+    @Enumerated(EnumType.STRING)
+    @Column(name = "bet_type")
+    private BetTypeRoulette betTypeRoulette;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(name = "bet_amount")
+    private Integer betAmount;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(name = "bet_number")
+    private Integer betNumber;
 
-    public String getName() {
-        return name;
-    }
+    @Column(name = "winning_number")
+    private Integer winningNumber;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String result;
 
-    public String getFeatures() {
-        return features;
-    }
 
-    public void setFeatures(String features) {
-        this.features = features;
-    }
 
-    public String getRules() {
-        return rules;
-    }
+   /* @Column(name = "total_games")
+    Integer totalGames;
+    @Column(name = "won_games")
+    Integer wonGames;
+    @Column(name = "lost_games")
+    Integer lostGames;*/
 
-    public void setRules(String rules) {
-        this.rules = rules;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
 }

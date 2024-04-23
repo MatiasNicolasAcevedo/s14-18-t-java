@@ -1,4 +1,4 @@
-package com.awaregaming.AwareGaming.repository;
+package com.awaregaming.AwareGaming.service;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import com.awaregaming.AwareGaming.dto.UserRequestDto;

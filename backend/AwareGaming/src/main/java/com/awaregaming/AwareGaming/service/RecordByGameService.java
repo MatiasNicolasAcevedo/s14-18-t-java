@@ -2,7 +2,8 @@ package com.awaregaming.AwareGaming.service;
 
 
 import com.awaregaming.AwareGaming.model.RecordByGame;
-import com.awaregaming.AwareGaming.repository.RecordByGameRepository;
+import com.awaregaming.AwareGaming.repository.IUserRepository;
+import com.awaregaming.AwareGaming.repository.IRecordByGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +12,11 @@ import java.util.List;
 @Service
 public class RecordByGameService {
 
-    private final RecordByGameRepository recordByGameRepository;
+    @Autowired
+    private IRecordByGameRepository recordByGameRepository;
 
     @Autowired
-    public RecordByGameService(RecordByGameRepository recordByGameRepository) {
-        this.recordByGameRepository = recordByGameRepository;
-    }
+    private IUserRepository userRepository;
 
     public List<RecordByGame> getAllGames() {
         return recordByGameRepository.findAll();
