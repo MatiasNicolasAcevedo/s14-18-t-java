@@ -1,5 +1,6 @@
 package com.awaregaming.AwareGaming.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Data
@@ -31,5 +33,9 @@ public class Post {
     private LocalDateTime updated_at;
     @ManyToOne
     private User user;
+
+    @OneToMany(mappedBy = "post",  cascade = CascadeType.ALL,  orphanRemoval = true,  fetch = FetchType.LAZY)
+    @JsonManagedReference
+    List<Comment> comments;
 
 }

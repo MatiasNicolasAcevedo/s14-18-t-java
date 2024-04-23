@@ -48,6 +48,7 @@ public class AuthService {
                 .age(registerRequest.getAge())
                 .credits(1000)
                 .role(Role.USER)
+                .isActive(true)
                 .build(); //para que se construya el objeto
         //guardamos el registro en la bd
         userRepository.save(user);
