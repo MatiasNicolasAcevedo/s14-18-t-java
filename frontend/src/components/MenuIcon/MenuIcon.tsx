@@ -5,7 +5,7 @@ const MenuIcon: React.FC = () => {
 	return (
 		<>
 			<div className='flex flex-col  w-full h-full space-y-1 text-cool-gray-900 font-nunito text-xs font-medium leading-150'>
-				<ul className='menu bg-[#0c959526] backdrop-blur-[15px] w-full rounded-[20px] rounded-b-none'>
+				<ul className='menu bg-teal-600 bg-opacity-20 rounded-[20px] backdrop-blur-[30px] w-full  rounded-b-none'>
 					<li>
 						<a>
 							<svg
@@ -184,7 +184,7 @@ const MenuIcon: React.FC = () => {
 					</li>
 				</ul>
 
-				<div className='menu space-y-2 bg-[#0c959526] backdrop-blur-[15px] w-full  flex flex-grow  justify-around items-center rounded-[20px] rounded-t-none'>
+				<div className='menu space-y-2 bg-teal-600 bg-opacity-20 rounded-[20px] backdrop-blur-[30px] w-full  flex flex-grow  justify-around items-center rounded-t-none'>
 					<ul className='menu w-full'>
 						<li>
 							<a>

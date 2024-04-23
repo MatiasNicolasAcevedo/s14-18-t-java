@@ -66,7 +66,7 @@ const Profile: React.FC = () => {
 					</div>
 				</div>
 
-				<div className='flex flex-col justify-around p-6 w-full h-2/3  bg-[rgba(12,149,149,0.20)] backdrop-blur-[15px]  rounded-[20px]'>
+				<div className='flex flex-col justify-around p-6 w-full h-2/3 bg-teal-600 bg-opacity-20 rounded-[20px] backdrop-blur-[30px]'>
 					<div className='flex justify-around'>
 						<div>
 							<span className="w-[200px] h-5 text-gray-700 text-xs font-medium font-['DM Sans'] leading-snug">
@@ -113,7 +113,7 @@ const Profile: React.FC = () => {
 						</div>
 					</div>
 
-					<div className='flex h-1/3'>
+					<div className='flex h-1/3 justify-center items-center'>
 						<TimeChart></TimeChart>
 					</div>
 				</div>
@@ -138,34 +138,38 @@ const Profile: React.FC = () => {
 					</div>
 				</div>
 			</div>
-			{showProfile2 && <EditProfileForm />}
-			<div className={`space-y-1 ${showProfile2 ? 'w-1/5' : 'w-2/3'}`}>
-				<div className='flex items-start  p-8 space-y-4  w-full h-[241px] rounded-[17px]  bg-card-ruleta bg-contain bg-right bg-no-repeat bg-custom-pink  backdrop-blur-[15px] '>
-					<div className='flex flex-col justify-end items-start p-8 w-1/2 rounded-[17px] '>
-						<h1 className='text-gray-700 text-[32px] font-black font-Nunito leading-loose'>
-							SPIN WISE
-						</h1>
-						<Link
-							to='/dashboard/roullete'
-							className='w-[86px] h-8 px-3 py-1.5 text-gray-800 text-sm font-bold font-Nunito leading-tight bg-gray-100 rounded-lg border border-gray-100 flex justify-center items-center gap-2 hover:bg-gray-200 focus:bg-gray-300 active:bg-gray-400'
-						>
-							jugar
-						</Link>
-					</div>
-				</div>
 
-				<div className='flex  flex-row justify-end  items-start p-8 space-y-4  w-full h-[241px] rounded-[17px]  bg-dice-background bg-no-repeat bg-contain bg-left bg-custom-purple backdrop-blur-[15px]'>
-					<div className='flex justify-end w-1/3 p-4'>
-						<h1 className='text-gray-700 text-[32px] font-black font-Nunito leading-loose'>
-							PROXIMAMENTE DICE AWARE
-						</h1>
+			<div className='flex  space-y-2 w-2/3'>
+				{showProfile2 && <EditProfileForm />}
+				<div className={`space-y-1 ${showProfile2 ? 'w-1/3' : 'w-full'}`}>
+					<div className='flex items-start  p-8 space-y-4  w-full h-1/3 rounded-[17px]  bg-card-ruleta bg-contain bg-right bg-no-repeat bg-custom-pink  backdrop-blur-[15px] '>
+						<div className='flex w-full flex-col justify-end items-start p-8  rounded-[17px] '>
+							<h1 className='text-gray-700 text-[32px] font-black font-Nunito leading-loose'>
+								SPIN WISE
+							</h1>
+							<Link
+								to='/dashboard/roullete'
+								className='w-[86px] h-8 px-3 py-1.5 text-gray-800 text-sm font-bold font-Nunito leading-tight bg-gray-100 rounded-lg border border-gray-100 flex justify-center items-center gap-2 hover:bg-gray-200 focus:bg-gray-300 active:bg-gray-400'
+							>
+								jugar
+							</Link>
+						</div>
 					</div>
-				</div>
-				<div className='flex  flex-row justify-start  items-start p-8 space-y-4  w-full h-[241px] rounded-[17px]  bg-card-roll bg-no-repeat bg-contain bg-right bg-custom-blue backdrop-blur-[15px]'>
-					<div className='flex justify-start w-1/3 p-4'>
-						<h1 className='text-gray-700 text-[32px] font-black font-Nunito leading-loose'>
-							PROXIMAMENTE SLOT CARE
-						</h1>
+
+					<div className='flex  flex-row justify-end  items-start p-8 space-y-4  w-full h-1/3 rounded-[17px]  bg-dice-background bg-no-repeat bg-contain bg-left bg-custom-purple backdrop-blur-[15px]'>
+						<div className='flex justify-end w-1/3 p-4'>
+							<h1 className='text-gray-700 text-[32px] font-black font-Nunito leading-loose'>
+								PROXIMAMENTE DICE AWARE
+							</h1>
+						</div>
+					</div>
+
+					<div className='flex  flex-row justify-start  items-start p-8 space-y-4  w-full h-1/3 rounded-[17px]  bg-card-roll bg-no-repeat bg-contain bg-right bg-custom-blue backdrop-blur-[15px]'>
+						<div className='flex justify-start w-1/3 p-4'>
+							<h1 className='text-gray-700 text-[32px] font-black font-Nunito leading-loose'>
+								PROXIMAMENTE SLOT CARE
+							</h1>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -173,4 +177,4 @@ const Profile: React.FC = () => {
 	);
 };
 export default Profile;
-//bg-card-ruleta
+//
