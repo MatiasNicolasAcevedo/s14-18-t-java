@@ -1,6 +1,7 @@
 import { useState, FormEvent } from 'react';
 import { useAuth } from '@/hooks';
 import { RegisterFormData } from '@/types/auth';
+import { Link } from 'react-router-dom';
 
 interface Errors {
 	firstName: boolean;
@@ -137,10 +138,12 @@ export default function ProfileEditForm() {
 
 	return (
 		<>
-			<div className='flex flex-col items-center justify-centerbg rounded-[20px] bg-[rgba(12,149,149,0.20)] backdrop-blur-[15px] border-zinc-500 p-20 w-[668px] h-[1220px]'>
-				<h1 className='w-96 h-20 text-black text-4xl font-extrabold leading-9'>
-					Editar Perfil
-				</h1>
+			<div className='flex flex-col w-1/2 items-center space-y-2 justify-centerbg  bg-teal-600 bg-opacity-20 rounded-[20px] backdrop-blur-[30px] p-20 '>
+				<div className='w-full text-left'>
+					<h1 className='text-black text-[32px] font-bold font-xl leading-[38px]'>
+						Perfil
+					</h1>
+				</div>
 				<form
 					className='w-96 flex flex-col gap-6'
 					onSubmit={handleSubmitRegister}
@@ -268,9 +271,12 @@ export default function ProfileEditForm() {
 							type='button'
 							className='w-[86px] h-8 px-3 py-1.5 bg-gray-100 rounded-lg border border-gray-100 flex justify-center items-center gap-2'
 						>
-							<div className='text-gray-800 text-sm font-bold font-Nunito leading-tight'>
+							<Link
+								to='/dashboard/profile'
+								className='text-gray-800 text-sm font-bold font-Nunito leading-tight'
+							>
 								Cancelar
-							</div>
+							</Link>
 						</button>
 					</div>
 				</form>
