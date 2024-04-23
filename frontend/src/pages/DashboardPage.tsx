@@ -1,11 +1,39 @@
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import MenuIcon from '@/components/MenuIcon/MenuIcon';
+import { useRoullete } from '@/hooks';
 
 const DashboardPage: React.FC = () => {
+	const [background, setBackground] = useState('');
+	const location = useLocation();
+	const { roullete } = useRoullete();
+
+	useEffect(() => {
+		if (location.pathname === '/dashboard') setBackground('bg-aware-pattern');
+		else if (location.pathname === '/dashboard/profile')
+			setBackground('bg-aware-pattern');
+		else if (
+			location.pathname === '/dashboard/roullete' &&
+			roullete.result === ''
+		)
+			setBackground('bg-roulette-dashboard');
+		else if (
+			location.pathname === '/dashboard/roullete' &&
+			roullete.result === 'WIN'
+		)
+			setBackground('bg-roulette-win');
+		else if (
+			location.pathname === '/dashboard/roullete' &&
+			roullete.result === 'LOSE'
+		)
+			setBackground('bg-roulette-lose');
+	}, [location.pathname, roullete]);
+
 	return (
 		<>
-			<div className=' flex flex-col justify-around items-center w-full bg-aware-pattern min-h-screen bg-cover pb-20'>
+			<div
+				className={`flex flex-col justify-around items-center w-full ${background} min-h-screen bg-cover pb-20`}
+			>
 				<div className=' w-11/12 flex justify-end '>
 					<Link to='/'>
 						<figure className='w-36 h-14 top-6 right-6 z-10'>

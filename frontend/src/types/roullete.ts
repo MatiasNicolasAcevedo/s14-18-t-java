@@ -2,6 +2,8 @@ export interface Roullete {
 	selectedBetType: string;
 	selectedBetAmount: string;
 	selectedBetNumber: string;
+	result: string;
+	winningNumber: string;
 }
 
 export interface PlayRoulleteDTO {
