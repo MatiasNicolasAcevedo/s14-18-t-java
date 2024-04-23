@@ -52,6 +52,7 @@ public class DataLoader implements CommandLineRunner {
             user1.setCredits(1000);
             user1.setRole(Role.USER);
             user1.setAge(62);
+            user1.setActive(true);
 
             userRepository.save(user1);
 
@@ -83,7 +84,7 @@ public class DataLoader implements CommandLineRunner {
             user2.setCredits(1000);
             user2.setRole(Role.USER);
             user2.setAge(36);
-
+            user2.setActive(true);
             userRepository.save(user2);
 
             //User 3
@@ -96,7 +97,7 @@ public class DataLoader implements CommandLineRunner {
             user3.setCredits(1000);
             user3.setRole(Role.USER);
             user3.setAge(32);
-
+            user3.setActive(true);
             userRepository.save(user3);
 
             Post post2 = new Post();
@@ -126,7 +127,7 @@ public class DataLoader implements CommandLineRunner {
             user4.setCredits(1000);
             user4.setRole(Role.USER);
             user4.setAge(27);
-
+            user4.setActive(true);
             userRepository.save(user4);
 
             Post post4 = new Post();
@@ -156,7 +157,7 @@ public class DataLoader implements CommandLineRunner {
             user5.setCredits(1000);
             user5.setRole(Role.USER);
             user5.setAge(29);
-
+            user5.setActive(true);
             userRepository.save(user5);
 
             Post post5 = new Post();
@@ -186,7 +187,7 @@ public class DataLoader implements CommandLineRunner {
             user6.setCredits(1000);
             user6.setRole(Role.USER);
             user6.setAge(34);
-
+            user6.setActive(true);
             userRepository.save(user6);
 
             //User 7
@@ -199,7 +200,7 @@ public class DataLoader implements CommandLineRunner {
             user7.setCredits(1000);
             user7.setRole(Role.USER);
             user7.setAge(28);
-
+            user7.setActive(true);
             userRepository.save(user7);
 
             //User 8
@@ -212,7 +213,7 @@ public class DataLoader implements CommandLineRunner {
             user8.setCredits(1000);
             user8.setRole(Role.USER);
             user8.setAge(30);
-
+            user8.setActive(true);
             userRepository.save(user8);
 
             //User 9
@@ -225,7 +226,7 @@ public class DataLoader implements CommandLineRunner {
             user9.setCredits(1000);
             user9.setRole(Role.USER);
             user9.setAge(24);
-
+            user9.setActive(true);
             userRepository.save(user9);
 
             //User 10
@@ -238,7 +239,7 @@ public class DataLoader implements CommandLineRunner {
             user10.setCredits(1000);
             user10.setRole(Role.USER);
             user10.setAge(35);
-
+            user10.setActive(true);
             userRepository.save(user10);
 
         }
