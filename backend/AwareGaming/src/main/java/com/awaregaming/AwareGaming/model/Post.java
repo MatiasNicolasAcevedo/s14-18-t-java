@@ -2,6 +2,7 @@ package com.awaregaming.AwareGaming.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,10 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPost;
     private String title;
+
+    @Size(max = 1000)
     private String description;
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false, updatable = false)
