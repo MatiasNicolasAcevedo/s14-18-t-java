@@ -92,10 +92,6 @@
   </dd>
   <dd>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      🔸 <b>Bárbara</b>.
-  </dd>
-  <dd>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
       🔸 <b>Florencia Adid</b>.
   </dd>
   <dd>
