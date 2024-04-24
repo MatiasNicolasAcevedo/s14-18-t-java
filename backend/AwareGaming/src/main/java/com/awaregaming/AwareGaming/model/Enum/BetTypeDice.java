@@ -1,6 +1,6 @@
 package com.awaregaming.AwareGaming.model.Enum;
 
-public enum DiceBetType {
+public enum BetTypeDice {
     INDIVIDUAL,
     TOTAL
 }

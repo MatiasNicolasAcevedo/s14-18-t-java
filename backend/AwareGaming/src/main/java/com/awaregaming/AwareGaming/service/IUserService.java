@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
+
 public interface IUserService extends UserDetailsService {
 
     @Transactional(readOnly = true)
