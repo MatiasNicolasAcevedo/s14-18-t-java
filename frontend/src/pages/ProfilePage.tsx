@@ -1,10 +1,14 @@
 import TimeChart from '@/components/TimeChart/TimeChart';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import EditProfileForm from '@/components/EditProfileForm/EditProfileForm';
 import { Link } from 'react-router-dom';
+import { useUser } from '@/hooks';
 
 const Profile: React.FC = () => {
 	const [showProfile2, setShowProfile2] = useState(false);
+	const { user } = useUser();
+
+	const { firstName, lastName, email, credits } = user;
 
 	return (
 		<>
@@ -23,10 +27,10 @@ const Profile: React.FC = () => {
 						<div className='flex flex-col space-y-3 '>
 							<div className='flex flex-col space-y-3'>
 								<p className=' text-black  text-lg font-semibold leading-none '>
-									Isabel Burdiz
+									{firstName} {lastName}
 								</p>
 								<p className='opacity-40 text-gray-700 text-xs font-bold font-nunito leading-none'>
-									isabelb@gmail.com{' '}
+									{email}
 								</p>
 							</div>
 
@@ -45,10 +49,10 @@ const Profile: React.FC = () => {
 						<div className='flex flex-col  gap-4 justify-around '>
 							<div className='flex flex-col  items-start gap-1 '>
 								<span className='opacity-80 text-gray-700 text-base font-bold font-Nunito leading-normal'>
-									Creditos
+									Créditos
 								</span>
 								<h2 className='text-gray-700 text-4xl font-bold font-Nunito leading-10'>
-									1000
+									{credits}
 								</h2>
 								<span className='opacity-40 text-gray-700 text-xs font-bold font-Nunito leading-none'>
 									GANAR MAS CREDITOS

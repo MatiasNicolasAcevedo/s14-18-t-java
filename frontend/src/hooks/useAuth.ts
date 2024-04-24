@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useStore } from './useStore';
+import { useUser } from './useUser';
 import { setToken } from '@/store/token/slice';
-import { login, register } from '@/services';
+import { login, register, profile } from '@/services';
 import type { Login, RegisterDTO } from '@/types/auth';
 
 export function useAuth() {
@@ -10,6 +11,7 @@ export function useAuth() {
 	const { appSelector, appDispatch } = useStore();
 	const token = appSelector(state => state.token);
 	const dispatch = appDispatch();
+	const { saveUser } = useUser();
 
 	const authLogin = async (data: Login) => {
 		try {
@@ -47,5 +49,24 @@ export function useAuth() {
 		}
 	};
 
-	return { token, authLogin, authRegister };
+	const getProfile = async () => {
+		try {
+			const { data, message } = await toast.promise(profile(token), {
+				pending: 'Enviando...',
+				success: 'Datos obtenidos',
+				error: 'Error en el Servidor',
+			});
+			if (message != null) {
+				toast.error(message);
+				navigate('/login');
+				return;
+			}
+			saveUser(data);
+		} catch (error) {
+			console.log(error);
+			toast.error('Error en la Aplicación');
+		}
+	};
+
+	return { token, authLogin, authRegister, getProfile };
 }

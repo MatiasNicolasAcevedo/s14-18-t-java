@@ -1,10 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useRoullete } from '@/hooks';
+import { useRoullete, useUser } from '@/hooks';
 
 export function RoulletePage() {
 	const navigate = useNavigate();
 	const { roullete, setBetType, setBetAmount, bet, resetRoullete } =
 		useRoullete();
+	const { user } = useUser();
+
+	const { credits } = user;
 
 	const { selectedBetType, selectedBetAmount } = roullete;
 
@@ -496,7 +499,7 @@ export function RoulletePage() {
 										Tienes:
 									</div>
 									<div className='text-fuchsia-700 text-6xl font-black'>
-										1000
+										{credits}
 									</div>
 									<div className='text-gray-800 text-xl font-normal'>
 										créditos
@@ -648,7 +651,9 @@ export function RoulletePage() {
 					className='w-14 h-14'
 					src='https://res.cloudinary.com/dnxjwcku6/image/upload/v1713577039/Group_1000004308-min_ftaak5.png'
 				/>
-				<p className='text-black text-xl font-medium leading-tight'>1000</p>
+				<p className='text-black text-xl font-medium leading-tight'>
+					{credits}
+				</p>
 			</section>
 		</div>
 	);
