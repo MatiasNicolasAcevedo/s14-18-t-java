@@ -29,10 +29,12 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> login(@RequestBody LoginRequest loginRequest){ //MAP para que podamos incluir el mensaje como los datos de la respuesta
         Map<String, Object> response = new HashMap<>();
+        Map<String, Object> data = new HashMap<>();
         AuthResponse authResponse = authService.login(loginRequest);
         if(authResponse!=null){
-            response.put("message", "Welcome to AwareGaming");
-            response.put("data", authResponse); //el data es para que nos mande el token en el body
+            data.put("token", authResponse.getToken());
+            response.put("data", data); //el data es para que nos mande el token en el body
+            response.put("message", authResponse.getMessage());
             return ResponseEntity.ok(response);
         } else {
             response.put("message", "Incorrect email and/or password");
