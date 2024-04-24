@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -31,16 +32,23 @@ public class AuthService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    public AuthResponse login(LoginRequest loginRequest) {
+    public AuthResponse login(LoginRequest loginRequest) throws AuthenticationException {
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
             User userDetails = userRepository.findByEmail(loginRequest.getEmail()).orElseThrow();
+
+            if (!userDetails.isActive()) {
+                return new AuthResponse(null, "Your account has been blocked or deleted, contact support");
+            }
+
+            //generamos el token (jwt
             String token = jwtService.getToken(userDetails);
             return AuthResponse.builder()
                     .token(token)
+                    .message("Welcome to AwareGaming")
                     .build();
         } catch (AuthenticationException e){
-            return null; //le ponemos null para lanzar la excepcion personalidad (Incorrect email and/or password)
+            return new AuthResponse(null, e.getMessage()); //le ponemos null para lanzar la excepcion personalidad (Incorrect email and/or password)
         }
 
     }

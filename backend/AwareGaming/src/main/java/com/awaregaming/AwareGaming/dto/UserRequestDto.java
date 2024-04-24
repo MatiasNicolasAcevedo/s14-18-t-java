@@ -16,7 +16,7 @@ public class UserRequestDto {
     private String email;
     private String password;
     private String dni;
-    private int age;
+    private Integer age;
     private int credits;
     private Role role;
 

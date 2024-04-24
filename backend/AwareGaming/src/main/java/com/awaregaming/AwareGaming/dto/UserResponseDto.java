@@ -15,7 +15,6 @@ public class UserResponseDto {
     private String firstName;
     private String lastName;
     private String email;
-    private String password;
     private String dni;
     private int age;
     private int credits;
@@ -26,7 +25,6 @@ public class UserResponseDto {
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.email = user.getEmail();
-        this.password = user.getPassword();
         this.dni = user.getDni();
         this.age = user.getAge();
         this.credits = user.getCredits();
