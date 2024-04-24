@@ -33,7 +33,7 @@ public class AuthService {
     private AuthenticationManager authenticationManager;
 
     public AuthResponse login(LoginRequest loginRequest) throws AuthenticationException {
-        try{
+        try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
             User userDetails = userRepository.findByEmail(loginRequest.getEmail()).orElseThrow();
 
@@ -47,7 +47,7 @@ public class AuthService {
                     .token(token)
                     .message("Welcome to AwareGaming")
                     .build();
-        } catch (AuthenticationException e){
+        } catch (AuthenticationException e) {
             return new AuthResponse(null, e.getMessage()); //le ponemos null para lanzar la excepcion personalidad (Incorrect email and/or password)
         }
 
@@ -87,6 +87,18 @@ public class AuthService {
                 }
             }
 
-        }
+        } catch (DataIntegrityViolationException e) {
+            String errorMessage = e.getCause().getMessage();
+            if (errorMessage.contains(registerRequest.getEmail())) {
+                throw new RegistrationException("Ya existe un usuario con ese email. Error al registrar usuario");
+            } else if (errorMessage.contains(registerRequest.getDni())) {
+                throw new RegistrationException("Ya existe un usuario con ese dni. Error al registrar usuario");
+            } else {
+                throw new RegistrationException("Error al registrar usuario");
+            }
 
+        }
     }
+
+}
+

@@ -16,10 +16,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+
 
 @Service
 @EnableScheduling
@@ -30,6 +30,7 @@ public class UserService implements IUserService {
 
     @Autowired
     PasswordEncoder passwordEncoder;
+
 
     //para poder obtener el usuario por email
     @Override
@@ -134,6 +135,7 @@ public class UserService implements IUserService {
             User user = userRepository.findByEmail(email)
                     .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
+
             user.setCredits(user.getCredits() + amount);
             userRepository.save(user);
 
@@ -161,6 +163,7 @@ public class UserService implements IUserService {
             return new ResponseEntity<>("Error adding credits", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 
     //con este metodo todos los dias a las 00 se le va a recargar 100 creditos
     @Scheduled(cron = "0 0 0 * * *", zone = "America/Argentina/Buenos_Aires")

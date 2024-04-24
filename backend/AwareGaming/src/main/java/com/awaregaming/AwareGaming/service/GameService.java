@@ -6,8 +6,11 @@ import com.awaregaming.AwareGaming.dto.RouletteBetRequestDto;
 import com.awaregaming.AwareGaming.dto.RouletteBetResponseDto;
 import com.awaregaming.AwareGaming.model.Enum.BetTypeRoulette;
 import com.awaregaming.AwareGaming.model.Game;
+import com.awaregaming.AwareGaming.model.RecordByGame;
 import com.awaregaming.AwareGaming.model.User;
+import com.awaregaming.AwareGaming.model.Game;
 import com.awaregaming.AwareGaming.repository.IGameRepository;
+import com.awaregaming.AwareGaming.repository.IRecordByGameRepository;
 import com.awaregaming.AwareGaming.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -25,6 +28,9 @@ public class GameService implements IGameService{
 
     @Autowired
     IUserRepository userRepository;
+
+    @Autowired
+    IRecordByGameRepository recordByGameRepository;
 
     @Override
     public List<Game> getAllGames() {
@@ -76,6 +82,16 @@ public class GameService implements IGameService{
         // Actualizar y guardar el crédito en la base de datos.
         user.setCredits(currentCredit);
         userRepository.save(user);
+
+        //Guardamos el registro de la jugada en la base de datos para luego mostrarlo
+        RecordByGame recordByGame = new RecordByGame();
+        recordByGame.setUser(user);
+        recordByGame.setBetTypeRoulette(rouletteBetRequestDto.getBetTypeRoulette());
+        recordByGame.setBetAmount(rouletteBetRequestDto.getBetAmount());
+        recordByGame.setBetNumber(rouletteBetRequestDto.getBetNumber());
+        recordByGame.setWinningNumber(randomNumber);
+        recordByGame.setResult(result);
+        recordByGameRepository.save(recordByGame);
 
         // Crear y retornar el DTO con los resultados de la ruleta.
 
