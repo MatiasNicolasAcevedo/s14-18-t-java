@@ -2,7 +2,10 @@ import { Link } from 'react-router-dom';
 
 export const ViewLanding1 = () => {
 	return (
-		<div className='w-full h-[100vh]: bg-landing-1	bg-top bg-cover bg-fixed'>
+		<div
+			id
+			className='w-full h-[100vh]: bg-landing-1	bg-top bg-cover bg-fixed'
+		>
 			<div className='max-w-7xl mx-auto py-28 flex items-center justify-center  h-screen'>
 				<div className='hero flex gap-12'>
 					<div className=' w-6/12 hero-content flex-col items-start'>

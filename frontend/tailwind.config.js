@@ -37,7 +37,6 @@ export default {
 				'custom-blue': '#abb0eb',
 				'custom-dark': '#374151',
         'custom-violate': '#ae75e4',
-      },
 			fontFamily: {
 				Nunito: ['Nunito'],
 				Inter: ['Inter'],
@@ -46,6 +45,7 @@ export default {
 				xs: '12px', // Extra pequeño
 				sm: '14px', // Pequeño
 				base: '16px', // Tamaño base (normal)
+				md: '24px', // mediano
 				lg: '18px', // Grande
 				xl: '32px', // Extra grande
 				//2xl: '64px', // Doble extra grande
@@ -56,6 +56,12 @@ export default {
 				'10p': '80px',
 			},
 			backgroundImage: {
+				'blog-background':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713661673/Group_1000004323chat_vzwuxv.png')",
+				'dice-background':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713655396/image_62_vvlcov.png')",
+				'dashboard-background':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486827/LANDING_14_3_-min_ozbkmp.png')",
 				'roulette-dashboard': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta-min_yiakyf.png')",
 				'roulette-lose': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta_PERDISTE-min_f5vww3.png')",
 				'roulette-win': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta_Ganaste-min_stmlpg.png')",
@@ -76,7 +82,8 @@ export default {
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713487123/contacto_1_-min_u24ot9.png')",
 				'card-roll':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713288751/Group_1000004326-min_weetqq.png')",
-				'card-ruleta': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713281902/Group_1000004324-min_bzyrgg.png')",
+				'card-ruleta':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713281902/Group_1000004324-min_bzyrgg.png')",
 				'login-r':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486621/LANDING_14-min_omw6b9.png')",
 				'chat-landing3':
