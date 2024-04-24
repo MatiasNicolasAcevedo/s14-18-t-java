@@ -31,6 +31,8 @@ export default {
 				2: '2',
 			},
 			colors: {
+				'zinc-500':'#838383',
+				'teal-600': '#0C9595',
 				'custom-purple': '#8D3DA5',
 				'custom-pink': '#f77fb9',
 				'cool-gray-900': '#111827',
@@ -39,11 +41,12 @@ export default {
         'custom-violate': '#ae75e4',
       },
 			fontFamily: {
+				'Montserrat Alternates': ['Montserrat Alternates', 'sans-serif'],
 				Nunito: ['Nunito'],
 				Inter: ['Inter'],
 			},
 			fontSize: {
-				xs: '12px', // Extra pequeño
+				xs: '10px', // Extra pequeño
 				sm: '14px', // Pequeño
 				base: '16px', // Tamaño base (normal)
 				lg: '18px', // Grande
@@ -56,6 +59,8 @@ export default {
 				'10p': '80px',
 			},
 			backgroundImage: {
+				'fichas': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713911970/Fichas_i9l8c6.svg')",
+				'login-register': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713911965/Register-frame_ifhb5x.svg')",
 				'roulette-dashboard': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta-min_yiakyf.png')",
 				'roulette-lose': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta_PERDISTE-min_f5vww3.png')",
 				'roulette-win': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta_Ganaste-min_stmlpg.png')",

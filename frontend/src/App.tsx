@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
 	return (
 		<>
-			<main className='relative  flex m-full'>
+			<main className='relative h-screen w-screen  flex '>
 				<BrowserRouter>
 					<AppRoutes />
 				</BrowserRouter>

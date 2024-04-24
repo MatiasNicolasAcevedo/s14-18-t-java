@@ -57,9 +57,9 @@ export function LoginForm(): JSX.Element {
 
 	return (
 		<>
-			<div className='flex flex-col items-center justify-center space-y-4  bg-[#0c959526] backdrop-blur-md  p-20 w-[668px] h-[1220px]'>
+			<div className='flex flex-col items-center h-screen justify-center space-y-4  bg-[#0c959526] backdrop-blur-md  p-10  '>
 				<h1 className='w-96 h-20 text-black text-4xl font-extrabold leading-9'>
-					Iniciar sesión
+					Ingreso
 				</h1>
 				<form
 					className='w-96 flex flex-col gap-6'
@@ -105,11 +105,11 @@ export function LoginForm(): JSX.Element {
 					</button>
 				</form>
 				<div className='mt-4'>
-					<div className='flex flex-col items-center text-white'>
+					<div className='flex flex-col items-center text-black'>
 						<Link to={'/register'}>Registrarse</Link>
 						<Link
 							to={'/reset-password'}
-							className='text-white text-center font-nunito text-lg font-bold leading-9'
+							className='text-black text-center font-nunito text-lg font-bold leading-9'
 						>
 							¿Olvidaste tu contraseña?
 						</Link>
