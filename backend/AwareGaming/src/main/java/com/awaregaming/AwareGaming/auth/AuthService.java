@@ -63,6 +63,7 @@ public class AuthService {
                         .password(passwordEncoder.encode(registerRequest.getPassword()))
                         .age(registerRequest.getAge())
                         .credits(1000)
+                        .isActive(true)
                         .role(Role.USER)
                         .build(); //para que se construya el objeto
                 if(user.getAge()>=18){
