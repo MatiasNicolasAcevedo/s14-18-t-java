@@ -4,6 +4,9 @@ import LandingPage from '@/pages/LandingPage';
 import LoginPage from '@/pages/LoginPage';
 import DashboardPage from '@/pages/DashboardPage';
 import ProfilePage from '@/pages/ProfilePage';
+import ForoMain from '@/pages/ForoMain';
+import Post from '@/pages/Post';
+import { Posts } from '@/components/Posts/Posts';
 
 export const AppRoutes = () => {
 	const routes = [
@@ -32,10 +35,24 @@ export const AppRoutes = () => {
 					path: 'profile',
 					element: <ProfilePage />,
 				},
-        {
-          path: 'roullete',
-			    element: <RoulletePage />,
-        },
+				{
+					path: 'roullete',
+					element: <RoulletePage />,
+				},
+				{
+					path: 'foro',
+					element: <ForoMain />,
+					children: [
+						{
+							path: '',
+							element: <Posts />,
+						},
+						{
+							path: 'post',
+							element: <Post />,
+						},
+					],
+				},
 			],
 		},
 	];

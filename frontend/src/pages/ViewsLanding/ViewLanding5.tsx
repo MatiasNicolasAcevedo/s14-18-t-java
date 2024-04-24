@@ -1,6 +1,9 @@
 export const ViewLanding5 = () => {
 	return (
-		<div className="'w-full h-[80hv] mb-16 ">
+		<div
+			id='juegos'
+			className="'w-full h-[80hv] mb-16 "
+		>
 			<p className='text-center text-5xl font-Nunito text-gray-950 font-black'>
 				Contacto
 			</p>
