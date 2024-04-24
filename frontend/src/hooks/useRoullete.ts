@@ -7,6 +7,7 @@ import {
 	setResult,
 	reset,
 } from '@/store/roullete/slice';
+import { setNewCredit } from '@/store/users/slice';
 import { playRoullete } from '@/services/roullete.services';
 import { PlayRoulleteDTO, Roullete } from '@/types/roullete';
 
@@ -77,8 +78,12 @@ export function useRoullete() {
 				navigate('/login');
 				return;
 			}
-			const { result, winningNumber } = data;
-			dispatch(setResult({ result, winningNumber }));
+			const { result, winningNumber, winningAmount, numberColor, newCredit } =
+				data;
+			dispatch(
+				setResult({ result, winningNumber, winningAmount, numberColor }),
+			);
+			dispatch(setNewCredit(newCredit));
 		} catch (error) {
 			console.log(error);
 			toast.error('Error en la Aplicación');
