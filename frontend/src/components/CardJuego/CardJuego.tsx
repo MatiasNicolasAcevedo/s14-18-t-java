@@ -1,6 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-export const CardJuego: React.FC<CardLandingList> = ({ card }) => {
+interface CardLanding {
+	title: string;
+	text: string;
+	img: string;
+}
+
+interface Props {
+	card: CardLanding;
+}
+
+export const CardJuego: React.FC<Props> = ({ card }) => {
 	return (
 		<>
 			<div className='flex flex-col w-[400px] h-auto bg-white rounded-2xl items-start gap-2 overflow-hidden shadow-custom p-5'>
