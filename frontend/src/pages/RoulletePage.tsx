@@ -1,12 +1,22 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useRoullete } from '@/hooks';
+import { useRoullete, useUser } from '@/hooks';
 
 export function RoulletePage() {
 	const navigate = useNavigate();
 	const { roullete, setBetType, setBetAmount, bet, resetRoullete } =
 		useRoullete();
+	const { user } = useUser();
 
-	const { selectedBetType, selectedBetAmount } = roullete;
+	const { credits } = user;
+
+	const {
+		selectedBetType,
+		selectedBetAmount,
+		result,
+		winningAmount,
+		winningNumber,
+		numberColor,
+	} = roullete;
 
 	const handlerOnClickSelectBetType = (
 		event: React.MouseEvent<HTMLButtonElement>,
@@ -35,7 +45,7 @@ export function RoulletePage() {
 
 	return (
 		<div className='w-full flex justify-between relative bg-transparent px-10'>
-			{roullete.result === '' && (
+			{result === '' && (
 				<>
 					<section className='flex gap-8'>
 						<div className='flex flex-col gap-3'>
@@ -496,7 +506,7 @@ export function RoulletePage() {
 										Tienes:
 									</div>
 									<div className='text-fuchsia-700 text-6xl font-black'>
-										1000
+										{credits}
 									</div>
 									<div className='text-gray-800 text-xl font-normal'>
 										créditos
@@ -547,9 +557,7 @@ export function RoulletePage() {
 											onClick={handlerOnClickBet}
 											className='text-gray-800 text-lg font-normal leading-tight disabled:opacity-50'
 											disabled={
-												roullete.selectedBetType && roullete.selectedBetAmount
-													? false
-													: true
+												selectedBetType && selectedBetAmount ? false : true
 											}
 										>
 											Apostar
@@ -561,7 +569,7 @@ export function RoulletePage() {
 					</section>
 				</>
 			)}
-			{roullete.result === 'WIN' && (
+			{result === 'WIN' && (
 				<section className='flex flex-col justify-center items-center gap-8 w-full h-full mt-10'>
 					<h2 className='text-gray-800 text-8xl font-normal'>Has ganado!</h2>
 					<div className='px-8 py-4 bg-teal-600 bg-opacity-30 rounded-2xl border border-gray-200 backdrop-blur-xl flex-col justify-center items-center gap-3 inline-flex'>
@@ -570,12 +578,14 @@ export function RoulletePage() {
 								El número ganador es
 							</div>
 							<div className='text-fuchsia-700 text-6xl font-black'>
-								{roullete.winningNumber}
+								{winningNumber}
 							</div>
-							<div className='text-gray-800 text-3xl font-medium'>color</div>
+							<div className='text-gray-800 text-3xl font-medium'>
+								{numberColor}
+							</div>
 							<div>
 								<span className='text-gray-800 text-base font-normal'>
-									Has ganado 10 créditos.{' '}
+									Has ganado {winningAmount} créditos.{' '}
 								</span>
 								<span className='text-gray-800 text-base font-bold'>
 									Sigue así!
@@ -603,7 +613,7 @@ export function RoulletePage() {
 					</div>
 				</section>
 			)}
-			{roullete.result === 'LOSE' && (
+			{result === 'LOSE' && (
 				<section className='flex flex-col justify-center items-center gap-6 w-full h-full mt-10'>
 					<h2 className='text-gray-800 text-8xl font-normal'>Has perdido...</h2>
 					<p className='text-black text-lg font-normal'>
@@ -615,11 +625,13 @@ export function RoulletePage() {
 								El número ganador es
 							</p>
 							<span className='text-gray-50 text-6xl font-black'>
-								{roullete.winningNumber}
+								{winningNumber}
 							</span>
-							<p className='text-gray-800 text-3xl font-medium'>blanco</p>
+							<p className='text-gray-800 text-3xl font-medium'>
+								{numberColor}
+							</p>
 							<p className='text-gray-800 text-base font-normal'>
-								Tienes 1000 créditos restantes.
+								Tienes {credits} créditos restantes.
 							</p>
 						</div>
 						<div className='self-stretch justify-center items-center gap-7 inline-flex'>
@@ -648,7 +660,9 @@ export function RoulletePage() {
 					className='w-14 h-14'
 					src='https://res.cloudinary.com/dnxjwcku6/image/upload/v1713577039/Group_1000004308-min_ftaak5.png'
 				/>
-				<p className='text-black text-xl font-medium leading-tight'>1000</p>
+				<p className='text-black text-xl font-medium leading-tight'>
+					{credits}
+				</p>
 			</section>
 		</div>
 	);

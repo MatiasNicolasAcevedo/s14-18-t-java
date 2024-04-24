@@ -13,17 +13,17 @@ export function NavBar() {
 					</div>
 					<div className='flex-col justify-center items-start inline-flex'>
 						<div className="text-center text-gray-900 text-base font-normal font-['Nunito'] leading-normal">
-							Foro
+							<Link to='dashboard/foro'>Foro</Link>
 						</div>
 					</div>
 					<div className='flex-col justify-center items-start inline-flex'>
 						<div className="text-center text-gray-900 text-base font-normal font-['Nunito'] leading-normal">
-							Juegos
+							<Link to='#juegos'>Juegos</Link>
 						</div>
 					</div>
 					<div className='flex-col justify-center items-start inline-flex'>
 						<div className="text-center text-gray-900 text-base font-normal font-['Nunito'] leading-normal">
-							Contacto
+							<Link to='#contacto/foro'>Contacto</Link>
 						</div>
 					</div>
 					<div />

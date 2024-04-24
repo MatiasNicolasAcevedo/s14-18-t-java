@@ -38,8 +38,8 @@ export default {
 				'cool-gray-900': '#111827',
 				'custom-blue': '#abb0eb',
 				'custom-dark': '#374151',
-        'custom-violate': '#ae75e4',
-      },
+				'custom-violate': '#ae75e4',
+			},
 			fontFamily: {
 				'Montserrat Alternates': ['Montserrat Alternates', 'sans-serif'],
 				Nunito: ['Nunito'],
@@ -61,12 +61,18 @@ export default {
 			backgroundImage: {
 				'fichas': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713911970/Fichas_i9l8c6.svg')",
 				'login-register': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713911965/Register-frame_ifhb5x.svg')",
-				'roulette-dashboard': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta-min_yiakyf.png')",
-				'roulette-lose': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta_PERDISTE-min_f5vww3.png')",
-				'roulette-win': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta_Ganaste-min_stmlpg.png')",
-				'blog-background': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713744016/Frame_63-min_zcpmck.png')",
-				'dice-background': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713655396/image_62_vvlcov.png')",
-				'dashboard-background':"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486827/LANDING_14_3_-min_ozbkmp.png')",
+				'roulette-dashboard':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta-min_yiakyf.png')",
+				'roulette-lose':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta_PERDISTE-min_f5vww3.png')",
+				'roulette-win':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta_Ganaste-min_stmlpg.png')",
+				'blog-background':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713744016/Frame_63-min_zcpmck.png')",
+				'dice-background':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713655396/image_62_vvlcov.png')",
+				'dashboard-background':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486827/LANDING_14_3_-min_ozbkmp.png')",
 				'joystick-land3':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713478927/Group_1000004354-min_spicix.png')",
 				'landing-1':
@@ -81,7 +87,8 @@ export default {
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713487123/contacto_1_-min_u24ot9.png')",
 				'card-roll':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713288751/Group_1000004326-min_weetqq.png')",
-				'card-ruleta': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713281902/Group_1000004324-min_bzyrgg.png')",
+				'card-ruleta':
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713281902/Group_1000004324-min_bzyrgg.png')",
 				'login-r':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486621/LANDING_14-min_omw6b9.png')",
 				'chat-landing3':

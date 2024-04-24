@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import MenuIcon from '@/components/MenuIcon/MenuIcon';
-import { useRoullete } from '@/hooks';
+import { useAuth, useRoullete } from '@/hooks';
 
 const DashboardPage: React.FC = () => {
 	const [background, setBackground] = useState('');
 	const location = useLocation();
 	const { roullete } = useRoullete();
+	const { getProfile } = useAuth();
+
+	useEffect(() => {
+		getProfile();
+	}, []);
 
 	useEffect(() => {
 		if (location.pathname === '/dashboard') setBackground('bg-aware-pattern');
