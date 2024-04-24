@@ -55,26 +55,36 @@ public class AuthService {
 
     public AuthResponse register(RegisterRequest registerRequest) throws AuthenticationException {
         try {
+                User user = User.builder() //builder para la construccion de objeto
+                        .email(registerRequest.getEmail())
+                        .dni(registerRequest.getDni())
+                        .firstName(registerRequest.getFirstName())
+                        .lastName(registerRequest.getLastName())
+                        .password(passwordEncoder.encode(registerRequest.getPassword()))
+                        .age(registerRequest.getAge())
+                        .credits(1000)
+                        .isActive(true)
+                        .role(Role.USER)
+                        .build(); //para que se construya el objeto
+                if(user.getAge()>=18){
+                    //guardamos el registro en la bd
+                    userRepository.save(user);
+                    return AuthResponse.builder()
+                            .token(jwtService.getToken(user)) //le pasamos el token que generamos, le mandamos por parametro nuestro objeto user
+                            .build();
+                } else {
+                    throw new RegistrationException("Eres menor de edad, no puedes ingresar");
+                }
 
-            User user = User.builder() //builder para la construccion de objeto
-                    .email(registerRequest.getEmail())
-                    .dni(registerRequest.getDni())
-                    .firstName(registerRequest.getFirstName())
-                    .lastName(registerRequest.getLastName())
-                    .password(passwordEncoder.encode(registerRequest.getPassword()))
-                    .age(registerRequest.getAge())
-                    .credits(1000)
-                    .isActive(true)
-                    .role(Role.USER)
-                    .build(); //para que se construya el objeto
-            if (user.getAge() >= 18) {
-                //guardamos el registro en la bd
-                userRepository.save(user);
-                return AuthResponse.builder()
-                        .token(jwtService.getToken(user)) //le pasamos el token que generamos, le mandamos por parametro nuestro objeto user
-                        .build();
-            } else {
-                throw new RegistrationException("Eres menor de edad, no puedes ingresar");
+            } catch (DataIntegrityViolationException e) {
+                String errorMessage = e.getCause().getMessage();
+                if (errorMessage.contains(registerRequest.getEmail())) {
+                    throw new RegistrationException("Ya existe un usuario con ese email. Error al registrar usuario");
+                } else if (errorMessage.contains(registerRequest.getDni())) {
+                    throw new RegistrationException("Ya existe un usuario con ese dni. Error al registrar usuario");
+                } else {
+                    throw new RegistrationException("Error al registrar usuario");
+                }
             }
 
         } catch (DataIntegrityViolationException e) {
