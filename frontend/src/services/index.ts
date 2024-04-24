@@ -1,1 +1,1 @@
-export { login, register } from './auth.services';
+export { login, register, profile } from './auth.services';

@@ -25,5 +25,5 @@ export interface RegisterDTO extends Login {
 	lastName: string;
 	age: number;
 	dni: string;
-	birthDate: Date;
+	birthDate?: Date;
 }
