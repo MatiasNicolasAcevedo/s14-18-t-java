@@ -36,7 +36,7 @@ export default {
 				'cool-gray-900': '#111827',
 				'custom-blue': '#abb0eb',
 				'custom-dark': '#374151',
-			},
+        'custom-violate': '#ae75e4',
 			fontFamily: {
 				Nunito: ['Nunito'],
 				Inter: ['Inter'],
@@ -48,7 +48,7 @@ export default {
 				md: '24px', // mediano
 				lg: '18px', // Grande
 				xl: '32px', // Extra grande
-				'2xl': '64px', // Doble extra grande
+				//2xl: '64px', // Doble extra grande
 				// Agrega más tamaños de texto personalizados si es necesario
 			},
 			borderRadius: {
@@ -62,6 +62,12 @@ export default {
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713655396/image_62_vvlcov.png')",
 				'dashboard-background':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486827/LANDING_14_3_-min_ozbkmp.png')",
+				'roulette-dashboard': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta-min_yiakyf.png')",
+				'roulette-lose': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta_PERDISTE-min_f5vww3.png')",
+				'roulette-win': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713889478/ruleta_Ganaste-min_stmlpg.png')",
+				'blog-background': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713744016/Frame_63-min_zcpmck.png')",
+				'dice-background': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713655396/image_62_vvlcov.png')",
+				'dashboard-background':"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713486827/LANDING_14_3_-min_ozbkmp.png')",
 				'joystick-land3':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713478927/Group_1000004354-min_spicix.png')",
 				'landing-1':
