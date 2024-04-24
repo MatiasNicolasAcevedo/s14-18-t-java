@@ -1,5 +1,6 @@
 package com.awaregaming.AwareGaming.controller;
 
+import com.awaregaming.AwareGaming.dto.ResponseDTO;
 import com.awaregaming.AwareGaming.dto.UserRequestDto;
 import com.awaregaming.AwareGaming.dto.UserResponseDto;
 import com.awaregaming.AwareGaming.service.IUserService;
@@ -31,7 +32,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody UserRequestDto userRequestDto){
+    public ResponseEntity<ResponseDTO> updateUser(@PathVariable int id, @RequestBody UserRequestDto userRequestDto){
         return userService.updateUser(id, userRequestDto);
     }
 

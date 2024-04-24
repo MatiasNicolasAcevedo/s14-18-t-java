@@ -1,5 +1,6 @@
 package com.awaregaming.AwareGaming.service;
 
+import com.awaregaming.AwareGaming.dto.ResponseDTO;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import com.awaregaming.AwareGaming.dto.UserRequestDto;
 import com.awaregaming.AwareGaming.dto.UserResponseDto;
@@ -18,7 +19,7 @@ public interface IUserService extends UserDetailsService {
     @Transactional(readOnly = true)
     ResponseEntity<UserResponseDto> getUserById(int id) throws UsernameNotFoundException;
 
-    ResponseEntity<String> updateUser(int id, UserRequestDto userRequestDto) throws UserUpdateException;
+    ResponseEntity<ResponseDTO> updateUser(int id, UserRequestDto userRequestDto) throws UserUpdateException;
 
     ResponseEntity<String> deleteUser(int id) throws UsernameNotFoundException;
 
