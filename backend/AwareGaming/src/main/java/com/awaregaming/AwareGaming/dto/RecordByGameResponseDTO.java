@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RecordByGameResponseDTO {
 
-    private String fullname;
+    private String fullName;
 
     private BetTypeRoulette betTypeRoulette;
     private Integer betAmount;

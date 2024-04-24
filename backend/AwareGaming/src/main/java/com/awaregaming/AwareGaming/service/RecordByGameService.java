@@ -62,6 +62,7 @@ public class RecordByGameService implements IRecordByGameService {
     private RecordByGameResponseDTO mapToResponseDTO(RecordByGame recordByGame){
         String userName = recordByGame.getUser().getFirstName() + " " + recordByGame.getUser().getLastName();
         return RecordByGameResponseDTO.builder()
+                .fullName(userName)
                 .betTypeRoulette(recordByGame.getBetTypeRoulette())
                 .betAmount(recordByGame.getBetAmount())
                 .betNumber(recordByGame.getBetNumber())
