@@ -8,4 +8,7 @@ public interface IRecordByGameService {
 
         public List<RecordByGameResponseDTO> getAllUserRecords(String userEmail);
 
+        public List<RecordByGameResponseDTO> getAllUsersRecords();
+
+
 }

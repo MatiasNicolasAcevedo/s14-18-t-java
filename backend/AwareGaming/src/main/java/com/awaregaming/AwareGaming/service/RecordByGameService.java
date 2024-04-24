@@ -52,7 +52,15 @@ public class RecordByGameService implements IRecordByGameService {
         List<RecordByGame> recordGames = recordByGameRepository.findByUser(user);
         return recordGames.stream().map(this::mapToResponseDTO).collect(Collectors.toList());
     }
+
+    @Override
+    public List<RecordByGameResponseDTO> getAllUsersRecords() {
+        List<RecordByGame> recordGames = recordByGameRepository.findAll();
+        return recordGames.stream().map(this::mapToResponseDTO).collect(Collectors.toList());
+    }
+
     private RecordByGameResponseDTO mapToResponseDTO(RecordByGame recordByGame){
+        String userName = recordByGame.getUser().getFirstName() + " " + recordByGame.getUser().getLastName();
         return RecordByGameResponseDTO.builder()
                 .betTypeRoulette(recordByGame.getBetTypeRoulette())
                 .betAmount(recordByGame.getBetAmount())

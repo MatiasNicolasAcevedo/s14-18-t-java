@@ -12,4 +12,6 @@ public interface IRecordByGameRepository extends JpaRepository<RecordByGame, Lon
 
            List<RecordByGame> findByUser(User user);
 
+           List<RecordByGame> findAll();  //la s alfinal significa plural de todos los usuarios
+
 }

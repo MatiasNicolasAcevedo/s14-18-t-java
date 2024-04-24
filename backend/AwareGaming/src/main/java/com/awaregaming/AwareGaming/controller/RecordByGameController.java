@@ -25,6 +25,12 @@ public class RecordByGameController {
         return ResponseEntity.ok(recordGames);
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<RecordByGameResponseDTO>> getAllUsersRecords() {
+        List<RecordByGameResponseDTO> recordGames = recordByGameService.getAllUsersRecords();
+        return ResponseEntity.ok(recordGames);
+    }
+
 
 
 }
