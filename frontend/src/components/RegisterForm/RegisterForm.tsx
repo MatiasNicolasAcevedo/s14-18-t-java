@@ -313,7 +313,7 @@ export function RegisterForm() {
 				</form>
 				<div className='mt-4'>
 					<div className='flex flex-col items-center text-black'>
-						<Link to={'/Login'}>Iniciar sesión</Link>
+						<Link to={'/login'}>Iniciar sesión</Link>
 					</div>
 				</div>
 			</div>

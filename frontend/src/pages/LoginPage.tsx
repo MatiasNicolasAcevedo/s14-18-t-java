@@ -9,7 +9,7 @@ const LoginPage: React.FC = () => {
 	const location = useLocation();
 
 	useEffect(() => {
-		if (location.pathname === '/Login' || location.pathname === '/register') {
+		if (location.pathname === '/login' || location.pathname === '/register') {
 			setBackground('bg-login-register');
 		}
 	}, [location.pathname]);
