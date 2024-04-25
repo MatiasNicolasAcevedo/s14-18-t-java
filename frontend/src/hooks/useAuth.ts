@@ -2,7 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useStore } from './useStore';
 import { useUser } from './useUser';
-import { setToken } from '@/store/token/slice';
+import { setToken, removeToken } from '@/store/token/slice';
+import { removeUser } from '@/store/users/slice';
 import { login, register, profile } from '@/services';
 import type { Login, RegisterDTO } from '@/types/auth';
 
@@ -12,6 +13,8 @@ export function useAuth() {
 	const token = appSelector(state => state.token);
 	const dispatch = appDispatch();
 	const { saveUser } = useUser();
+
+	const isSignin = token !== '';
 
 	const authLogin = async (data: Login) => {
 		try {
@@ -28,6 +31,12 @@ export function useAuth() {
 			console.log(error);
 			toast.error('Error en la Aplicación');
 		}
+	};
+
+	const authLogout = () => {
+		dispatch(removeToken());
+		dispatch(removeUser());
+		navigate('/login');
 	};
 
 	const authRegister = async (data: RegisterDTO) => {
@@ -68,5 +77,5 @@ export function useAuth() {
 		}
 	};
 
-	return { token, authLogin, authRegister, getProfile };
+	return { token, isSignin, authLogin, authLogout, authRegister, getProfile };
 }
