@@ -67,6 +67,8 @@ export function useAuth() {
 			});
 			if (message != null) {
 				toast.error(message);
+				dispatch(removeToken());
+				dispatch(removeUser());
 				navigate('/login');
 				return;
 			}
