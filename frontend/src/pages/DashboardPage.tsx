@@ -40,7 +40,7 @@ const DashboardPage: React.FC = () => {
 	return (
 		<>
 			<div
-				className={`flex flex-col justify-around items-center w-full ${background} min-h-screen bg-cover pb-20`}
+				className={`flex flex-col p-10 gap-3  items-center w-full ${background} min-h-screen bg-cover overflow-y-auto pb-20 `}
 			>
 				<div className='w-full flex bg-white flex-col justify-center items-center py-2 my-7'>
 					<Link to='/'>
@@ -52,11 +52,11 @@ const DashboardPage: React.FC = () => {
 						</figure>
 					</Link>
 				</div>
-				<div className=' space-x-2  flex z-10'>
+				<div className='  space-x-2  flex  z-10'>
 					<div className=' block'>
 						<MenuIcon />
 					</div>
-					<main className='flex space-x-2'>
+					<main className='flex   space-x-2'>
 						<Outlet />
 					</main>
 				</div>

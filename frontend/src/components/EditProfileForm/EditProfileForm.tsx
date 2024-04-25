@@ -102,15 +102,17 @@ export default function ProfileEditForm({ toggleProfile }: Props) {
 
 	return (
 		<>
-			<div className='flex flex-col gap-3 w-1/2 items-center space-y-2 justify-centerbg  bg-teal-600 bg-opacity-20 rounded-[20px] backdrop-blur-[30px] py-20 px-5'>
+			<div className='flex flex-col w-1/2 items-center space-y-2 justify-centerbg  bg-teal-600 bg-opacity-20 rounded-[20px] backdrop-blur p-5 '>
 				<div className='w-full text-left'>
-					<h1 className='text-black text-[32px] font-bold font-xl'>Perfil</h1>
+					<p className='text-gray-900 text-xl font-bold font-nunito leading-normal font-base '>
+						Perfil
+					</p>
 				</div>
 				<form
-					className='w-full flex flex-col gap-6'
+					className='w-3/4 flex flex-col gap-6'
 					onSubmit={handleSubmitUpdateUser}
 				>
-					<div className=' flex-col justify-start items-start gap-1 inline-flex'>
+					<div className='w-full flex-col justify-start items-start gap-1 inline-flex'>
 						<label
 							htmlFor='firstName'
 							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
@@ -122,8 +124,8 @@ export default function ProfileEditForm({ toggleProfile }: Props) {
 							type='text'
 							name='firstName'
 							placeholder='Juan Martín'
-							defaultValue={user.firstName}
-							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${
+              defaultValue={user.firstName}
+							className={`bg-white shadow-custom-inner rounded-lg pl-5 pr-4 border-none py-3 w-full text-black ${
 								errors.firstName
 									? 'border-red-500 border-[3px]'
 									: 'border border-black'
@@ -135,7 +137,7 @@ export default function ProfileEditForm({ toggleProfile }: Props) {
 							</div>
 						)}
 					</div>
-					<div className=' flex-col justify-start items-start gap-1 inline-flex'>
+					<div className='w-full flex-col justify-start items-start gap-1 inline-flex'>
 						<label
 							htmlFor='lastName'
 							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
@@ -147,8 +149,8 @@ export default function ProfileEditForm({ toggleProfile }: Props) {
 							type='text'
 							name='lastName'
 							placeholder='Gonzalez'
-							defaultValue={user.lastName}
-							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.lastName ? 'border-red-500 border-[3px]' : 'border border-black'}`}
+              defaultValue={user.lastName}
+							className={`bg-white shadow-custom-inner border-none rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.lastName ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.lastName && (
 							<div className='text-black text-sm font-semibold ml-1'>
@@ -156,7 +158,7 @@ export default function ProfileEditForm({ toggleProfile }: Props) {
 							</div>
 						)}
 					</div>
-					<div className=' flex-col justify-start items-start gap-1 inline-flex'>
+					<div className='w-full flex-col justify-start items-start gap-1 inline-flex'>
 						<label
 							htmlFor='DNI'
 							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
@@ -169,8 +171,8 @@ export default function ProfileEditForm({ toggleProfile }: Props) {
 							name='dni'
 							placeholder='12345678'
 							step='1'
-							defaultValue={user.dni}
-							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.dni ? 'border-red-500 border-[3px]' : 'border border-black'}`}
+              defaultValue={user.dni}
+							className={`bg-white shadow-custom-inner border-none rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.dni ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.dni && (
 							<div className='text-gray-900 text-sm font-bold font-nunito leading-normal'>
@@ -178,7 +180,7 @@ export default function ProfileEditForm({ toggleProfile }: Props) {
 							</div>
 						)}
 					</div>
-					<div className=' flex-col justify-start items-start gap-1 inline-flex'>
+					<div className='w-full flex-col justify-start items-start gap-1 inline-flex'>
 						<label
 							htmlFor='password'
 							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
@@ -190,7 +192,7 @@ export default function ProfileEditForm({ toggleProfile }: Props) {
 							type='password'
 							name='password'
 							placeholder='*************'
-							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.password ? 'border-red-500 border-[3px]' : 'border border-black'}`}
+							className={`bg-white  border-none shadow-custom-inner rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.password ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.password && (
 							<span>
@@ -203,7 +205,27 @@ export default function ProfileEditForm({ toggleProfile }: Props) {
 							</span>
 						)}
 					</div>
-					<div className='flex justify-end w-full gap-3'>
+					<div className='w-full flex-col justify-start items-start gap-1 inline-flex'>
+						<label
+							htmlFor='birthDate'
+							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
+						>
+							Fecha de nacimiento(*)
+						</label>
+						<input
+							id='birthDate'
+							type='date'
+							name='birthDate'
+							className={`bg-white shadow-custom-inner border-none   rounded-lg pl-5 pr-4 py-3 w-full text-gray-900 ${errors.birthDate ? 'border-red-500 border-[3px]' : 'border border-black'}`}
+						/>
+						{errors.birthDate && (
+							<div className='text-black text-sm font-semibold ml-1'>
+								❌ Debes ser mayor de 18 años.
+							</div>
+						)}
+					</div>
+
+					<div className='flex justify-around flex-end w-full'>
 						<button
 							type='button'
 							className='w-[86px] h-8 px-3 py-1.5 bg-gray-100 rounded-lg border border-gray-100 flex justify-center items-center gap-2 text-gray-800 text-sm font-bold font-Nunito leading-tight'
