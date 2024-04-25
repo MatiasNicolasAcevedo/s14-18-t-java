@@ -94,7 +94,7 @@ export default {
 				'chat-landing3':
 					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713478927/Chat-min_igthn1.png')",
 				'aware-pattern':
-					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713478180/AwareGaming/LANDING_13-min_1_xn7q1d.png')",
+					"url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1714005129/foro_3-min_bejggi.png')",
 				'spin-wise':
 					' url(https://res.cloudinary.com/dnxjwcku6/image/upload/v1713555467/AwareGaming/Group_1000004299-min_1_cczntx.png)',
 			},

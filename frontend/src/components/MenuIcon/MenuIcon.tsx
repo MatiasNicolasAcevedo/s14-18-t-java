@@ -97,7 +97,7 @@ const MenuIcon: React.FC = () => {
 					</li>
 
 					<li>
-						<a>
+						<Link to='/dashboard/foro'>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
 								width='19'
@@ -114,7 +114,7 @@ const MenuIcon: React.FC = () => {
 								/>
 							</svg>
 							Foro
-						</a>
+						</Link>
 					</li>
 					<li>
 						<a>
