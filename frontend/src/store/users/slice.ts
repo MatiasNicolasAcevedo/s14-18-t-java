@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User } from '@/types/user';
+import { UpdateUserDTO, User } from '@/types/user';
 
 const initialState: User = {
 	idUser: 0,
@@ -21,7 +21,15 @@ export const userSlice = createSlice({
 			state = payload;
 			return state;
 		},
-		setNewCredit: (state, action: PayloadAction<number>) => {
+		update: (state, action: PayloadAction<UpdateUserDTO>) => {
+			const { payload } = action;
+			state.firstName = payload.firstName;
+			state.lastName = payload.lastName;
+			state.password = payload.password;
+			state.dni = payload.dni;
+			return state;
+		},
+		setNewCredit: (state, action: PayloadAction<User['credits']>) => {
 			const { payload } = action;
 			state.credits = payload;
 			return state;
@@ -30,4 +38,4 @@ export const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
-export const { setUser, setNewCredit } = userSlice.actions;
+export const { setUser, update, setNewCredit } = userSlice.actions;

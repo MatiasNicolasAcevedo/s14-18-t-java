@@ -165,7 +165,7 @@ export function RegisterForm() {
 
 	return (
 		<>
-			<div className='flex flex-col items-center justify-center bg-teal-600 bg-opacity-20 border border-zinc-500 p-20 w-[668px] h-[1220px]'>
+			<div className='flex flex-col items-center  justify-center bg-opacity-20 border   bg-[#0c959526] backdrop-blur-md  p-20 '>
 				<h1 className='w-96 h-20 text-black text-4xl font-extrabold leading-9'>
 					Registro
 				</h1>
@@ -291,7 +291,7 @@ export function RegisterForm() {
 						)}
 					</div>
 					<div className='flex flex-col justify-center items-center'>
-						<div className='w-96 h-7 text-white text-base font-bold leading-9 flex gap-2 justify-center items-center'>
+						<div className='w-96 h-7 text-black text-base font-bold leading-9 flex gap-2 justify-center items-center'>
 							<input
 								type='checkbox'
 								name='accepted'
@@ -312,8 +312,8 @@ export function RegisterForm() {
 					</button>
 				</form>
 				<div className='mt-4'>
-					<div className='flex flex-col items-center text-white'>
-						<Link to={'/login'}>Iniciar sesión</Link>
+					<div className='flex flex-col items-center text-black'>
+						<Link to={'/Login'}>Iniciar sesión</Link>
 					</div>
 				</div>
 			</div>

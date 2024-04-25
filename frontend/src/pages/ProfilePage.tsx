@@ -10,6 +10,8 @@ const Profile: React.FC = () => {
 
 	const { firstName, lastName, email, credits } = user;
 
+	const handlerOnClickShowProfile = () => setShowProfile2(!showProfile2);
+
 	return (
 		<>
 			<div className='w-1/2 space-x-1 space-y-2 h-full flex flex-col '>
@@ -35,7 +37,7 @@ const Profile: React.FC = () => {
 							</div>
 
 							<button
-								onClick={() => setShowProfile2(!showProfile2)}
+								onClick={handlerOnClickShowProfile}
 								type='button'
 								className='w-full h-8 px-3 py-1.5 p-3 bg-gray-100 rounded-lg border border-gray-100 flex justify-center items-center gap-2 '
 							>
@@ -144,7 +146,9 @@ const Profile: React.FC = () => {
 			</div>
 
 			<div className='flex  space-y-2 w-2/3'>
-				{showProfile2 && <EditProfileForm />}
+				{showProfile2 && (
+					<EditProfileForm toggleProfile={handlerOnClickShowProfile} />
+				)}
 				<div className={`space-y-1 ${showProfile2 ? 'w-1/3' : 'w-full'}`}>
 					<div className='flex items-start  p-8 space-y-4  w-full h-1/3 rounded-[17px]  bg-card-ruleta bg-contain bg-right bg-no-repeat bg-custom-pink  backdrop-blur-[15px] '>
 						<div className='flex w-full flex-col justify-end items-start p-8  rounded-[17px] '>

@@ -1,5 +1,6 @@
 import { Comments } from '../Comentarios/Comments';
-import CommentsForm from '../Comentarios/CommentsForm';
+import CommentsForm from '@/components/Comentarios/CommentsForm';
+
 
 export const BodyPost = () => {
 	return (
