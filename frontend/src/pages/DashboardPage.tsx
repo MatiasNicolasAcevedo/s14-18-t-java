@@ -15,7 +15,10 @@ const DashboardPage: React.FC = () => {
 
 	useEffect(() => {
 		if (location.pathname === '/dashboard') setBackground('bg-aware-pattern');
-		else if (location.pathname === '/dashboard/profile')
+		else if (
+			location.pathname === '/dashboard/profile' ||
+			location.pathname === '/dashboard/foro'
+		)
 			setBackground('bg-aware-pattern');
 		else if (
 			location.pathname === '/dashboard/roullete' &&
@@ -39,7 +42,7 @@ const DashboardPage: React.FC = () => {
 			<div
 				className={`flex flex-col p-10 gap-3  items-center w-full ${background} min-h-screen bg-cover overflow-y-auto pb-20 `}
 			>
-				<div className='w-screen flex bg-white flex-col justify-center items-center'>
+				<div className='w-full flex bg-white flex-col justify-center items-center py-2 my-7'>
 					<Link to='/'>
 						<figure className='w-36 h-14 top-6 right-6 z-10'>
 							<img

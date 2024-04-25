@@ -1,54 +1,39 @@
 import { useState, FormEvent } from 'react';
-import { useAuth } from '@/hooks';
+import { useUser } from '@/hooks';
 import { RegisterFormData } from '@/types/auth';
-import { Link } from 'react-router-dom';
 
 interface Errors {
 	firstName: boolean;
 	lastName: boolean;
-	email: boolean;
 	dni: boolean;
 	password: boolean;
-	birthDate: boolean;
 }
 
-export default function ProfileEditForm() {
+interface Props {
+	toggleProfile: () => void;
+}
+
+export default function ProfileEditForm({ toggleProfile }: Props) {
 	const [errors, setErrors] = useState<Errors>({
 		firstName: false,
 		lastName: false,
-		email: false,
 		dni: false,
 		password: false,
-		birthDate: false,
 	});
-	const { authRegister } = useAuth();
-
-	function calculateAge(birthDate: Date): number {
-		const today = new Date();
-		let age = today.getFullYear() - birthDate.getFullYear();
-		const m = today.getMonth() - birthDate.getMonth();
-		if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-			age--;
-		}
-		return age;
-	}
+	const { user, updateUser } = useUser();
 
 	const validateForm = ({
 		firstName,
 		lastName,
-		email,
 		dni,
 		password,
-		birthDate,
 	}: RegisterFormData): boolean => {
 		let validate = false;
 		setErrors({
 			firstName: false,
 			lastName: false,
-			email: false,
 			dni: false,
 			password: false,
-			birthDate: false,
 		});
 		if (!firstName || firstName.length <= 3) {
 			setErrors(prevErrors => ({
@@ -64,13 +49,6 @@ export default function ProfileEditForm() {
 			}));
 			validate = true;
 		}
-		if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-			setErrors(prevErrors => ({
-				...prevErrors,
-				email: true,
-			}));
-			validate = true;
-		}
 		if (!dni) {
 			setErrors(prevErrors => ({
 				...prevErrors,
@@ -78,62 +56,48 @@ export default function ProfileEditForm() {
 			}));
 			validate = true;
 		}
-		if (
-			!password ||
-			!/[A-Z]/.test(password) ||
-			!/\d/.test(password) ||
-			!(password.length >= 5 && password.length <= 10)
-		) {
-			setErrors(prevErrors => ({
-				...prevErrors,
-				password: true,
-			}));
-			validate = true;
-		}
-		if (!birthDate) {
-			setErrors(prevErrors => ({
-				...prevErrors,
-				birthDate: true,
-			}));
-			validate = true;
+		if (password) {
+			if (
+				!/[A-Z]/.test(password) ||
+				!/\d/.test(password) ||
+				!(password.length >= 5 && password.length <= 10)
+			) {
+				setErrors(prevErrors => ({
+					...prevErrors,
+					password: true,
+				}));
+				validate = true;
+			}
 		}
 		return validate;
 	};
 
-	const handleSubmitRegister = (event: FormEvent<HTMLFormElement>) => {
+	const handleSubmitUpdateUser = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		const form = event.target as HTMLFormElement;
 		const formData = new FormData(form);
 		const firstName = formData.get('firstName') as string;
 		const lastName = formData.get('lastName') as string;
-		const email = formData.get('email') as string;
 		const dni = formData.get('dni') as string;
 		const password = formData.get('password') as string;
-		const birthDateString = formData.get('birthDate') as string;
-		const birthDate = new Date(birthDateString); // Convertir la cadena a un objeto Date
-		const birthDateStringISO = birthDate.toISOString(); // Convertir el objeto Date a una cadena
 
 		if (
 			validateForm({
 				firstName,
 				lastName,
-				email,
 				dni,
 				password,
-				birthDate: birthDateStringISO,
 			})
 		)
 			return;
 
-		authRegister({
+		updateUser({
 			firstName,
 			lastName,
-			email,
 			dni,
 			password,
-			birthDate: new Date(birthDateStringISO),
-			age: calculateAge(new Date(birthDateStringISO)),
 		});
+		toggleProfile();
 	};
 
 	return (
@@ -146,7 +110,7 @@ export default function ProfileEditForm() {
 				</div>
 				<form
 					className='w-3/4 flex flex-col gap-6'
-					onSubmit={handleSubmitRegister}
+					onSubmit={handleSubmitUpdateUser}
 				>
 					<div className='w-full flex-col justify-start items-start gap-1 inline-flex'>
 						<label
@@ -160,6 +124,7 @@ export default function ProfileEditForm() {
 							type='text'
 							name='firstName'
 							placeholder='Juan Martín'
+              defaultValue={user.firstName}
 							className={`bg-white shadow-custom-inner rounded-lg pl-5 pr-4 border-none py-3 w-full text-black ${
 								errors.firstName
 									? 'border-red-500 border-[3px]'
@@ -184,6 +149,7 @@ export default function ProfileEditForm() {
 							type='text'
 							name='lastName'
 							placeholder='Gonzalez'
+              defaultValue={user.lastName}
 							className={`bg-white shadow-custom-inner border-none rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.lastName ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.lastName && (
@@ -205,6 +171,7 @@ export default function ProfileEditForm() {
 							name='dni'
 							placeholder='12345678'
 							step='1'
+              defaultValue={user.dni}
 							className={`bg-white shadow-custom-inner border-none rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.dni ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.dni && (
@@ -260,23 +227,19 @@ export default function ProfileEditForm() {
 
 					<div className='flex justify-around flex-end w-full'>
 						<button
+							type='button'
+							className='w-[86px] h-8 px-3 py-1.5 bg-gray-100 rounded-lg border border-gray-100 flex justify-center items-center gap-2 text-gray-800 text-sm font-bold font-Nunito leading-tight'
+							onClick={toggleProfile}
+						>
+							Cancelar
+						</button>
+						<button
 							type='submit'
 							className='w-[86px] h-8 px-3 py-1.5 bg-gray-100 rounded-lg border border-gray-100 flex justify-center items-center gap-2'
 						>
 							<div className='text-gray-800 text-sm font-bold font-Nunito leading-tight'>
 								Editar
 							</div>
-						</button>
-						<button
-							type='button'
-							className='w-[86px] h-8 px-3 py-1.5 bg-gray-100 rounded-lg border border-gray-100 flex justify-center items-center gap-2'
-						>
-							<Link
-								to='/dashboard/profile'
-								className='text-gray-800 text-sm font-bold font-Nunito leading-tight'
-							>
-								Cancelar
-							</Link>
 						</button>
 					</div>
 				</form>
