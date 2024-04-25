@@ -124,7 +124,7 @@ export default function ProfileEditForm({ toggleProfile }: Props) {
 							type='text'
 							name='firstName'
 							placeholder='Juan Martín'
-              defaultValue={user.firstName}
+							defaultValue={user.firstName}
 							className={`bg-white shadow-custom-inner rounded-lg pl-5 pr-4 border-none py-3 w-full text-black ${
 								errors.firstName
 									? 'border-red-500 border-[3px]'
@@ -149,7 +149,7 @@ export default function ProfileEditForm({ toggleProfile }: Props) {
 							type='text'
 							name='lastName'
 							placeholder='Gonzalez'
-              defaultValue={user.lastName}
+							defaultValue={user.lastName}
 							className={`bg-white shadow-custom-inner border-none rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.lastName ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.lastName && (
@@ -171,7 +171,7 @@ export default function ProfileEditForm({ toggleProfile }: Props) {
 							name='dni'
 							placeholder='12345678'
 							step='1'
-              defaultValue={user.dni}
+							defaultValue={user.dni}
 							className={`bg-white shadow-custom-inner border-none rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.dni ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.dni && (
@@ -203,25 +203,6 @@ export default function ProfileEditForm({ toggleProfile }: Props) {
 									<li className='pl-6'>Entre 5 y 10 caracteres.</li>
 								</ul>
 							</span>
-						)}
-					</div>
-					<div className='w-full flex-col justify-start items-start gap-1 inline-flex'>
-						<label
-							htmlFor='birthDate'
-							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
-						>
-							Fecha de nacimiento(*)
-						</label>
-						<input
-							id='birthDate'
-							type='date'
-							name='birthDate'
-							className={`bg-white shadow-custom-inner border-none   rounded-lg pl-5 pr-4 py-3 w-full text-gray-900 ${errors.birthDate ? 'border-red-500 border-[3px]' : 'border border-black'}`}
-						/>
-						{errors.birthDate && (
-							<div className='text-black text-sm font-semibold ml-1'>
-								❌ Debes ser mayor de 18 años.
-							</div>
 						)}
 					</div>
 
