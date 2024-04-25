@@ -34,8 +34,12 @@ export const userSlice = createSlice({
 			state.credits = payload;
 			return state;
 		},
+		removeUser: state => {
+			state = initialState;
+			return state;
+		},
 	},
 });
 
 export default userSlice.reducer;
-export const { setUser, update, setNewCredit } = userSlice.actions;
+export const { setUser, update, setNewCredit, removeUser } = userSlice.actions;

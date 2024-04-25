@@ -16,8 +16,13 @@ export const tokenSlice = createSlice({
 			localStorage.setItem(TOKEN_KEY, payload);
 			return state;
 		},
+		removeToken: state => {
+			state = '';
+			localStorage.removeItem(TOKEN_KEY);
+			return state;
+		},
 	},
 });
 
 export default tokenSlice.reducer;
-export const { setToken } = tokenSlice.actions;
+export const { setToken, removeToken } = tokenSlice.actions;

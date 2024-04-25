@@ -1,13 +1,14 @@
-import React from 'react';
+import { useAuth } from '@/hooks';
 import { Link } from 'react-router-dom';
 
 const MenuIcon: React.FC = () => {
+	const { authLogout } = useAuth();
 	return (
 		<>
 			<div className='flex flex-col  w-full h-full space-y-1 text-cool-gray-900 font-nunito text-xs font-medium leading-150'>
 				<ul className='menu bg-teal-600 bg-opacity-20 rounded-[20px] backdrop-blur-[30px] w-full  rounded-b-none'>
 					<li>
-						<a>
+						<Link to='/dashboard/profile'>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
 								width='20'
@@ -25,7 +26,7 @@ const MenuIcon: React.FC = () => {
 								/>
 							</svg>
 							Dashboard
-						</a>
+						</Link>
 					</li>
 					<li>
 						<details open>
@@ -84,7 +85,7 @@ const MenuIcon: React.FC = () => {
 							</summary>
 							<ul>
 								<li>
-									<Link to='/spin-wise'>Spin Wise</Link>
+									<Link to='/dashboard/roullete'>Spin Wise</Link>
 								</li>
 								<li>
 									<Link to='/dice-aware'>Dice Aware</Link>
@@ -117,7 +118,7 @@ const MenuIcon: React.FC = () => {
 						</Link>
 					</li>
 					<li>
-						<a>
+						<Link to='/dashboard/profile'>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
 								width='19'
@@ -141,7 +142,7 @@ const MenuIcon: React.FC = () => {
 								/>
 							</svg>
 							Mi perfil
-						</a>
+						</Link>
 					</li>
 					<li>
 						<a>
@@ -247,7 +248,10 @@ const MenuIcon: React.FC = () => {
 						</li>
 					</ul>
 
-					<button className='bg-white   h-10 px-2 py-1 w-1/2 rounded-md flex justify-center items-center text-black text-lg shadow-custom font-bold leading-normal'>
+					<button
+						onClick={authLogout}
+						className='bg-white h-10 px-2 py-1 w-1/2 rounded-md flex justify-center items-center text-black text-lg shadow-custom font-bold leading-normal'
+					>
 						<span className='text-neutral-800 text-sm font-medium text-center font-nunito'>
 							Cerrar sesión
 						</span>
