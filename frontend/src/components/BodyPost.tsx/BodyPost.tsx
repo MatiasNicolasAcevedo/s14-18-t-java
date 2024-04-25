@@ -1,11 +1,11 @@
 import { Comments } from '../Comentarios/Comments';
-import CommentsForm from '../Comentarios/Commentsform';
+import CommentsForm from '../Comentarios/CommentsForm';
 
 export const BodyPost = () => {
 	return (
 		<div className=' rounded-2xl flex flex-col items-center max-w-[640px]'>
 			<div className='flex justify-between '>
-				<div className='w-20 h-20 shadow m-5'>
+				<div className='w-20 h-20 m-5'>
 					<img
 						className='w-20 h-20 left-0 top-0 object-cover rounded-50p'
 						src='https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
@@ -67,13 +67,18 @@ export const BodyPost = () => {
 					</p>
 				</div>
 				<div className='flex justify-end items-end mt-6 w-full max-w-2xl'>
-					<div className='flex justify-end items-end align-middle text-gray-900'>
+					<div className='flex justify-end items-end align-middle text-gray-900 gap-4'>
+						<p className=' block'>5 comentarios</p>
 						<p className=' block'>2 me gusta</p>
 					</div>
 				</div>
 			</div>
 			<CommentsForm />
-			<Comments />
+			<section className='flex flex-col gap-1 mt-5 w-full'>
+				<Comments />
+				<Comments />
+				<Comments />
+			</section>
 		</div>
 	);
 };

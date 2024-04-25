@@ -15,7 +15,10 @@ const DashboardPage: React.FC = () => {
 
 	useEffect(() => {
 		if (location.pathname === '/dashboard') setBackground('bg-aware-pattern');
-		else if (location.pathname === '/dashboard/profile')
+		else if (
+			location.pathname === '/dashboard/profile' ||
+			location.pathname === '/dashboard/foro'
+		)
 			setBackground('bg-aware-pattern');
 		else if (
 			location.pathname === '/dashboard/roullete' &&

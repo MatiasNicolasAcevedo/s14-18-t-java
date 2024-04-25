@@ -25,7 +25,7 @@ export const CardForo = () => {
 							<div>
 								<div className='bg-white w-36 h-12 px-7 py-3 rounded-3xl text-black text-sm font-normal leading-tight shadow-custom'>
 									<div className='flex flex-col items-center'>
-										<Link to={'/post'}>Leer</Link>
+										<Link to='post'>Leer</Link>
 									</div>
 								</div>
 							</div>
