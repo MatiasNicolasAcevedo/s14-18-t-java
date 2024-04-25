@@ -12,7 +12,7 @@ const Profile: React.FC = () => {
 
 	return (
 		<>
-			<div className='w-1/2 space-x-1 space-y-2 h-full flex flex-col '>
+			<div className='w-1/3 space-x-1 space-y-2 h-full flex flex-col '>
 				<div className='w-full h-3/6 space-x-2 flex '>
 					<div className=' bg-[#0c959526] backdrop-blur-md flex flex-col  items-start p-8 justify-between w-1/2 rounded-[17px]'>
 						<div className='avatar online'>
@@ -143,10 +143,10 @@ const Profile: React.FC = () => {
 				</div>
 			</div>
 
-			<div className='flex  space-y-2 w-2/3'>
+			<div className='flex gap-3 space-y-2 w-2/3'>
 				{showProfile2 && <EditProfileForm />}
-				<div className={`space-y-1 ${showProfile2 ? 'w-1/3' : 'w-full'}`}>
-					<div className='flex items-start  p-8 space-y-4  w-full h-1/3 rounded-[17px]  bg-card-ruleta bg-contain bg-right bg-no-repeat bg-custom-pink  backdrop-blur-[15px] '>
+				<div className={`space-y-1 ${showProfile2 ? 'w-1/2' : 'w-full'}`}>
+					<div className='flex items-start  p-8 space-y-4  w-full h-1/3 rounded-[17px]  bg-card-ruleta bg-contain  bg-right bg-no-repeat bg-custom-pink  backdrop-blur-[15px] '>
 						<div className='flex w-full flex-col justify-end items-start p-8  rounded-[17px] '>
 							<h1 className='text-gray-700 text-[32px] font-black font-Nunito leading-loose'>
 								SPIN WISE
@@ -160,16 +160,21 @@ const Profile: React.FC = () => {
 						</div>
 					</div>
 
-					<div className='flex  flex-row justify-end  items-start p-8 space-y-4  w-full h-1/3 rounded-[17px]  bg-dice-background bg-no-repeat bg-contain bg-left bg-custom-purple backdrop-blur-[15px]'>
-						<div className='flex justify-end w-1/3 p-4'>
-							<h1 className='text-gray-700 text-[32px] font-black font-Nunito leading-loose'>
+					<div className='flex overflow-visible  flex-row justify-end items-start p-8 space-y-4  w-full h-1/3 rounded-[17px]  bg-transparent-bubble bg-no-repeat bg-contain bg-left bg-custom-purple backdrop-blur-[15px]'>
+						<img
+							className=' w-1/2 '
+							src='https://res.cloudinary.com/dnxjwcku6/image/upload/v1714012035/image_62dices_qufolc.svg'
+							alt='dice'
+						/>
+						<div className='flex justify-end z-10 w-3/4 p-4'>
+							<h1 className='text-gray-700 text-[30px] font-black font-Nunito leading-loose'>
 								PROXIMAMENTE DICE AWARE
 							</h1>
 						</div>
 					</div>
 
 					<div className='flex  flex-row justify-start  items-start p-8 space-y-4  w-full h-1/3 rounded-[17px]  bg-card-roll bg-no-repeat bg-contain bg-right bg-custom-blue backdrop-blur-[15px]'>
-						<div className='flex justify-start w-1/3 p-4'>
+						<div className='flex justify-start w-3/4 p-4'>
 							<h1 className='text-gray-700 text-[32px] font-black font-Nunito leading-loose'>
 								PROXIMAMENTE SLOT CARE
 							</h1>

@@ -37,9 +37,9 @@ const DashboardPage: React.FC = () => {
 	return (
 		<>
 			<div
-				className={`flex flex-col justify-around items-center w-full ${background} min-h-screen bg-cover pb-20`}
+				className={`flex flex-col p-10 gap-3  items-center w-full ${background} min-h-screen bg-cover overflow-y-auto pb-20 `}
 			>
-				<div className='w-full flex bg-white flex-col justify-center items-center'>
+				<div className='w-screen flex bg-white flex-col justify-center items-center'>
 					<Link to='/'>
 						<figure className='w-36 h-14 top-6 right-6 z-10'>
 							<img
@@ -49,11 +49,11 @@ const DashboardPage: React.FC = () => {
 						</figure>
 					</Link>
 				</div>
-				<div className=' space-x-2  flex z-10'>
+				<div className='  space-x-2  flex  z-10'>
 					<div className=' block'>
 						<MenuIcon />
 					</div>
-					<main className='flex space-x-2'>
+					<main className='flex   space-x-2'>
 						<Outlet />
 					</main>
 				</div>

@@ -15,6 +15,7 @@ export default {
 			boxShadow: {
 				custom:
 					'8px 8px 16px 0px rgba(107, 38, 128, 0.60), -2px -2px 16px 0px #D2B1DB inset, -4px -4px 10px 0px #8D3DA5 inset',
+					'custom-inner': '1px 2px 7px 0px rgba(0, 0, 0, 0.25) inset',
 			},
 			backdropFilter: {
 				none: 'none',
@@ -31,6 +32,7 @@ export default {
 				2: '2',
 			},
 			colors: {
+				'gray-400': '#9CA3AF',
 				'zinc-500':'#838383',
 				'teal-600': '#0C9595',
 				'custom-purple': '#8D3DA5',
@@ -59,6 +61,7 @@ export default {
 				'10p': '80px',
 			},
 			backgroundImage: {
+				'transparent-bubble': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1714011725/Group_1000004301_hnmyxi.svg')",
 				'fichas': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713911970/Fichas_i9l8c6.svg')",
 				'login-register': "url('https://res.cloudinary.com/dnxjwcku6/image/upload/v1713911965/Register-frame_ifhb5x.svg')",
 				'roulette-dashboard':

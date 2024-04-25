@@ -138,17 +138,17 @@ export default function ProfileEditForm() {
 
 	return (
 		<>
-			<div className='flex flex-col w-1/2 items-center space-y-2 justify-centerbg  bg-teal-600 bg-opacity-20 rounded-[20px] backdrop-blur-[30px] p-20 '>
+			<div className='flex flex-col w-1/2 items-center space-y-2 justify-centerbg  bg-teal-600 bg-opacity-20 rounded-[20px] backdrop-blur p-5 '>
 				<div className='w-full text-left'>
-					<h1 className='text-black text-[32px] font-bold font-xl leading-[38px]'>
+					<p className='text-gray-900 text-xl font-bold font-nunito leading-normal font-base '>
 						Perfil
-					</h1>
+					</p>
 				</div>
 				<form
-					className='w-96 flex flex-col gap-6'
+					className='w-3/4 flex flex-col gap-6'
 					onSubmit={handleSubmitRegister}
 				>
-					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
+					<div className='w-full flex-col justify-start items-start gap-1 inline-flex'>
 						<label
 							htmlFor='firstName'
 							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
@@ -160,7 +160,7 @@ export default function ProfileEditForm() {
 							type='text'
 							name='firstName'
 							placeholder='Juan Martín'
-							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${
+							className={`bg-white shadow-custom-inner rounded-lg pl-5 pr-4 border-none py-3 w-full text-black ${
 								errors.firstName
 									? 'border-red-500 border-[3px]'
 									: 'border border-black'
@@ -172,7 +172,7 @@ export default function ProfileEditForm() {
 							</div>
 						)}
 					</div>
-					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
+					<div className='w-full flex-col justify-start items-start gap-1 inline-flex'>
 						<label
 							htmlFor='lastName'
 							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
@@ -184,7 +184,7 @@ export default function ProfileEditForm() {
 							type='text'
 							name='lastName'
 							placeholder='Gonzalez'
-							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.lastName ? 'border-red-500 border-[3px]' : 'border border-black'}`}
+							className={`bg-white shadow-custom-inner border-none rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.lastName ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.lastName && (
 							<div className='text-black text-sm font-semibold ml-1'>
@@ -192,7 +192,7 @@ export default function ProfileEditForm() {
 							</div>
 						)}
 					</div>
-					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
+					<div className='w-full flex-col justify-start items-start gap-1 inline-flex'>
 						<label
 							htmlFor='DNI'
 							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
@@ -205,7 +205,7 @@ export default function ProfileEditForm() {
 							name='dni'
 							placeholder='12345678'
 							step='1'
-							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.dni ? 'border-red-500 border-[3px]' : 'border border-black'}`}
+							className={`bg-white shadow-custom-inner border-none rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.dni ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.dni && (
 							<div className='text-gray-900 text-sm font-bold font-nunito leading-normal'>
@@ -213,7 +213,7 @@ export default function ProfileEditForm() {
 							</div>
 						)}
 					</div>
-					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
+					<div className='w-full flex-col justify-start items-start gap-1 inline-flex'>
 						<label
 							htmlFor='password'
 							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
@@ -225,7 +225,7 @@ export default function ProfileEditForm() {
 							type='password'
 							name='password'
 							placeholder='*************'
-							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.password ? 'border-red-500 border-[3px]' : 'border border-black'}`}
+							className={`bg-white  border-none shadow-custom-inner rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.password ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.password && (
 							<span>
@@ -238,10 +238,10 @@ export default function ProfileEditForm() {
 							</span>
 						)}
 					</div>
-					<div className='w-96 flex-col justify-start items-start gap-1 inline-flex'>
+					<div className='w-full flex-col justify-start items-start gap-1 inline-flex'>
 						<label
 							htmlFor='birthDate'
-							className='text-black text-sm font-semibold leading-normal'
+							className='text-gray-900 text-sm font-bold font-nunito leading-normal'
 						>
 							Fecha de nacimiento(*)
 						</label>
@@ -249,7 +249,7 @@ export default function ProfileEditForm() {
 							id='birthDate'
 							type='date'
 							name='birthDate'
-							className={`bg-white rounded-lg pl-5 pr-4 py-3 w-full text-black ${errors.birthDate ? 'border-red-500 border-[3px]' : 'border border-black'}`}
+							className={`bg-white shadow-custom-inner border-none   rounded-lg pl-5 pr-4 py-3 w-full text-gray-900 ${errors.birthDate ? 'border-red-500 border-[3px]' : 'border border-black'}`}
 						/>
 						{errors.birthDate && (
 							<div className='text-black text-sm font-semibold ml-1'>
