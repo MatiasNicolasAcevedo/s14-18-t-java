@@ -8,3 +8,6 @@ export interface User {
 	age: number;
 	credits: number;
 }
+
+export interface UpdateUserDTO
+	extends Omit<User, 'idUser' | 'age' | 'email' | 'credits'> {}
