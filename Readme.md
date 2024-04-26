@@ -292,4 +292,3 @@ La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento sa
     <img src="https://assets-global.website-files.com/65773955177041dbf059ed20/6584760759a54bef40894700_Logo%20navbar.svg" alt="Logo de No Country" height="60">
   </div>
 </a>
-
