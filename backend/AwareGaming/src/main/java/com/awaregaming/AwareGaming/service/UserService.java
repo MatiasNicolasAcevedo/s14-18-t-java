@@ -1,5 +1,6 @@
 package com.awaregaming.AwareGaming.service;
 
+import com.awaregaming.AwareGaming.dto.ResponseDTO;
 import com.awaregaming.AwareGaming.dto.UserRequestDto;
 import com.awaregaming.AwareGaming.model.User;
 import com.awaregaming.AwareGaming.repository.IUserRepository;
@@ -31,7 +32,6 @@ public class UserService implements IUserService {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-
     //para poder obtener el usuario por email
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -59,7 +59,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public ResponseEntity<String> updateUser(int id, UserRequestDto userRequestDto) throws UserUpdateException {
+    public ResponseEntity<ResponseDTO> updateUser(int id, UserRequestDto userRequestDto) throws UserUpdateException {
         User user = userRepository.findById(id).orElseThrow();
         try {
             if (userRequestDto .getFirstName() != null &&
@@ -91,7 +91,8 @@ public class UserService implements IUserService {
                 user.setAge(userRequestDto.getAge());
             }
             userRepository.save(user);
-            return new ResponseEntity<>("User update successful", HttpStatus.OK);
+            UserResponseDto userResponseDto = new UserResponseDto(user);
+            return new ResponseEntity<>(new ResponseDTO("User updated successfully", userResponseDto), HttpStatus.OK);
         } catch (UserUpdateException e) {
             throw new UserUpdateException("Error updating user");
         } catch (UsernameNotFoundException e) {
