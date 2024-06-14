@@ -1,4 +1,4 @@
-<h1 align="center">Casino virtual Aware Gaming </h1>
+<h1 align="center">Casino virtual - Aware Gaming </h1>
 <br>
 <h2>Bienvenido a nuestro proyecto!</h2>
 <p>Un lugar destinado a ayudar a personas que enfrentan dificultades con el juego y las apuestas. Nuestra página web tiene como objetivo principal proporcionar un ambiente seguro y solidario donde los usuarios puedan acceder a recursos, información y comunidad para manejar sus hábitos de juego de manera saludable y controlada. En lugar de fomentar el juego irresponsable, premiamos y celebramos aquellos momentos en los que los usuarios optan por jugar y apostar de manera moderada, alentándolos a tomar decisiones conscientes y saludables para su bienestar emocional y financiero. Únete a nosotros en este viaje hacia una vida libre de los riesgos asociados con el juego problemático y descubre una comunidad solidaria lista para brindarte apoyo en cada paso del camino.</p>
