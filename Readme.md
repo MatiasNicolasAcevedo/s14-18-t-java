@@ -22,9 +22,72 @@
 <br>
 
 <div align='center'>
-  <h2>⚙️ Funcionalidades Principales 🚀</h2>
+  <h2>🌟 Características 🚀</h2>
 </div>
 
+<div>
+    <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹Interfaz pensada para generar confianza y tranquilidad por sus formas redondeadas y su colorimetría.
+      </p>
+ <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹Disponemos de un formulario de soporte, las 24hs.
+      </p>
+ <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹La aplicación cuenta con un sistema de encriptado para la integridad de los datos a través de tokens.
+      </p>
+ <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹Contamos con una restricción a menores de edad.
+      </p>
+ <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹Inicia sesión con el email y contraseña de registro.
+      </p>
+ <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹La aplicación cuenta con un panel de usuario para mejorar la navegabilidad.
+      </p>
+ <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹Disponemos de un formulario para actualizar el Perfil del usuario en caso de ser necesario.
+      </p>
+ <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹Contamos con un sistema de recarga diaria de 100 créditos automáticamente.
+      </p>
+ <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹La ruleta llamada Spin Wise está completamente funcional, cuenta con 13 modos distintos de apuesta.
+      </p>
+ <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹Contamos con un sistema de limites de apuestas, para evitar el impulso natural de apostarlo todo, a través de apuestas controladas.
+      </p>
+ <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹Próximamente estamos en desarrollo de Dice Aware (dados) y Slot Care (tragamonedas).
+      </p>
+ <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹Tenemos un control de estadísticas de horas jugadas para crear conciencia y establecer limites de juego.
+      </p>
+ <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹Disponemos de un Foro donde el usuario puede interactuar directamente en los distintos artículos sobre la problemática.
+      </p>
+ <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹Sistema de recompensas con créditos al participar en el foro para fomentar la sociabilidad.
+      </p>
+ <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      🔹Se propone la dinámica de café virtuales y webinars para abordar la problemática y los distintos temas.
+      </p>
+</div>
+   
 <br>
 
 <ul>
@@ -50,10 +113,6 @@ La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento sa
 <br>
 </ul>
 
-<div align=center >
-    <a href="https://aware-gaming.web.app/"><img src="https://img.shields.io/badge/Deploy-%230082CE.svg?logo=google-chrome&logoColor=white" alt="Aware gaming" style="height: 30px;"></a>
-    <a href="https://www.figma.com/file/ynNFMZSNhqUll7grrDczVd/casino-game"><img src="https://img.shields.io/badge/Dise%C3%B1o-%23F24E1E.svg?logo=figma&logoColor=white" alt="Diseño" style="height: 30px;"></a>
-</div>
     
 <hr>
 <h2 align="center">Equipo de Desarrollo</h2>
@@ -259,6 +318,13 @@ La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento sa
   <img src="https://img.shields.io/badge/Spring%20Security%20-grey?style=flat&logo=springsecurity&logoColor=fefefe&labelColor=6DB33F&color=%23E8E8E8" alt="TailwindCSS" style="height: 30px;">
   <img src="https://img.shields.io/badge/Hibernate%20-grey?style=flat&logo=Hibernate&logoColor=fefefe&labelColor=59666C&color=%23E8E8E8" alt="MySQL" style="height: 30px;">
 </div>
+
+
+<div align=center >
+    <a href="https://aware-gaming.web.app/"><img src="https://img.shields.io/badge/Deploy-%230082CE.svg?logo=google-chrome&logoColor=white" alt="Aware gaming" style="height: 30px;"></a>
+    <a href="https://www.figma.com/file/ynNFMZSNhqUll7grrDczVd/casino-game"><img src="https://img.shields.io/badge/Dise%C3%B1o-%23F24E1E.svg?logo=figma&logoColor=white" alt="Diseño" style="height: 30px;"></a>
+</div>
+
 <h2 align="center">Organización</h2>
 <div align="center">
     <img src="https://img.shields.io/badge/Figma-F24E1E?logo=figma&logoColor=white" alt="Figma" style="height: 30px;">
