@@ -27,95 +27,56 @@
 
 <div>
     <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹Interfaz pensada para generar confianza y tranquilidad por sus formas redondeadas y su colorimetría.
       </p>
  <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹Disponemos de un formulario de soporte, las 24hs.
       </p>
  <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹La aplicación cuenta con un sistema de encriptado para la integridad de los datos a través de tokens.
       </p>
  <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹Contamos con una restricción a menores de edad.
       </p>
  <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹Inicia sesión con el email y contraseña de registro.
       </p>
  <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹La aplicación cuenta con un panel de usuario para mejorar la navegabilidad.
       </p>
  <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹Disponemos de un formulario para actualizar el Perfil del usuario en caso de ser necesario.
       </p>
  <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹Contamos con un sistema de recarga diaria de 100 créditos automáticamente.
       </p>
  <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹La ruleta llamada Spin Wise está completamente funcional, cuenta con 13 modos distintos de apuesta.
       </p>
  <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹Contamos con un sistema de limites de apuestas, para evitar el impulso natural de apostarlo todo, a través de apuestas controladas.
       </p>
  <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹Próximamente estamos en desarrollo de Dice Aware (dados) y Slot Care (tragamonedas).
       </p>
  <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹Tenemos un control de estadísticas de horas jugadas para crear conciencia y establecer limites de juego.
       </p>
  <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹Disponemos de un Foro donde el usuario puede interactuar directamente en los distintos artículos sobre la problemática.
       </p>
  <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹Sistema de recompensas con créditos al participar en el foro para fomentar la sociabilidad.
       </p>
  <p>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       🔹Se propone la dinámica de café virtuales y webinars para abordar la problemática y los distintos temas.
       </p>
 </div>
    
 <br>
 
-<ul>
-<l1><strong>Alta de usuario</strong>    
-<br>
-En AWARE GAMING podrás registrarte y dar de alta tu usuario con el que vas a tener acceso a nuestros servicios y toda nuestra comunidad. 
-</li>
-<br>
-<l1><strong>Comunidad</strong>    
-<br>
-Creamos un espacio interactivo donde los usuarios pueden conectarse entre sí, compartir sus historias, buscar y brindar apoyo mutuo, y participar en discusiones moderadas sobre temas relacionados con el juego
-</li>
-<br>
-<l1><strong>Recompensas y logros</strong>    
-<br>
-Esta sección resalta nuestro enfoque en recompensar y celebrar los esfuerzos de los usuarios por jugar y apostar de manera responsable y controlada. Aquí, reconocemos y premiamos los hitos y logros alcanzados por los usuarios en su viaje hacia una vida libre de problemas de juego.
-</li>
-<br>
-<l1><strong>Juegos</strong>    
-<br>
-La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento saludables y divertidas que no implican apuestas ni riesgos financieros. Nos comprometemos a promover el ocio responsable y la diversión sin riesgos, proporcionando una variedad de juegos gratuitos y emocionantes para disfrutar.
-</li>
-<br>
-</ul>
-
-    
-<hr>
 <h2 align="center">Equipo de Desarrollo</h2>
+
 <table align="center">
   <tr>
     <td align="center">
@@ -146,11 +107,8 @@ La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento sa
         <img src="https://img.shields.io/badge/GitHub-grey?logo=github" alt="GitHub">
       </a>    
     </td>
-</table>
-<h3 align="left">Area de diseño </h3>
-<table align="center">
-  <tr>
-     <td align="center">
+   <td align="center">
+      <h3 align="center">Area de diseño </h3>
       <img src="https://mir-s3-cdn-cf.behance.net/user/115/9b766750848311.6553a5ba8744a.jpg" alt="Diego Gonzalez" height=200 width=200>
       <br>
       <strong>Diego Gonzalez</strong>
@@ -165,6 +123,7 @@ La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento sa
       </a>    
     </td>
     <td align="center">
+     <h3 align="center">Area de diseño </h3>
       <img src="https://mir-s3-cdn-cf.behance.net/user/115/59bdc71638277815.6599920decaf8.jpg" alt="Lucia Harillo" height=200 width=200>
       <br>
       <strong>Lucia Harillo</strong>
@@ -178,21 +137,11 @@ La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento sa
         <img src="https://img.shields.io/badge/behance-1769FF?logo=behance" alt="behance">
       </a>    
     </td>
-</tr>
-<tr>
-  </tr>
-</table>
-<h2 align="center">Tecnologías aplicadas</h2>
-<div align="center">
-  <img src="https://img.shields.io/badge/Figma%20-grey?style=flat&logo=Figma&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="React JS" style="height: 30px;">
-  <img src="https://img.shields.io/badge/Cinema%204d%20-grey?style=flat&logo=CInema4d&logoColor=011A6A&labelColor=191919&color=%23E8E8E8" alt="TypeScript" style="height: 30px;">
-  <img src="https://img.shields.io/badge/Adobe%20Photoshop%20-grey?style=flat&logo=Adobe%20Photoshop&logoColor=%E34F26&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;">
-<img src="https://img.shields.io/badge/Adobe%20Illustrator%20-grey?style=flat&logo=Adobe%20Illustrator&logoColor=FF9A00&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;">
-</div>
-<h3 align="tight">Area FRONT-END</h3>
-<table align="center">
-  <tr>
+    </tr>
+ 
+   <tr>
     <td align="center">
+     <h3 align="center">Area FRONT-END</h3>
       <img src="https://github.com/alefernandez88.png" alt="Alejandro Fernández" height=200 width=200>
       <br>
       <strong>Alejandro Fernández</strong>
@@ -207,6 +156,7 @@ La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento sa
       </a>    
     </td>
     <td align="center">
+     <h3 align="center">Area FRONT-END</h3>
       <img src="https://github.com/aracely33.png" alt="Aracely Cruz Del Angel" height=200 width=200>
       <br>
       <strong> Aracely Cruz Del Angel</strong>
@@ -221,6 +171,7 @@ La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento sa
       </a>    
     </td>
     <td align="center">
+     <h3 align="center">Area FRONT-END</h3>
       <img src="https://github.com/rolando22.png" alt="Rolando Castañon Fernández" height=200 width=200>
       <br>
       <strong> Rolando Castañon Fernández</strong>
@@ -234,21 +185,8 @@ La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento sa
         <img src="https://img.shields.io/badge/GitHub-grey?logo=github" alt="GitHub">
       </a>    
     </td>
-  </tr>
-</table>
-<h2 align="center">Tecnologías aplicadas</h2>
-<div align="center">
-  <img src="https://img.shields.io/badge/React%20JS-grey?style=flat&logo=React&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="React JS" style="height: 30px;">
-  <img src="https://img.shields.io/badge/TypeScript%20-grey?style=flat&logo=TypeScript&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="TypeScript" style="height: 30px;">
-  <img src="https://img.shields.io/badge/HTML%20-grey?style=flat&logo=html5&logoColor=%E34F26&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;">
-<img src="https://img.shields.io/badge/CSS%20-grey?style=flat&logo=css3&logoColor=1572B6&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;">
-  <img src="https://img.shields.io/badge/Tailwind%20-grey?style=flat&logo=Tailwindcss&logoColor=2361DAFB&labelColor=191919&color=%23E8E8E8" alt="TailwindCSS" style="height: 30px;">
-  <img src="https://img.shields.io/badge/Redux%20-grey?style=flat&logo=redux&logoColor=764ABC&labelColor=191919&color=%23E8E8E8" alt="MySQL" style="height: 30px;">
-</div>
-<h3 align="tight">Area BACK-END</h3>
-<table align="center">
-  <tr>
-    <td align="center">
+   <td align="center">
+     <h3 align="center">Area BACK-END</h3>
       <img src="https://i.imgur.com/4QkZTuR.png" alt="Hans Urpay" height=200 width=200>
       <br>
       <strong>Hans Urpay</strong>
@@ -262,7 +200,10 @@ La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento sa
         <img src="https://img.shields.io/badge/GitHub-grey?logo=github" alt="GitHub">
       </a>    
     </td>
+  </tr>
+  <tr>
     <td align="center">
+     <h3 align="center">Area BACK-END</h3>
       <img src="https://github.com/MatiasNicolasAcevedo.png" alt="Matias Acevedo" height=200 >
       <br>
       <strong>Matias Acevedo</strong>
@@ -276,9 +217,8 @@ La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento sa
         <img src="https://img.shields.io/badge/GitHub-grey?logo=github" alt="GitHub">
       </a>    
     </td>
-    </tr>
-<tr>
-    <td align="center">
+   <td align="center">
+     <h3 align="center">Area BACK-END</h3>
       <img src="https://github.com/rubenledesma10.png" alt="Rubén Ledesma" height=200 width=200>
       <br>
       <strong>Rubén Ledesma</strong>
@@ -293,6 +233,7 @@ La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento sa
       </a>    
     </td>
     <td align="center">
+     <h3 align="center">Area BACK-END</h3>
       <img src="https://github.com/SantiagoFigli.png" alt="Santiago Figliuolo" height=200 width=200>
       <br>
       <strong>Santiago Figliuolo</strong>
@@ -306,9 +247,27 @@ La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento sa
         <img src="https://img.shields.io/badge/GitHub-grey?logo=github" alt="GitHub">
       </a> 
     </td>
-  </tr>
+    </tr>
 </table>
-<hr>
+
+<h2 align="center">Tecnologías aplicadas</h2>
+<div align="center">
+  <img src="https://img.shields.io/badge/Figma%20-grey?style=flat&logo=Figma&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="React JS" style="height: 30px;">
+  <img src="https://img.shields.io/badge/Cinema%204d%20-grey?style=flat&logo=CInema4d&logoColor=011A6A&labelColor=191919&color=%23E8E8E8" alt="TypeScript" style="height: 30px;">
+  <img src="https://img.shields.io/badge/Adobe%20Photoshop%20-grey?style=flat&logo=Adobe%20Photoshop&logoColor=%E34F26&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;">
+<img src="https://img.shields.io/badge/Adobe%20Illustrator%20-grey?style=flat&logo=Adobe%20Illustrator&logoColor=FF9A00&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;">
+</div>
+
+<h2 align="center">Tecnologías aplicadas</h2>
+<div align="center">
+  <img src="https://img.shields.io/badge/React%20JS-grey?style=flat&logo=React&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="React JS" style="height: 30px;">
+  <img src="https://img.shields.io/badge/TypeScript%20-grey?style=flat&logo=TypeScript&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="TypeScript" style="height: 30px;">
+  <img src="https://img.shields.io/badge/HTML%20-grey?style=flat&logo=html5&logoColor=%E34F26&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;">
+<img src="https://img.shields.io/badge/CSS%20-grey?style=flat&logo=css3&logoColor=1572B6&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;">
+  <img src="https://img.shields.io/badge/Tailwind%20-grey?style=flat&logo=Tailwindcss&logoColor=2361DAFB&labelColor=191919&color=%23E8E8E8" alt="TailwindCSS" style="height: 30px;">
+  <img src="https://img.shields.io/badge/Redux%20-grey?style=flat&logo=redux&logoColor=764ABC&labelColor=191919&color=%23E8E8E8" alt="MySQL" style="height: 30px;">
+</div>
+
 <h2 align="center">Tecnologías aplicadas</h2>
 <div align="center">
   <img src="https://img.shields.io/badge/Java%20-grey?style=flat&logo=java&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="React JS" style="height: 30px;">
