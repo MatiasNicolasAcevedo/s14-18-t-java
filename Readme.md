@@ -1,17 +1,32 @@
-<h1 align="center">Casino virtual - Aware Gaming </h1>
+<h1 align="center">🎲 Equipo s14-18-t-java | No Country 🌎</h1>
+ 
+  <!-- PROJECT LOGO -->
+  <div align='center'>
+    <a href="https://aware-gaming.web.app/" target="_blank">
+      <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/51f7ee94-94a5-489e-a876-a227f4877a43" alt="Banner">
+    </a>
+  </div>
+
 <br>
-<h2>Bienvenido a nuestro proyecto!</h2>
-<p>Un lugar destinado a ayudar a personas que enfrentan dificultades con el juego y las apuestas. Nuestra página web tiene como objetivo principal proporcionar un ambiente seguro y solidario donde los usuarios puedan acceder a recursos, información y comunidad para manejar sus hábitos de juego de manera saludable y controlada. En lugar de fomentar el juego irresponsable, premiamos y celebramos aquellos momentos en los que los usuarios optan por jugar y apostar de manera moderada, alentándolos a tomar decisiones conscientes y saludables para su bienestar emocional y financiero. Únete a nosotros en este viaje hacia una vida libre de los riesgos asociados con el juego problemático y descubre una comunidad solidaria lista para brindarte apoyo en cada paso del camino.</p>
-<div align=center >
-    <a href="https://www.youtube.com/watch?v=xdvnvosPAFk"><img src="https://res.cloudinary.com/dnxjwcku6/image/upload/v1713282439/Group_1000004234-min_uj3vv7.png" class="img-logo" alt="Centro médico Cousin" height=250 ></a>
+  <h1 align='center'>🤯 Aware Gaming 🎮</h1>
+  
+<p>🔹Un lugar destinado a ayudar a personas que enfrentan dificultades con el juego y las apuestas. </p> 
+<p>🔹Nuestra página web tiene como objetivo principal proporcionar un ambiente seguro y solidario donde los usuarios puedan acceder a recursos, información y comunidad para manejar sus hábitos de juego de manera saludable y controlada. </p> 
+<p>🔹En lugar de fomentar el juego irresponsable, premiamos y celebramos aquellos momentos en los que los usuarios optan por jugar y apostar de manera moderada, alentándolos a tomar decisiones conscientes y saludables para su bienestar emocional y financiero.</p> 
+<p>🔹Únete a nosotros en este viaje hacia una vida libre de los riesgos asociados con el juego problemático y descubre una comunidad solidaria lista para brindarte apoyo en cada paso del camino.</p>
+
+  <div align='center'>
+   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/347babe7-2410-48ba-bf30-e82b10ee3d10" alt="mini" width="720" height="511">
+  </div>
+
+<br>
+
+<div align='center'>
+  <h2>⚙️ Funcionalidades Principales 🚀</h2>
 </div>
+
 <br>
-<br>
-<div align=center >
-    <a href="https://aware-gaming.web.app/"><img src="https://img.shields.io/badge/Deploy-%230082CE.svg?logo=google-chrome&logoColor=white" alt="Aware gaming" style="height: 30px;"></a>
-    <a href="https://www.figma.com/file/ynNFMZSNhqUll7grrDczVd/casino-game"><img src="https://img.shields.io/badge/Dise%C3%B1o-%23F24E1E.svg?logo=figma&logoColor=white" alt="Diseño" style="height: 30px;"></a>
-</div>
-<h2 align="center">¿Qué puedes encontrar en nuestro sitio web?</h2>
+
 <ul>
 <l1><strong>Alta de usuario</strong>    
 <br>
@@ -34,6 +49,12 @@ La sección de "Juegos" ofrece a los usuarios alternativas de entretenimiento sa
 </li>
 <br>
 </ul>
+
+<div align=center >
+    <a href="https://aware-gaming.web.app/"><img src="https://img.shields.io/badge/Deploy-%230082CE.svg?logo=google-chrome&logoColor=white" alt="Aware gaming" style="height: 30px;"></a>
+    <a href="https://www.figma.com/file/ynNFMZSNhqUll7grrDczVd/casino-game"><img src="https://img.shields.io/badge/Dise%C3%B1o-%23F24E1E.svg?logo=figma&logoColor=white" alt="Diseño" style="height: 30px;"></a>
+</div>
+    
 <hr>
 <h2 align="center">Equipo de Desarrollo</h2>
 <table align="center">
