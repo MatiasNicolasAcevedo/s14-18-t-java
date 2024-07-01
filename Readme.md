@@ -75,7 +75,7 @@
    
 <br>
 
-<h2 align="center">Equipo de Desarrollo</h2>
+<h2 align="center">💎 Equipo ✨</h2>
 
 <table align="center">
   <tr>
@@ -84,11 +84,11 @@
       <img src="https://github.com/VickyNata.png" alt="Victoria Natalini" height=200 width=200>
       <br>
       <strong>Victoria Natalini</strong>
-      <p>Google Meet</p>
+      <br>
       <a href="https://www.linkedin.com/in/victoria-natalini/">
         <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn">
       </a> 
-        <br>
+        &nbsp;
       <a href="https://github.com/VickyNata">
         <img src="https://img.shields.io/badge/GitHub-grey?logo=github" alt="GitHub">
       </a>    
@@ -98,41 +98,39 @@
       <img src="https://github.com/Yosmarli.png" alt="Yosmarli Parica" height=200 width=200>
       <br>
       <strong>Yosmarli Parica</strong>
-      <p>Excel | Postman</p>
+      <br>
       <a href="https://www.linkedin.com/in/yosmarli-parica-1156461a2/">
         <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn">
       </a> 
-        <br>
+        &nbsp;
       <a href="https://github.com/Yosmarli">
         <img src="https://img.shields.io/badge/GitHub-grey?logo=github" alt="GitHub">
       </a>    
     </td>
    <td align="center">
-      <h3 align="center">Area de diseño </h3>
+      <h3 align="center">Diseño UX/UI</h3>
       <img src="https://mir-s3-cdn-cf.behance.net/user/115/9b766750848311.6553a5ba8744a.jpg" alt="Diego Gonzalez" height=200 width=200>
       <br>
       <strong>Diego Gonzalez</strong>
       <br>
-      <span>Figma</span><br>
       <a href="https://www.linkedin.com/in/diego-gonzalez-7937aa16/">
         <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn">
       </a> 
-         <br>
+         &nbsp;
       <a href="https://www.behance.net/ushiwushi">
         <img src="https://img.shields.io/badge/behance-1769FF?logo=behance" alt="behance">
       </a>    
     </td>
     <td align="center">
-     <h3 align="center">Area de diseño </h3>
+     <h3 align="center">Diseño UX/UI</h3>
       <img src="https://mir-s3-cdn-cf.behance.net/user/115/59bdc71638277815.6599920decaf8.jpg" alt="Lucia Harillo" height=200 width=200>
       <br>
       <strong>Lucia Harillo</strong>
       <br>
-      <span>Figma</span><br>
       <a href="https://www.linkedin.com/in/luciamarcelaharillo/" alt="LinkedIn">
       <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn">
       </a> 
-        <br>
+        &nbsp;
       <a href="https://www.behance.net/luciamarcelaharillo">
         <img src="https://img.shields.io/badge/behance-1769FF?logo=behance" alt="behance">
       </a>    
@@ -141,61 +139,57 @@
  
    <tr>
     <td align="center">
-     <h3 align="center">Area FRONT-END</h3>
+     <h3 align="center">Frontend</h3>
       <img src="https://github.com/alefernandez88.png" alt="Alejandro Fernández" height=200 width=200>
       <br>
       <strong>Alejandro Fernández</strong>
       <br>
-      <span>React JS</span><br>
       <a href="https://www.linkedin.com/in/alefernandez88/">
         <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn">
       </a> 
-        <br>
+        &nbsp;
       <a href="https://github.com/alefernandez88">
         <img src="https://img.shields.io/badge/GitHub-grey?logo=github" alt="GitHub">
       </a>    
     </td>
     <td align="center">
-     <h3 align="center">Area FRONT-END</h3>
+     <h3 align="center">Frontend</h3>
       <img src="https://github.com/aracely33.png" alt="Aracely Cruz Del Angel" height=200 width=200>
       <br>
       <strong> Aracely Cruz Del Angel</strong>
       <br>
-      <span>React JS</span><br>
       <a href="https://www.linkedin.com/in/aracruzdelangel/">
         <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn">
       </a> 
-        <br>
+        &nbsp;
       <a href="https://github.com/aracely33">
         <img src="https://img.shields.io/badge/GitHub-grey?logo=github" alt="GitHub">
       </a>    
     </td>
     <td align="center">
-     <h3 align="center">Area FRONT-END</h3>
+     <h3 align="center">Frontend</h3>
       <img src="https://github.com/rolando22.png" alt="Rolando Castañon Fernández" height=200 width=200>
       <br>
       <strong> Rolando Castañon Fernández</strong>
       <br>
-      <span>React JS | Angular JS</span><br>
       <a href="https://www.linkedin.com/in/rolando-rafael-casta%C3%B1on-fern%C3%A1ndez-973917252/">
         <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn">
       </a> 
-        <br>
+        &nbsp;
       <a href="https://github.com/rolando22">
         <img src="https://img.shields.io/badge/GitHub-grey?logo=github" alt="GitHub">
       </a>    
     </td>
    <td align="center">
-     <h3 align="center">Area BACK-END</h3>
+     <h3 align="center">Backend</h3>
       <img src="https://i.imgur.com/4QkZTuR.png" alt="Hans Urpay" height=200 width=200>
       <br>
       <strong>Hans Urpay</strong>
       <br>
-      <span>Java</span><br>
       <a href="https://www.linkedin.com/in/hans-urpay/">
         <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn">
       </a> 
-        <br>
+       &nbsp;
       <a href="https://github.com/HansUrpay">
         <img src="https://img.shields.io/badge/GitHub-grey?logo=github" alt="GitHub">
       </a>    
@@ -203,52 +197,74 @@
   </tr>
   <tr>
     <td align="center">
-     <h3 align="center">Area BACK-END</h3>
+     <h3 align="center">Backend</h3>
       <img src="https://github.com/MatiasNicolasAcevedo.png" alt="Matias Acevedo" height=200 >
       <br>
       <strong>Matias Acevedo</strong>
       <br>
-      <span>Java</span><br>
       <a href="https://www.linkedin.com/in/matias-nicolas-acevedo/">
         <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn">
       </a> 
-        <br>
+        &nbsp;
       <a href="https://github.com/MatiasNicolasAcevedo">
         <img src="https://img.shields.io/badge/GitHub-grey?logo=github" alt="GitHub">
       </a>    
     </td>
    <td align="center">
-     <h3 align="center">Area BACK-END</h3>
+     <h3 align="center">Backend</h3>
       <img src="https://github.com/rubenledesma10.png" alt="Rubén Ledesma" height=200 width=200>
       <br>
       <strong>Rubén Ledesma</strong>
       <br>
-      <span>Java</span><br>
       <a href="https://www.linkedin.com/in/rubén-ledesma/">
         <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn">
       </a> 
-        <br>
+        &nbsp;
       <a href="https://github.com/rubenledesma10">
         <img src="https://img.shields.io/badge/GitHub-grey?logo=github" alt="GitHub">
       </a>    
     </td>
     <td align="center">
-     <h3 align="center">Area BACK-END</h3>
+     <h3 align="center">Backend</h3>
       <img src="https://github.com/SantiagoFigli.png" alt="Santiago Figliuolo" height=200 width=200>
       <br>
       <strong>Santiago Figliuolo</strong>
       <br>
-      <span>Java</span><br>
       <a href="https://www.linkedin.com/in/santiago-figliuolo">
         <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn">
       </a> 
-        <br>
+        &nbsp;
       <a href="https://github.com/SantiagoFigli">
         <img src="https://img.shields.io/badge/GitHub-grey?logo=github" alt="GitHub">
       </a> 
     </td>
     </tr>
 </table>
+
+<div align='center'>
+  <h2> 📷 Capturas de pantalla 🖥️ </h2>
+</div>
+
+
+<div align='center'>
+   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/2c15352c-dc24-4391-9844-7dba2560e218" alt="mini" width="585" height="270">
+</div>
+
+<div align='center'>
+   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/d6844fdb-329c-4cfe-8f1c-bc15347f58a9" alt="mini" width="585" height="270">
+</div>
+
+<div align='center'>
+   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/ce2c13bb-82c6-4a5d-80dd-796a2dd0d352" alt="mini" width="585" height="270">
+</div>
+
+<div align='center'>
+   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/9b65d66a-5a62-4d7f-9f54-a5e611a15122" alt="mini" width="585" height="270">
+</div>
+
+<div align='center'>
+   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/41bf42bb-4c4c-42dd-8eb9-b0adc38c6509" alt="mini" width="585" height="270">
+</div>
 
 <h2 align="center">Tecnologías aplicadas</h2>
 <div align="center">
