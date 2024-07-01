@@ -354,7 +354,30 @@
     <img src="https://img.shields.io/badge/Trello-0052CC?logo=trello&logoColor=white" alt="Trello" style="height: 30px;">
     <img src="https://img.shields.io/badge/Discord-5865F2?logo=Discord&logoColor=white" alt="Trello" style="height: 30px;">
 </div>
-<hr>
+
+<br>
+<br>
+
+<div align='center'>
+  <h2> Swagger </h2>
+  </div>
+
+  <div align='center'>
+   <img src="" alt="mini" width="680" height="1165">
+</div>
+
+<br>
+
+<div align='center'>
+  <h2> Diagrama </h2>
+  </div>
+
+  <div align='center'>
+   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/3f250522-644d-496d-b9b7-2b9b70922cd0" alt="mini" width="773" height="508">
+</div>
+
+<br>
+
 <a href="https://www.nocountry.tech" target="_blank">
   <div align="center">
     <img src="https://assets-global.website-files.com/65773955177041dbf059ed20/6584760759a54bef40894700_Logo%20navbar.svg" alt="Logo de No Country" height="60">
