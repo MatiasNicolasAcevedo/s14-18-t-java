@@ -19,7 +19,7 @@ import java.util.Map;
 
 //esta clase nos va a permitir exponer las rutas con los endpoints
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("v1/api/auth")
 @RequiredArgsConstructor //para que sea obligatorio que se agregue el constructor con todos los argumentos
 public class AuthController {
 
