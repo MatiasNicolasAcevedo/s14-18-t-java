@@ -274,6 +274,8 @@
     </tr>
 </table>
 
+<br>
+
 <div align='center'>
   <h2> 📷 Capturas de pantalla 🖥️ </h2>
 </div>
@@ -299,7 +301,16 @@
    <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/41bf42bb-4c4c-42dd-8eb9-b0adc38c6509" alt="mini" width="585" height="270">
 </div>
 
-<h2 align="center">Tecnologías aplicadas</h2>
+<br>
+
+<div align='center'>
+  <h2>🛠️ Tecnologías Utilizadas ⚡</h2>
+</div>
+
+<div align='center'>
+  <h2>Diseño UX/UI</h2>
+  </div>
+
 <div align="center">
   <img src="https://img.shields.io/badge/Figma%20-grey?style=flat&logo=Figma&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="React JS" style="height: 30px;">
   <img src="https://img.shields.io/badge/Cinema%204d%20-grey?style=flat&logo=CInema4d&logoColor=011A6A&labelColor=191919&color=%23E8E8E8" alt="TypeScript" style="height: 30px;">
@@ -307,7 +318,10 @@
 <img src="https://img.shields.io/badge/Adobe%20Illustrator%20-grey?style=flat&logo=Adobe%20Illustrator&logoColor=FF9A00&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;">
 </div>
 
-<h2 align="center">Tecnologías aplicadas</h2>
+<div align='center'>
+  <h2>Frontend</h2>
+  </div>
+  
 <div align="center">
   <img src="https://img.shields.io/badge/React%20JS-grey?style=flat&logo=React&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="React JS" style="height: 30px;">
   <img src="https://img.shields.io/badge/TypeScript%20-grey?style=flat&logo=TypeScript&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="TypeScript" style="height: 30px;">
@@ -317,7 +331,10 @@
   <img src="https://img.shields.io/badge/Redux%20-grey?style=flat&logo=redux&logoColor=764ABC&labelColor=191919&color=%23E8E8E8" alt="MySQL" style="height: 30px;">
 </div>
 
-<h2 align="center">Tecnologías aplicadas</h2>
+<div align='center'>
+  <h2>Backend</h2>
+  </div>
+  
 <div align="center">
   <img src="https://img.shields.io/badge/Java%20-grey?style=flat&logo=java&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="React JS" style="height: 30px;">
   <img src="https://img.shields.io/badge/PostgreSQL%20-grey?style=flat&logo=PostgreSQL&logoColor=%2496ED&labelColor=191919&color=%23E8E8E8" alt="TypeScript" style="height: 30px;">
@@ -327,13 +344,10 @@
   <img src="https://img.shields.io/badge/Hibernate%20-grey?style=flat&logo=Hibernate&logoColor=fefefe&labelColor=59666C&color=%23E8E8E8" alt="MySQL" style="height: 30px;">
 </div>
 
-
-<div align=center >
-    <a href="https://aware-gaming.web.app/"><img src="https://img.shields.io/badge/Deploy-%230082CE.svg?logo=google-chrome&logoColor=white" alt="Aware gaming" style="height: 30px;"></a>
-    <a href="https://www.figma.com/file/ynNFMZSNhqUll7grrDczVd/casino-game"><img src="https://img.shields.io/badge/Dise%C3%B1o-%23F24E1E.svg?logo=figma&logoColor=white" alt="Diseño" style="height: 30px;"></a>
-</div>
-
-<h2 align="center">Organización</h2>
+<div align='center'>
+  <h2>Organización</h2>
+  </div>
+  
 <div align="center">
     <img src="https://img.shields.io/badge/Figma-F24E1E?logo=figma&logoColor=white" alt="Figma" style="height: 30px;">
     <img src="https://img.shields.io/badge/Slack-4A154B?logo=slack&logoColor=white" alt="Slack" style="height: 30px;">
