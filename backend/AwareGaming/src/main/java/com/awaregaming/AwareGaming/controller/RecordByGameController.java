@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/record-game")
+@RequestMapping("v1/api/record-game")
 public class RecordByGameController {
 
     @Autowired

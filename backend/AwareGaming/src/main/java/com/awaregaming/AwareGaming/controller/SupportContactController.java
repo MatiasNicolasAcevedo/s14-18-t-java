@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/support")
+@RequestMapping("v1/api/support")
 public class SupportContactController {
 
     @Autowired

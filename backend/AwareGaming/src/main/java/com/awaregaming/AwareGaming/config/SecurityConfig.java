@@ -11,6 +11,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.OrRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -37,13 +40,7 @@ public class SecurityConfig {
                 .csrf(csrf -> //deshabilitamos esto, esto es una proteccion que nos brinda spring security para los metodos post, basado en un token csrf, pero nosotros vamos a usar JWT, por eso lo deshabilitamos
                         csrf
                                 .disable())
-                //el primer filtro tiene que ver sobre las rutas privadas y protegidas
-                .authorizeHttpRequests(authRequest ->
-                        authRequest
-                                .requestMatchers("/v3/**","/swagger-ui/**").permitAll() // permitir acceso al swagger.
-                                .requestMatchers("/auth/**").permitAll() //todas las request que matcheen con la ruta auth van a ser publicos
-                                .anyRequest().authenticated() //cualquier otra ruta que se identifique
-                                )
+                .authorizeHttpRequests(auth -> auth.requestMatchers(publicEndpoints()).permitAll().anyRequest().authenticated())
                 .sessionManagement(sessionManager-> //deshabilitamos las sesiones
                         sessionManager
                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -53,5 +50,16 @@ public class SecurityConfig {
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
+
+    private RequestMatcher publicEndpoints() {
+        return new OrRequestMatcher(
+                // Esto cambia según los endpoints que usemos nosotros
+                new AntPathRequestMatcher("/v1/api/auth/*"),
+                new AntPathRequestMatcher("/swagger-ui/**"),
+                new AntPathRequestMatcher("/v3/api-docs/**"),
+                new AntPathRequestMatcher("/v1/api/render/*")
+        );
+    }
+
 
 }
