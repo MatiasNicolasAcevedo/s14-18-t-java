@@ -16,7 +16,7 @@
 <p>🔹Únete a nosotros en este viaje hacia una vida libre de los riesgos asociados con el juego problemático y descubre una comunidad solidaria lista para brindarte apoyo en cada paso del camino.</p>
 
   <div align='center'>
-   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/347babe7-2410-48ba-bf30-e82b10ee3d10" alt="mini" width="720" height="511">
+   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/347babe7-2410-48ba-bf30-e82b10ee3d10" alt="mini" width="576" height="408">
   </div>
 
 <br>
@@ -363,7 +363,7 @@
   </div>
 
   <div align='center'>
-   <img src="" alt="mini" width="680" height="1165">
+   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/0f78bbd5-d7b3-40a7-80ee-f8f8c896c632" alt="mini" width="900" height="1690">
 </div>
 
 <br>
