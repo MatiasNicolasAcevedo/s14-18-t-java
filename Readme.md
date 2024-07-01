@@ -170,7 +170,7 @@
      <h3 align="center">Frontend</h3>
       <img src="https://github.com/rolando22.png" alt="Rolando Castañon Fernández" height=200 width=200>
       <br>
-      <strong> Rolando Castañon Fernández</strong>
+      <strong> Rolando Fernández</strong>
       <br>
       <a href="https://www.linkedin.com/in/rolando-rafael-casta%C3%B1on-fern%C3%A1ndez-973917252/">
         <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn">
