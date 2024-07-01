@@ -72,6 +72,39 @@
       🔹Se propone la dinámica de café virtuales y webinars para abordar la problemática y los distintos temas.
       </p>
 </div>
+
+<br>
+
+<div align='center'>
+  <h2>🎨 Diseño 🎨</h2>
+</div>
+
+<div align='center'>
+  <b>🌈 Diseño en Figma 🖌️:</b>
+    <a href="https://www.figma.com/design/ynNFMZSNhqUll7grrDczVd/casino-game?node-id=1-20&t=J49y7Z30PuRI2qvU-1" target="_blank">[ Link al Diseño Figma ]</a>
+
+<br>
+<br>
+
+ <div align='center'>
+  <h2> 🎬 Video Promocional ▶ </h2>
+</div>
+
+ <div align='center'>
+  <a href="https://youtu.be/xdvnvosPAFk" target="_blank" rel="noopener">
+    <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/fe05150d-e689-45b8-bc4c-9df925f1570c" alt="mini" width="445" height="205" >
+  </a>
+
+   <div align='center'>
+  <h2> 🎬 Video Demostración ▶ </h2>
+</div>
+
+ <div align='center'>
+  <a href="https://youtu.be/3QSkQjY1r84" target="_blank" rel="noopener">
+    <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/52dd9d57-16fd-4c0b-ab50-99351871e4a4" alt="mini" width="445" height="205" >
+  </a>
+  
+</div>
    
 <br>
 
