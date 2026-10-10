@@ -1,0 +1,18 @@
+# Imagen de DESARROLLO LOCAL para `docker compose --profile app` (ver README).
+# Producción se despliega en Firebase Hosting (firebase.json), no con esta imagen.
+FROM node:24-alpine AS build
+WORKDIR /app
+# Hoy no hay lockfile commiteado (ver T-009): npm install no es reproducible
+COPY package.json package-lock.json* ./
+RUN npm install --no-audit --no-fund
+COPY . .
+# Vite incrusta la URL en el bundle al compilar; la usa el navegador
+ARG VITE_API_URL=http://localhost:8080/v1
+ENV VITE_API_URL=$VITE_API_URL
+RUN npm run build
+
+FROM nginx:1.29-alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+# SPA: cualquier ruta sirve index.html
+RUN printf 'server {\n  listen 80;\n  root /usr/share/nginx/html;\n  location / { try_files $uri /index.html; }\n}\n' > /etc/nginx/conf.d/default.conf
+EXPOSE 80

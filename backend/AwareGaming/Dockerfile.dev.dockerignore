@@ -1,0 +1,6 @@
+# Contexto de Dockerfile.dev: sin builds viejos ni configuración real
+target/
+.idea/
+*.iml
+.env
+src/main/resources/env.properties

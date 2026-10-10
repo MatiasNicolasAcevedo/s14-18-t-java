@@ -1,0 +1,7 @@
+# Contexto de Dockerfile.dev: sin dependencias, builds ni configuración real
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+.firebase/
