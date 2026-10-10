@@ -20,17 +20,17 @@ Auditado y con harness listo: compila y levanta en contenedores, pero el login d
 P0 Estabilizar · 0/17 tareas · ver [ROADMAP](ROADMAP.md)
 
 ## Foco
-- PR abierto (máx. 1): [#2](https://github.com/MatiasNicolasAcevedo/s14-18-t-java/pull/2) T-000 (esperando revisión de 🧠 y merge de 👤)
-- **Próximo paso:** revisar el PR #2 (T-000) · **ejecuta: 🧠 modelo de frontera**, después **👤 dueño** mergea
-- **Qué hacer:** abrí una sesión nueva de Claude Code y escribí: «Seguí `docs/agents/reviewer.md` para el PR #2». Después del merge: abrí un chat nuevo del agente de IntelliJ y escribí: «Leé `AGENTS.md` y seguí `docs/agents/implementer.md`» (toma T-001).
-- **Después:** T-001 (🤖) → T-002 (🤖) → T-003 (🤖) → T-004 (🧠)
+- PR abierto (máx. 1): ninguno · T-000 mergeada ([#2](https://github.com/MatiasNicolasAcevedo/s14-18-t-java/pull/2), tag `audit/2026-10-10`)
+- **Próximo paso:** T-001 · Dejar el lint del front en verde · **ejecuta: 🤖 agente gratuito (IntelliJ)**
+- **Qué hacer:** abrí un chat nuevo del agente de IntelliJ (modo Agent) y escribí: «Leé `AGENTS.md` y seguí `docs/agents/implementer.md`»
+- **Después:** T-002 (🤖) → T-003 (🤖) → T-004 (🧠, cambio de agente)
 
 ## Decisiones pendientes del dueño
 - **Urgente:** rotar la contraseña SMTP filtrada (T-010; no bloquea la cola).
 - ¿Se mantiene el deploy en Render + Firebase? (define T-017 y el Dockerfile de prod)
 - ¿Qué plugin es el agente gratuito de IntelliJ? (ver `docs/SETUP.md` → Agentes; ajustar punteros si hace falta)
 - Licencia del repo (propuesta: MIT).
-- Después del merge de #2: `git tag audit/2026-10-10 origin/main && git push origin audit/2026-10-10`
 
 ## Últimas sesiones (máx. 5; las anteriores → archive/log/AAAA-MM.md)
+- 2026-10-10 · Claude Code (🧠, sub-agente revisor) · revisó T-000: APROBADO, 5 nits aplicados · squash merge · PR [#2](https://github.com/MatiasNicolasAcevedo/s14-18-t-java/pull/2)
 - 2026-10-10 · Claude Code (🧠) · auditó y montó el harness T-000 · auditoría + compose + scripts + docs + tablero · PR [#2](https://github.com/MatiasNicolasAcevedo/s14-18-t-java/pull/2)
