@@ -1,0 +1,2 @@
+# JDK del proyecto (sdk env install). Verificado con OpenJDK 21.0.12; el identificador de SDKMAN no se pudo comprobar.
+java=21.0.12-tem

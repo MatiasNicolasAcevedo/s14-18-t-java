@@ -1,0 +1,69 @@
+# Stack local de Aware Gaming.
+#   Solo la base:       docker compose up -d --wait
+#   Todo (db+back+front): docker compose --profile app up -d --build --wait
+#   Apagar y borrar datos: docker compose --profile app down -v
+# Credenciales SOLO para local, iguales a backend/AwareGaming/src/main/resources/env.properties.example
+name: aware-gaming
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: aware_gaming
+      POSTGRES_USER: aware
+      POSTGRES_PASSWORD: aware_local_bca22f81
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aware -d aware_gaming"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  server:
+    profiles: ["app"]
+    build:
+      context: ./backend/AwareGaming
+      dockerfile: Dockerfile.dev
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_DBMS: postgresql
+      DB_URL: db:5432
+      DB_NAME: aware_gaming
+      DB_USER: aware
+      DB_PASSWORD: aware_local_bca22f81
+      DB_DRIVER_CLASS_NAME: org.postgresql.Driver
+      DB_DIALECT: PostgreSQLDialect
+      MAIL_USERNAME: support@awaregaming.local
+      MAIL_PASSWORD: not-a-real-password
+      FRONTEND_URL: http://localhost:5173
+    ports:
+      - "8080:8080"
+    healthcheck:
+      # Sin Actuator: se usa el JSON de springdoc como señal de "arrancó"
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://localhost:8080/v3/api-docs || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 40
+      start_period: 20s
+
+  client:
+    profiles: ["app"]
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+      args:
+        # La URL la usa el navegador, por eso apunta a localhost y no a "server"
+        VITE_API_URL: http://localhost:8080/v1
+    depends_on:
+      server:
+        condition: service_healthy
+    ports:
+      - "5173:80"
+
+volumes:
+  db-data:
