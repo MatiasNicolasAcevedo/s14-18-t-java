@@ -6,7 +6,7 @@
 > Próximo ID libre: T-018
 
 ## 🔨 En curso / en revisión (con su PR)
-- T-000 · P0 · L · 🧠 frontera · Bootstrap del harness y auditoría inicial → [tarea](tasks/T-000-agent-bootstrap.md) · PR [#2](https://github.com/MatiasNicolasAcevedo/s14-18-t-java/pull/2) (esperando revisión de 🧠 + merge de 👤)
+- (vacío al mergear #2)
 
 ## ✅ Listas (cola en orden de ejecución, máx. 10)
 1. T-001 · P0 · S · 🤖 gratuito · Dejar el lint del front en verde → [tarea](tasks/T-001-fix-client-lint-errors.md)
@@ -60,4 +60,4 @@
 - Code splitting del front (chunk de 657 kB)
 
 ## 🏁 Hecho reciente (máx. 10)
-- (vacío)
+- T-000 · P0 · L · 🧠 frontera · Bootstrap del harness y auditoría inicial → [tarea](tasks/T-000-agent-bootstrap.md) · PR [#2](https://github.com/MatiasNicolasAcevedo/s14-18-t-java/pull/2)

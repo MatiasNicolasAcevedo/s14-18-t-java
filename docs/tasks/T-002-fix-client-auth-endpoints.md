@@ -6,7 +6,7 @@
 - Título del PR: `fix(client): call auth endpoints under /api`
 
 ## Por qué
-El commit `a41ae8d` movió la API a `/v1/api/*`. El front arma `${apiUrl}/auth/login` y `${apiUrl}/auth/register` (`frontend/src/services/auth.services.ts:7,21`) pero `${apiUrl}/api/...` para el resto. Con `VITE_API_URL=http://localhost:8080/v1` el login va a `/v1/auth/login` → **403** (auditoría §4, probe "old path").
+El commit `a41ae8d` movió la API a `/v1/api/*`. El front arma `${apiUrl}/auth/login` y `${apiUrl}/auth/register` (`frontend/src/services/auth.services.ts:7,21`) pero `${apiUrl}/api/...` para el resto. Con `VITE_API_URL=http://localhost:8080/v1` el login va a `/v1/auth/login` → **403** (auditoría §4, probe "old path"). Validado en la auditoría (pruebas en seco): con solo estas 2 URLs cambiadas, el login lleva a `/dashboard/profile` y carga el perfil.
 
 ## Objetivo
 Con `VITE_API_URL=http://localhost:8080/v1`, el login con el usuario seed lleva a `/dashboard/profile` y muestra el perfil.

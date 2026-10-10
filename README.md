@@ -92,7 +92,7 @@ cd s14-18-t-java
 docker compose --profile app up -d --build --wait
 ```
 
-**Resultado esperado:** `Container aware-gaming-db-1 Healthy`, `aware-gaming-server-1 Healthy` y `aware-gaming-client-1 Started`.
+**Resultado esperado:** `Container aware-gaming-db-1 Healthy`, `aware-gaming-server-1 Healthy` y `aware-gaming-client-1 Healthy` (~1 min con imágenes en caché).
 
 3. Abrir:
    - Front: <http://localhost:5173>
