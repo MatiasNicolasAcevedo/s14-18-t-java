@@ -22,7 +22,7 @@
 - Sin tests nuevos (configuración). Verificación por arranque.
 
 ## Criterios de aceptación
-- [ ] `./scripts/dev.sh` arranca con el `.example` copiado sin editar.
+- [ ] Con `env.properties` borrado, `./scripts/dev.sh` en segundo plano (`AGENTS.md` §3) llega a "Todo arriba" copiando el `.example` sin editar.
 - [ ] `git ls-files backend/AwareGaming/src/main/resources/.env_example` vacío.
 - [ ] `./scripts/verify.sh` en verde.
 

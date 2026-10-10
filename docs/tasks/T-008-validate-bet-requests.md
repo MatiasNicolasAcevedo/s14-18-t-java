@@ -36,7 +36,7 @@ Toda apuesta inválida responde **400** sin tocar los créditos; las válidas se
 
 ## Criterios de aceptación
 - [ ] Los tests nuevos fallaban antes del fix (dejalo anotado en "Notas") y pasan después.
-- [ ] Con `./scripts/dev.sh`: `curl` de ruleta con `betAmount:-500` (ver el probe en la auditoría §4) → 400 y `GET /v1/api/user` muestra los mismos créditos que antes.
+- [ ] Con la app levantada en segundo plano (`AGENTS.md` §3): `curl` de ruleta con `betAmount:-500` (ver el probe en la auditoría §4) → 400 y `GET /v1/api/user` muestra los mismos créditos que antes.
 - [ ] `./scripts/verify.sh` en verde y la cobertura no baja.
 - [ ] La ruleta de la UI sigue funcionando con una apuesta normal.
 

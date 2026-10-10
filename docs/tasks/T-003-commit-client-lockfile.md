@@ -6,7 +6,7 @@
 - Título del PR: `build(client): commit package-lock.json`
 
 ## Por qué
-`frontend/.gitignore:15` ignora `package-lock.json`: cada `npm install` resuelve versiones distintas (no reproducible, CI imposible de cachear; auditoría §6 "Versiones y dependencias").
+`frontend/.gitignore:14` ignora `package-lock.json`: cada `npm install` resuelve versiones distintas (no reproducible, CI imposible de cachear; auditoría §6 "Versiones y dependencias").
 
 ## Objetivo
 `package-lock.json` versionado; `npm ci` funciona desde un clon limpio con Node 24.
@@ -16,7 +16,7 @@
 - **No incluye:** actualizar dependencias (`npm update`, `npm audit fix`), cambiar `package.json`.
 
 ## Leer antes
-- `frontend/.gitignore`, `frontend/Dockerfile.dev`, `scripts/verify.sh:90-97` (ya usa `npm ci` si hay lockfile)
+- `frontend/.gitignore`, `frontend/Dockerfile.dev`, `scripts/verify.sh:84-91` (ya usa `npm ci` si hay lockfile)
 
 ## Archivos previstos
 - modificar: `frontend/.gitignore`, `frontend/Dockerfile.dev`, `frontend/README.md` (quitar "hoy no hay lockfile") · crear: `frontend/package-lock.json`

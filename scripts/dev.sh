@@ -40,7 +40,7 @@ cleanup() {
   trap - INT TERM EXIT
   echo
   echo "· Cortando back y front…"
-  for pid in "${PIDS[@]}"; do kill -TERM -- "-$pid" 2>/dev/null || true; done
+  for pid in ${PIDS[@]+"${PIDS[@]}"}; do kill -TERM -- "-$pid" 2>/dev/null || true; done
   wait 2>/dev/null || true
   echo "· Listo. La base sigue levantada (apagala con: ./scripts/dev.sh --down)"
 }

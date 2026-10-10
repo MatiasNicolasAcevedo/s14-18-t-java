@@ -12,7 +12,7 @@
    - **Require a pull request before merging** (aprobaciones requeridas: 0 mientras no haya cuenta bot ni otro humano; los agentes revisan con comentario).
    - **Require status checks to pass** → **Require branches to be up to date** → agregar `server` y `client` (del workflow `CI`) y `conventional-title` (de `PR title`).
    - Bypass: nadie (o solo vos, para emergencias).
-3. Borrar ramas ya mergeadas: `git fetch --prune && git branch -r --merged origin/main | grep -v 'origin/main$' | sed 's#origin/##' | xargs -r -n1 git push origin --delete` (hoy borra `feat/add-swagger`).
+3. Borrar ramas ya mergeadas: `git fetch --prune && git branch -r --merged origin/main | grep -v 'origin/main$' | sed 's#origin/##' | xargs -r -n1 git push origin --delete` (hoy borra `feat/add-swagger` y `claude/new-session-xpvyh0`, ambas ya mergeadas).
 
 ## Criterios de aceptación
 - [ ] Un `git push origin main` directo es rechazado.

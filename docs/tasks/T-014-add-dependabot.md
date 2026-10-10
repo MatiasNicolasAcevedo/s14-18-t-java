@@ -2,7 +2,7 @@
 - Estado: Bloqueada (por T-004) · Prioridad: P0 · Esfuerzo: S · Ejecuta: 🧠 modelo de frontera
 - Fase: P0 Estabilizar
 - Rama: `ci/T-014-dependabot` (crearla desde `main` actualizado antes del primer commit) · Depende de: T-004 (CI en verde) · Spec/ADR: —
-- Revisa: 🤖 agente gratuito (chat nuevo)
+- Revisa: 🧠 modelo de frontera (sesión nueva)
 - Título del PR: `ci: add dependabot configuration`
 
 ## Por qué
@@ -30,6 +30,9 @@ updates:
     schedule: { interval: weekly }
     commit-message: { prefix: "ci(deps)" }
 ```
+
+## Nota
+Aprovechá para fijar por SHA `amannn/action-semantic-pull-request` en `.github/workflows/pr-title.yml` (corre con `pull_request_target`; Dependabot lo mantiene actualizado).
 
 ## Criterios de aceptación
 - [ ] El archivo valida (GitHub → Insights → Dependency graph → Dependabot sin errores).

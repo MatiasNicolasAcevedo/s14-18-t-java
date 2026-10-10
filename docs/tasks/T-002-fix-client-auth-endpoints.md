@@ -27,13 +27,14 @@ Con `VITE_API_URL=http://localhost:8080/v1`, el login con el usuario seed lleva 
 - No hay infraestructura de tests de front (T-011, que debe incluir un test de estas rutas con MSW). Verificación por comando y manual (criterios).
 
 ## Pasos sugeridos
-1. Editar las 2 URLs. 2. `npm run lint` y `npm run build`. 3. `./scripts/dev.sh` y probar el login en <http://localhost:5173/login>. 4. Actualizar `.env.local.example` y README.
+1. Editar las 2 URLs. 2. `npm run lint` y `npm run build`. 3. Levantar la app sin bloquear la terminal (receta en `AGENTS.md` §3) y probar el login por `curl`. 4. Actualizar `.env.local.example` y README.
 
 ## Criterios de aceptación
 - [ ] `grep -n "apiUrl}/auth" frontend/src/services/*.ts` no devuelve nada.
 - [ ] `./scripts/verify.sh --client` en verde.
-- [ ] Con `./scripts/dev.sh` corriendo: login con `monicavelarde@gmail.com` / `user1` → URL `/dashboard/profile` y el nombre "Mónica" visible. En las DevTools, `POST http://localhost:8080/v1/api/auth/login` → 200.
-- [ ] Registro de un usuario nuevo mayor de 18 desde `/register` → entra al dashboard.
+- [ ] Desde `frontend/`, tras `npm run build`: `grep -l "/api/auth/login" dist/assets/*.js` lista un archivo y `grep -c "apiUrl}/auth" src/services/auth.services.ts` → `0`.
+- [ ] Con la app levantada en segundo plano (`AGENTS.md` §3): `curl -s -o /dev/null -w '%{http_code}' -X POST http://localhost:8080/v1/api/auth/login -H 'Content-Type: application/json' -d '{"email":"monicavelarde@gmail.com","password":"user1"}'` → `200`.
+- [ ] 👤 (el dueño, antes de mergear): en <http://localhost:5173/login> con `monicavelarde@gmail.com` / `user1` → `/dashboard/profile` con "Mónica" visible; registro de un usuario nuevo +18 desde `/register` → entra al dashboard.
 - [ ] README sin ⚠️ de T-002.
 
 ## Notas de implementación

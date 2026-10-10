@@ -1,5 +1,5 @@
 # T-011 · Infraestructura de tests del front (Vitest + RTL + MSW)
-- Estado: Bloqueada (por T-003) · Prioridad: P0 · Esfuerzo: M · Ejecuta: 🧠 modelo de frontera
+- Estado: Bloqueada (por T-003, T-004) · Prioridad: P0 · Esfuerzo: M · Ejecuta: 🧠 modelo de frontera
 - Fase: P0 Estabilizar
 - Rama: `test/T-011-client-test-infra` (crearla desde `main` actualizado antes del primer commit) · Depende de: T-003 (lockfile), T-004 (CI) · Spec/ADR: —
 - Revisa: 🧠 modelo de frontera (sesión nueva) + 👤 dueño

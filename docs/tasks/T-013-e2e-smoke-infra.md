@@ -1,5 +1,5 @@
 # T-013 · Smoke E2E con Playwright (local y CI)
-- Estado: Bloqueada (por T-002, T-004) · Prioridad: P0 · Esfuerzo: M · Ejecuta: 🧠 modelo de frontera
+- Estado: Bloqueada (por T-002, T-004, T-011) · Prioridad: P0 · Esfuerzo: M · Ejecuta: 🧠 modelo de frontera
 - Fase: P0 Estabilizar
 - Rama: `test/T-013-e2e-smoke` (crearla desde `main` actualizado antes del primer commit) · Depende de: T-002, T-004, T-011 · Spec/ADR: —
 - Revisa: 🧠 modelo de frontera (sesión nueva) + 👤 dueño

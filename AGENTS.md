@@ -38,6 +38,8 @@ Ningún agente lanza a otro. Si el próximo paso es de otro ejecutor, **detenete
 - Un test del back (desde `backend/AwareGaming`): `./mvnw test -Dtest=Clase#metodo`
 - Un test del front: todavía no hay infraestructura (T-011); cuando exista: `npx vitest run ruta/al/archivo.test.tsx`
 - E2E: `scripts/e2e.sh` todavía no existe (T-013).
+- **App levantada sin bloquear la terminal** (para verificar con `curl`), desde la raíz:
+  `mkdir -p .dev-logs; ./scripts/dev.sh > .dev-logs/dev.out 2>&1 & DEV_PID=$!` → esperar `until grep -qs "Todo arriba\|❌" .dev-logs/dev.out; do sleep 2; done` → probar → `kill -TERM $DEV_PID` (corta back y front; la DB queda: `./scripts/dev.sh --down`).
 
 ## 4. Protocolo de sesión
 1. Leé `docs/STATUS.md` y `docs/BACKLOG.md`; mirá los PR abiertos (`gh pr list` o `git ls-remote --heads origin`).
