@@ -96,7 +96,7 @@ verify_client() {
   else
     FAILED=1
     local n
-    n=$(grep -Eo '[0-9]+ problems? \([0-9]+ errors?' "$LOGS/client-lint.log" | tail -1)
+    n=$(grep -Eo '\([0-9]+ errors?' "$LOGS/client-lint.log" | tail -1 | tr -d '(')
     s="$s ❌ lint (${n:-ver log})"
     grep -E '^\s+[0-9]+:[0-9]+\s+error' "$LOGS/client-lint.log" | head -3 | sed 's/^/  /'
   fi
@@ -118,7 +118,7 @@ verify_client() {
       FAILED=1; s="$s ❌ tests (ver .verify-logs/client-test.log)"
     fi
   else
-    s="$s · tests: no hay (T-011)"
+    s="$s ⚪ tests (no hay: T-011)"
   fi
   SUMMARY+=("$s")
 }
@@ -127,5 +127,7 @@ verify_client() {
 [ $RUN_CLIENT -eq 1 ] && verify_client
 
 echo
-echo "Resumen: $(IFS='·'; echo "${SUMMARY[*]}" | sed 's/·/ · /g')"
+RESUMEN=""
+for part in "${SUMMARY[@]}"; do RESUMEN="${RESUMEN:+$RESUMEN · }$part"; done
+echo "Resumen: $RESUMEN"
 exit $FAILED
