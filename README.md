@@ -1,114 +1,266 @@
-<h1 align="center">🎲 Equipo s14-18-t-java | No Country 🌎</h1>
- 
-  <!-- PROJECT LOGO -->
-  <div align='center'>
-    <a href="https://aware-gaming.web.app/" target="_blank">
-      <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/51f7ee94-94a5-489e-a876-a227f4877a43" alt="Banner">
-    </a>
-  </div>
-
-<br>
-  <h1 align='center'>🤯 Aware Gaming 🎮</h1>
-  
-<p>🔹Un lugar destinado a ayudar a personas que enfrentan dificultades con el juego y las apuestas. </p> 
-<p>🔹Nuestra página web tiene como objetivo principal proporcionar un ambiente seguro y solidario donde los usuarios puedan acceder a recursos, información y comunidad para manejar sus hábitos de juego de manera saludable y controlada. </p> 
-<p>🔹En lugar de fomentar el juego irresponsable, premiamos y celebramos aquellos momentos en los que los usuarios optan por jugar y apostar de manera moderada, alentándolos a tomar decisiones conscientes y saludables para su bienestar emocional y financiero.</p> 
-<p>🔹Únete a nosotros en este viaje hacia una vida libre de los riesgos asociados con el juego problemático y descubre una comunidad solidaria lista para brindarte apoyo en cada paso del camino.</p>
-
-  <div align='center'>
-   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/347babe7-2410-48ba-bf30-e82b10ee3d10" alt="mini" width="576" height="408">
-  </div>
-
-<br>
-
-<div align='center'>
-  <h2>🌟 Características 🚀</h2>
-</div>
-
-<div>
-    <p>
-      🔹Interfaz pensada para generar confianza y tranquilidad por sus formas redondeadas y su colorimetría.
-      </p>
- <p>
-      🔹Disponemos de un formulario de soporte, las 24hs.
-      </p>
- <p>
-      🔹La aplicación cuenta con un sistema de encriptado para la integridad de los datos a través de tokens.
-      </p>
- <p>
-      🔹Contamos con una restricción a menores de edad.
-      </p>
- <p>
-      🔹Inicia sesión con el email y contraseña de registro.
-      </p>
- <p>
-      🔹La aplicación cuenta con un panel de usuario para mejorar la navegabilidad.
-      </p>
- <p>
-      🔹Disponemos de un formulario para actualizar el Perfil del usuario en caso de ser necesario.
-      </p>
- <p>
-      🔹Contamos con un sistema de recarga diaria de 100 créditos automáticamente.
-      </p>
- <p>
-      🔹La ruleta llamada Spin Wise está completamente funcional, cuenta con 13 modos distintos de apuesta.
-      </p>
- <p>
-      🔹Contamos con un sistema de limites de apuestas, para evitar el impulso natural de apostarlo todo, a través de apuestas controladas.
-      </p>
- <p>
-      🔹Próximamente estamos en desarrollo de Dice Aware (dados) y Slot Care (tragamonedas).
-      </p>
- <p>
-      🔹Tenemos un control de estadísticas de horas jugadas para crear conciencia y establecer limites de juego.
-      </p>
- <p>
-      🔹Disponemos de un Foro donde el usuario puede interactuar directamente en los distintos artículos sobre la problemática.
-      </p>
- <p>
-      🔹Sistema de recompensas con créditos al participar en el foro para fomentar la sociabilidad.
-      </p>
- <p>
-      🔹Se propone la dinámica de café virtuales y webinars para abordar la problemática y los distintos temas.
-      </p>
-</div>
-
-<br>
-
-<div align='center'>
-  <h2>🎨 Diseño 🎨</h2>
-</div>
-
-<div align='center'>
-  <b>🌈 Diseño en Figma 🖌️:</b>
-    <a href="https://www.figma.com/design/ynNFMZSNhqUll7grrDczVd/casino-game?node-id=1-20&t=J49y7Z30PuRI2qvU-1" target="_blank">[ Link al Diseño Figma ]</a>
-
-<br>
-<br>
-
- <div align='center'>
-  <h2> 🎬 Video Promocional ▶ </h2>
-</div>
-
- <div align='center'>
-  <a href="https://youtu.be/xdvnvosPAFk" target="_blank" rel="noopener">
-    <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/fe05150d-e689-45b8-bc4c-9df925f1570c" alt="mini" width="445" height="205" >
+<div align="center">
+  <a href="https://aware-gaming.web.app/" target="_blank">
+    <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/51f7ee94-94a5-489e-a876-a227f4877a43" alt="Banner de Aware Gaming">
   </a>
-
-   <div align='center'>
-  <h2> 🎬 Video Demostración ▶ </h2>
+  <h1>🤯 Aware Gaming 🎮</h1>
+  <p>Plataforma de juego responsable: ruleta con créditos virtuales, límites de apuesta, comunidad y soporte para quienes enfrentan dificultades con el juego.</p>
+  <p>
+    <img src="https://img.shields.io/badge/Java-17%20(JDK%2021)-orange" alt="Java">
+    <img src="https://img.shields.io/badge/Spring%20Boot-3.2-6DB33F" alt="Spring Boot">
+    <img src="https://img.shields.io/badge/React-18-61DAFB" alt="React">
+    <img src="https://img.shields.io/badge/PostgreSQL-16-336791" alt="PostgreSQL">
+    <img src="https://img.shields.io/badge/CI-pendiente%20(T--004)-lightgrey" alt="CI">
+  </p>
 </div>
 
- <div align='center'>
-  <a href="https://youtu.be/3QSkQjY1r84" target="_blank" rel="noopener">
-    <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/52dd9d57-16fd-4c0b-ab50-99351871e4a4" alt="mini" width="445" height="205" >
-  </a>
-  
+> Proyecto hecho en equipo para la simulación laboral de [No Country](https://www.nocountry.tech) (2024) y retomado como pieza de portfolio: tests, CI, contenedores y flujo con agentes de IA. Estado actual en [docs/STATUS.md](docs/STATUS.md).
+
+## Qué resuelve
+
+En lugar de fomentar el juego impulsivo, Aware Gaming premia jugar de forma moderada: créditos virtuales (nunca dinero real), límites de apuesta, estadísticas de tiempo jugado y una comunidad de apoyo.
+
+- ✅ Registro solo para mayores de 18 e inicio de sesión con JWT
+- ✅ Panel de usuario y edición de perfil
+- ✅ Ruleta **Spin Wise** con 13 modos de apuesta y límites
+- ✅ Recarga automática diaria de 100 créditos
+- 🚧 Foro con comentarios (API lista; la UI muestra datos fijos)
+- 🚧 Formulario de soporte (API lista, sin UI)
+- 🚧 Estadísticas de horas jugadas (gráfico con datos fijos)
+- 🚧 Dice Aware (dados: API parcial) y Slot Care (tragamonedas)
+
+Diseño en [Figma](https://www.figma.com/design/ynNFMZSNhqUll7grrDczVd/casino-game?node-id=1-20&t=J49y7Z30PuRI2qvU-1) · [Video promocional](https://youtu.be/xdvnvosPAFk) · [Video demostración](https://youtu.be/3QSkQjY1r84) · Demo: [aware-gaming.web.app](https://aware-gaming.web.app/) (⚠️ no verificada en 2026)
+
+## Stack
+
+| Parte | Tecnologías |
+|---|---|
+| Backend (`backend/AwareGaming`) | Java 17 (compila y corre con JDK 21), Spring Boot 3.2.4, Spring Security + JWT (jjwt 0.11), JPA/Hibernate, PostgreSQL, springdoc (Swagger), Maven Wrapper |
+| Frontend (`frontend`) | React 18, TypeScript, Vite 5, React Router 6, Redux Toolkit, Tailwind CSS 3 + DaisyUI, Recharts |
+| Infra | Docker Compose (PostgreSQL 16, back y front), deploy original en Render + Firebase Hosting |
+
+Arquitectura, modelo de datos y endpoints: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+## Levantar el proyecto en local
+
+### Prerrequisitos
+
+| Herramienta | Versión | Cómo comprobarla | Cómo instalarla |
+|---|---|---|---|
+| Git | cualquiera reciente | `git --version` | [git-scm.com](https://git-scm.com/downloads) |
+| Docker + Compose v2 | Docker 24+ | `docker compose version` | [Docker Desktop](https://docs.docker.com/get-docker/) o Docker Engine |
+| JDK *(solo opción B)* | 21 | `java -version` | [SDKMAN](https://sdkman.io): `sdk env install` (lee `.sdkmanrc`) |
+| Node.js *(solo opción B)* | 24 LTS (también funciona 22) | `node -v` | [nvm](https://github.com/nvm-sh/nvm): `nvm install` (lee `.nvmrc`) |
+
+Para la **opción A** alcanza con Git + Docker.
+
+### Configurar variables de entorno
+
+Cada parte tiene un archivo de ejemplo commiteado con valores **que sirven tal cual para local** (coinciden con `docker-compose.yml`). El archivo real está en `.gitignore`.
+
+| Archivo de ejemplo | Copiar a | Quién lo lee | Qué contiene |
+|---|---|---|---|
+| `backend/AwareGaming/src/main/resources/env.properties.example` | `backend/AwareGaming/src/main/resources/env.properties` | Spring (`spring.config.import`, desde el classpath) | conexión a PostgreSQL, SMTP ficticio |
+| `frontend/.env.local.example` | `frontend/.env.local` | Vite | `VITE_API_URL` del back local |
+
+Desde la raíz del repo:
+
+```bash
+cp backend/AwareGaming/src/main/resources/env.properties.example backend/AwareGaming/src/main/resources/env.properties
+```
+
+```bash
+cp frontend/.env.local.example frontend/.env.local
+```
+
+En producción hay que definir en el proveedor (solo nombres): `DB_DBMS`, `DB_URL`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_DRIVER_CLASS_NAME`, `DB_DIALECT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `FRONTEND_URL` (back) y `VITE_API_URL` (front, al compilar). Detalle de cada variable en [docs/SETUP.md](docs/SETUP.md).
+
+### Opción A · Todo en contenedores (la más simple)
+
+1. Clonar y entrar al repo:
+
+```bash
+git clone https://github.com/MatiasNicolasAcevedo/s14-18-t-java.git
+```
+
+```bash
+cd s14-18-t-java
+```
+
+2. Levantar base, back y front (la primera vez tarda unos minutos en compilar):
+
+```bash
+docker compose --profile app up -d --build --wait
+```
+
+**Resultado esperado:** `Container aware-gaming-db-1 Healthy`, `aware-gaming-server-1 Healthy` y `aware-gaming-client-1 Started`.
+
+3. Abrir:
+   - Front: <http://localhost:5173>
+   - Swagger: <http://localhost:8080/swagger-ui/index.html>
+   - Usuario de prueba (seed): `monicavelarde@gmail.com` / `user1`
+
+   ⚠️ **Hoy el login desde la UI falla** (la UI llama a `/v1/auth/login`, que no existe): ver [T-002](docs/tasks/T-002-fix-client-auth-endpoints.md). El login por API funciona:
+
+```bash
+curl -s -X POST http://localhost:8080/v1/api/auth/login -H 'Content-Type: application/json' -d '{"email":"monicavelarde@gmail.com","password":"user1"}'
+```
+
+**Resultado esperado:** `{"data":{"token":"eyJ..."},"message":"Welcome to AwareGaming"}`
+
+4. Apagar y borrar los datos:
+
+```bash
+docker compose --profile app down -v
+```
+
+En este modo no hace falta copiar los `.example`: el compose ya trae las variables.
+
+### Opción B · Desarrollo (DB en contenedor, back y front locales con hot reload)
+
+**Inicio rápido**, desde la raíz (copia los `.example` si faltan, levanta todo y espera los health checks; `Ctrl+C` corta back y front):
+
+```bash
+./scripts/dev.sh
+```
+
+**Resultado esperado:** `✅ Todo arriba` con las URLs y el usuario demo. Para apagar la base: `./scripts/dev.sh --down`.
+
+**Paso a paso** (lo mismo que hace `dev.sh`):
+
+1. **Fijar versiones de Java y Node** (desde la raíz). Si `sdk env install` dice que la versión no existe, usá la última `21.x-tem` de `sdk list java`.
+
+```bash
+sdk env install
+```
+
+```bash
+nvm install
+```
+
+**Resultado esperado:** `java -version` muestra 21 y `node -v` muestra v24.
+
+2. **Copiar los `.example`** (los dos comandos de la sección anterior).
+
+3. **Levantar la base:**
+
+```bash
+docker compose up -d --wait
+```
+
+**Resultado esperado:** `Container aware-gaming-db-1 Healthy`.
+
+4. **Levantar el back** (en una terminal nueva, desde `backend/AwareGaming`; la primera vez descarga dependencias):
+
+```bash
+./mvnw spring-boot:run
+```
+
+**Resultado esperado:** `Started AwareGamingApplication in … seconds`. Comprobalo desde otra terminal:
+
+```bash
+curl -s -o /dev/null -w '%{http_code}\n' http://localhost:8080/v3/api-docs
+```
+
+→ `200`. El seed (10 usuarios, posts y comentarios) se carga al arrancar si la base está vacía.
+
+5. **Levantar el front** (en otra terminal, desde `frontend`):
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+**Resultado esperado:** `Local: http://localhost:5173/`. Abrila: la landing carga y las llamadas van a `http://localhost:8080/v1` (lo define `frontend/.env.local`).
+
+6. **Iniciar sesión** con `monicavelarde@gmail.com` / `user1`. ⚠️ Hoy falla: ver [T-002](docs/tasks/T-002-fix-client-auth-endpoints.md) (usá el `curl` de la opción A para comprobar el back).
+
+7. **Verificar todo** (desde la raíz):
+
+```bash
+./scripts/verify.sh
+```
+
+**Resultado esperado:** un resumen tipo `server: ✅ build ✅ tests (1) [JDK 21] · client: ✅ lint ✅ build`. ⚠️ Hoy el lint del front falla: ver [T-001](docs/tasks/T-001-fix-client-lint-errors.md).
+
+8. **Apagar y limpiar:** `Ctrl+C` en las terminales del back y del front, y desde la raíz:
+
+```bash
+docker compose down -v
+```
+
+### Windows
+
+- Usá **Git Bash** o **WSL** para los `.sh`; en PowerShell/CMD, `mvnw.cmd spring-boot:run` en lugar de `./mvnw`.
+- `copy` en lugar de `cp` (ej.: `copy frontend\.env.local.example frontend\.env.local`).
+- Antes de clonar: `git config --global core.autocrlf input` (los `.sh` tienen que quedar con fin de línea LF).
+- SDKMAN y nvm no corren en Windows nativo: instalá JDK 21 ([Adoptium](https://adoptium.net)) y Node 24 ([nodejs.org](https://nodejs.org) o nvm-windows).
+
+### Problemas frecuentes
+
+| Síntoma | Causa | Solución |
+|---|---|---|
+| `./mvnw: Permission denied` | wrapper sin bit de ejecución (clones viejos) | `chmod +x backend/AwareGaming/mvnw` o `sh ./mvnw …` |
+| `Communications link failure` (MySQL) o `Connection refused` | falta `env.properties` (usa el default MySQL) o la base no está levantada | copiar el `.example` a `src/main/resources/` y `docker compose up -d --wait` |
+| `Could not resolve placeholder 'MAIL_USERNAME'` | `env.properties` en otra ruta (p. ej. la raíz del módulo) | tiene que estar en `backend/AwareGaming/src/main/resources/` |
+| `Bind for 0.0.0.0:5432 failed: port is already allocated` | hay otro PostgreSQL local | apagarlo o cambiar el puerto publicado (ver [SETUP](docs/SETUP.md#puertos)) |
+| Login desde la UI responde 403 | rutas de auth del front desactualizadas | [T-002](docs/tasks/T-002-fix-client-auth-endpoints.md) |
+| El front llama a Render/otra URL | `VITE_API_URL` viejo o falta `.env.local` | copiar el `.example` y reiniciar `npm run dev` |
+| Login con usuario demo falla justo al arrancar | el seed todavía no terminó | esperar a `Started AwareGamingApplication` |
+| `release version 17 not supported` | JDK menor a 17 | usar JDK 21 (`sdk env install`) |
+
+Verificado el 2026-10-10 en Ubuntu 24.04 con Java 21.0.12, Node 22.22 y 24.21, Docker 29.8.2 (Compose 5.6.0).
+
+## Tests y calidad
+
+`./scripts/verify.sh` (o `--server` / `--client`) compila con `clean`, corre lint y tests y deja el detalle en `.verify-logs/`. Hoy hay **1 test** en el back y ninguno en el front: la estrategia y el plan están en [docs/TESTING.md](docs/TESTING.md).
+
+## Cómo se trabaja
+
+Flujo de ramas, commits y PR en [CONTRIBUTING.md](CONTRIBUTING.md). El repo está preparado para desarrollo asistido por agentes ([AGENTS.md](AGENTS.md)): 🤖 el agente gratuito de IntelliJ toma tareas chicas y bien especificadas y 🧠 un modelo de frontera (Claude Code) se encarga de lo complejo.
+
+## Estado y roadmap
+
+[docs/STATUS.md](docs/STATUS.md) · [docs/ROADMAP.md](docs/ROADMAP.md) · [docs/BACKLOG.md](docs/BACKLOG.md) · [auditoría inicial](docs/audits/2026-10-10-initial.md)
+
+## Capturas
+
+<div align='center'>
+   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/2c15352c-dc24-4391-9844-7dba2560e218" alt="Captura de Aware Gaming" width="585" height="270">
 </div>
-   
+
+<div align='center'>
+   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/d6844fdb-329c-4cfe-8f1c-bc15347f58a9" alt="Captura de Aware Gaming" width="585" height="270">
+</div>
+
+<div align='center'>
+   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/ce2c13bb-82c6-4a5d-80dd-796a2dd0d352" alt="Captura de Aware Gaming" width="585" height="270">
+</div>
+
+<div align='center'>
+   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/9b65d66a-5a62-4d7f-9f54-a5e611a15122" alt="Captura de Aware Gaming" width="585" height="270">
+</div>
+
+<div align='center'>
+   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/41bf42bb-4c4c-42dd-8eb9-b0adc38c6509" alt="Captura de Aware Gaming" width="585" height="270">
+</div>
+
 <br>
 
-<h2 align="center">💎 Equipo ✨</h2>
+<details>
+<summary>Swagger y diagrama originales (2024)</summary>
+
+<img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/0f78bbd5-d7b3-40a7-80ee-f8f8c896c632" alt="Swagger" width="600">
+<img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/3f250522-644d-496d-b9b7-2b9b70922cd0" alt="Diagrama original" width="600">
+</details>
+
+## Equipo y licencia
+
+Creado por el equipo **s14-18-t-java** de No Country. Mantenimiento actual: [Matias Acevedo](https://github.com/MatiasNicolasAcevedo). Sin licencia definida todavía (ver Backlog P3).
+
+
 
 <table align="center">
   <tr>
@@ -274,112 +426,3 @@
     </tr>
 </table>
 
-<br>
-
-<div align='center'>
-  <h2> 📷 Capturas de pantalla 🖥️ </h2>
-</div>
-
-
-<div align='center'>
-   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/2c15352c-dc24-4391-9844-7dba2560e218" alt="mini" width="585" height="270">
-</div>
-
-<div align='center'>
-   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/d6844fdb-329c-4cfe-8f1c-bc15347f58a9" alt="mini" width="585" height="270">
-</div>
-
-<div align='center'>
-   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/ce2c13bb-82c6-4a5d-80dd-796a2dd0d352" alt="mini" width="585" height="270">
-</div>
-
-<div align='center'>
-   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/9b65d66a-5a62-4d7f-9f54-a5e611a15122" alt="mini" width="585" height="270">
-</div>
-
-<div align='center'>
-   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/41bf42bb-4c4c-42dd-8eb9-b0adc38c6509" alt="mini" width="585" height="270">
-</div>
-
-<br>
-
-<div align='center'>
-  <h2>🛠️ Tecnologías Utilizadas ⚡</h2>
-</div>
-
-<div align='center'>
-  <h2>Diseño UX/UI</h2>
-  </div>
-
-<div align="center">
-  <img src="https://img.shields.io/badge/Figma%20-grey?style=flat&logo=Figma&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="React JS" style="height: 30px;">
-  <img src="https://img.shields.io/badge/Cinema%204d%20-grey?style=flat&logo=CInema4d&logoColor=011A6A&labelColor=191919&color=%23E8E8E8" alt="TypeScript" style="height: 30px;">
-  <img src="https://img.shields.io/badge/Adobe%20Photoshop%20-grey?style=flat&logo=Adobe%20Photoshop&logoColor=%E34F26&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;">
-<img src="https://img.shields.io/badge/Adobe%20Illustrator%20-grey?style=flat&logo=Adobe%20Illustrator&logoColor=FF9A00&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;">
-</div>
-
-<div align='center'>
-  <h2>Frontend</h2>
-  </div>
-  
-<div align="center">
-  <img src="https://img.shields.io/badge/React%20JS-grey?style=flat&logo=React&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="React JS" style="height: 30px;">
-  <img src="https://img.shields.io/badge/TypeScript%20-grey?style=flat&logo=TypeScript&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="TypeScript" style="height: 30px;">
-  <img src="https://img.shields.io/badge/HTML%20-grey?style=flat&logo=html5&logoColor=%E34F26&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;">
-<img src="https://img.shields.io/badge/CSS%20-grey?style=flat&logo=css3&logoColor=1572B6&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;">
-  <img src="https://img.shields.io/badge/Tailwind%20-grey?style=flat&logo=Tailwindcss&logoColor=2361DAFB&labelColor=191919&color=%23E8E8E8" alt="TailwindCSS" style="height: 30px;">
-  <img src="https://img.shields.io/badge/Redux%20-grey?style=flat&logo=redux&logoColor=764ABC&labelColor=191919&color=%23E8E8E8" alt="MySQL" style="height: 30px;">
-</div>
-
-<div align='center'>
-  <h2>Backend</h2>
-  </div>
-  
-<div align="center">
-  <img src="https://img.shields.io/badge/Java%20-grey?style=flat&logo=java&logoColor=%2361DAFB&labelColor=191919&color=%23E8E8E8" alt="React JS" style="height: 30px;">
-  <img src="https://img.shields.io/badge/PostgreSQL%20-grey?style=flat&logo=PostgreSQL&logoColor=%2496ED&labelColor=191919&color=%23E8E8E8" alt="TypeScript" style="height: 30px;">
-  <img src="https://img.shields.io/badge/Docker%20-grey?style=flat&logo=Docker&logoColor=%2496ED&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;">
-  <a href="https://aware-gaming.onrender.com/swagger-ui/index.html#/"><img src="https://img.shields.io/badge/Swagger%20-grey?style=flat&logo=Swagger&logoColor=85EA2D&labelColor=191919&color=%23E8E8E8" alt="HTML/CSS" style="height: 30px;"></a>
-  <img src="https://img.shields.io/badge/Spring%20Security%20-grey?style=flat&logo=springsecurity&logoColor=fefefe&labelColor=6DB33F&color=%23E8E8E8" alt="TailwindCSS" style="height: 30px;">
-  <img src="https://img.shields.io/badge/Hibernate%20-grey?style=flat&logo=Hibernate&logoColor=fefefe&labelColor=59666C&color=%23E8E8E8" alt="MySQL" style="height: 30px;">
-</div>
-
-<div align='center'>
-  <h2>Organización</h2>
-  </div>
-  
-<div align="center">
-    <img src="https://img.shields.io/badge/Figma-F24E1E?logo=figma&logoColor=white" alt="Figma" style="height: 30px;">
-    <img src="https://img.shields.io/badge/Slack-4A154B?logo=slack&logoColor=white" alt="Slack" style="height: 30px;">
-    <img src="https://img.shields.io/badge/Trello-0052CC?logo=trello&logoColor=white" alt="Trello" style="height: 30px;">
-    <img src="https://img.shields.io/badge/Discord-5865F2?logo=Discord&logoColor=white" alt="Trello" style="height: 30px;">
-</div>
-
-<br>
-<br>
-
-<div align='center'>
-  <h2> Swagger </h2>
-  </div>
-
-  <div align='center'>
-   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/0f78bbd5-d7b3-40a7-80ee-f8f8c896c632" alt="mini" width="900" height="1690">
-</div>
-
-<br>
-
-<div align='center'>
-  <h2> Diagrama </h2>
-  </div>
-
-  <div align='center'>
-   <img src="https://github.com/MatiasNicolasAcevedo/s14-18-t-java/assets/109118183/3f250522-644d-496d-b9b7-2b9b70922cd0" alt="mini" width="773" height="508">
-</div>
-
-<br>
-
-<a href="https://www.nocountry.tech" target="_blank">
-  <div align="center">
-    <img src="https://assets-global.website-files.com/65773955177041dbf059ed20/6584760759a54bef40894700_Logo%20navbar.svg" alt="Logo de No Country" height="60">
-  </div>
-</a>
