@@ -2,7 +2,7 @@
 # Producción se despliega en Firebase Hosting (firebase.json), no con esta imagen.
 FROM node:24-alpine AS build
 WORKDIR /app
-# Hoy no hay lockfile commiteado (ver T-009): npm install no es reproducible
+# Hoy no hay lockfile commiteado (ver T-003): npm install no es reproducible
 COPY package.json package-lock.json* ./
 RUN npm install --no-audit --no-fund
 COPY . .
