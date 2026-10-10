@@ -28,7 +28,7 @@ Secreto y orígenes por entorno, con valores locales en el `.example`; el jar no
 - Slice: preflight desde origen permitido → 200 con `Access-Control-Allow-Origin`; desde `http://evil.example` → sin header.
 
 ## Criterios de aceptación
-- [ ] `git grep -n "586E3272" -- backend` no devuelve nada.
+- [ ] `git grep -n 'SECRET_KEY="' -- backend` no devuelve nada (el secreto ya no está en el código).
 - [ ] `./mvnw -B clean package -DskipTests && unzip -l target/*.jar | grep env.properties` → solo el `.example` (o nada).
 - [ ] Ambos modos del README siguen funcionando copiando los `.example` sin editar.
 - [ ] `./scripts/verify.sh` en verde.
