@@ -34,3 +34,9 @@ build/
 
 ###ignore el .env###
 .env
+
+### Harness y configuración local (ver AGENTS.md → Configuración) ###
+.verify-logs/
+.dev-logs/
+backend/AwareGaming/src/main/resources/env.properties
+frontend/.env.local
